@@ -64,3 +64,7 @@ TwistedDreams/Library/shadercompiler-UnityShaderCompiler.exe0.log
 TwistedDreams/Temp/ProcessJobs/ab30c7bcae888f8a20ac9ec5bfbfa3a6.bakert
 TwistedDreams/Temp/UnityLockfile
 *.log
+*.clust
+*.vis
+*.bakert
+*.lt
