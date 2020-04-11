@@ -4374,6 +4374,41 @@ Texture2D:
     offset: 0
     size: 0
     path: 
+--- !u!84 &269358985
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 1019
+  m_Height: 500
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!28 &269592704
 Texture2D:
   m_ObjectHideFlags: 0
@@ -5781,41 +5816,6 @@ Texture2D:
     offset: 0
     size: 0
     path: 
---- !u!84 &361411554
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 1019
-  m_Height: 500
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!28 &363592735
 Texture2D:
   m_ObjectHideFlags: 0
@@ -14630,6 +14630,41 @@ Texture2D:
     offset: 0
     size: 0
     path: 
+--- !u!84 &1014901345
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 1019
+  m_Height: 500
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!28 &1017719281
 Texture2D:
   m_ObjectHideFlags: 0
@@ -18637,8 +18672,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 1387769010}
   outlineCamera: {fileID: 2120095106}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 361411554}
-  extraRenderTexture: {fileID: 1911809866}
+  renderTexture: {fileID: 269358985}
+  extraRenderTexture: {fileID: 1014901345}
 --- !u!114 &1387769012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23531,6 +23566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 215606467}
     m_Modifications:
+    - target: {fileID: 156706, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
+      propertyPath: m_Name
+      value: Fan_3
+      objectReference: {fileID: 0}
     - target: {fileID: 449690, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.409
@@ -23586,10 +23625,6 @@ PrefabInstance:
     - target: {fileID: 449690, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 156706, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
-      propertyPath: m_Name
-      value: Fan_3
       objectReference: {fileID: 0}
     - target: {fileID: 11443340, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
       propertyPath: furnitureTextures
@@ -26744,41 +26779,6 @@ Texture2D:
     offset: 0
     size: 0
     path: 
---- !u!84 &1911809866
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 1019
-  m_Height: 500
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!28 &1919868817
 Texture2D:
   m_ObjectHideFlags: 0
@@ -28277,6 +28277,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 215606467}
     m_Modifications:
+    - target: {fileID: 162414, guid: 5782841bb7f4b7541a289e9ee9a6ead1, type: 3}
+      propertyPath: m_Name
+      value: DressingTable Type5
+      objectReference: {fileID: 0}
     - target: {fileID: 420372, guid: 5782841bb7f4b7541a289e9ee9a6ead1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.511
@@ -28332,10 +28336,6 @@ PrefabInstance:
     - target: {fileID: 420372, guid: 5782841bb7f4b7541a289e9ee9a6ead1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.25006232
-      objectReference: {fileID: 0}
-    - target: {fileID: 162414, guid: 5782841bb7f4b7541a289e9ee9a6ead1, type: 3}
-      propertyPath: m_Name
-      value: DressingTable Type5
       objectReference: {fileID: 0}
     - target: {fileID: 11416416, guid: 5782841bb7f4b7541a289e9ee9a6ead1, type: 3}
       propertyPath: furnitureTextures
@@ -28912,7 +28912,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 361411554}
+  m_TargetTexture: {fileID: 269358985}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -29445,6 +29445,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 215606467}
     m_Modifications:
+    - target: {fileID: 5827391105677173697, guid: fabf7151762f7cb46b36b99d85bdad8f,
+        type: 3}
+      propertyPath: m_Name
+      value: BedSet
+      objectReference: {fileID: 0}
     - target: {fileID: 5827391105677173696, guid: fabf7151762f7cb46b36b99d85bdad8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29499,11 +29504,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5827391105677173697, guid: fabf7151762f7cb46b36b99d85bdad8f,
-        type: 3}
-      propertyPath: m_Name
-      value: BedSet
       objectReference: {fileID: 0}
     - target: {fileID: 5827391104656483286, guid: fabf7151762f7cb46b36b99d85bdad8f,
         type: 3}
