@@ -5,7 +5,7 @@ Hey, Sarah!
 PP
 What? Who are you? And where are you?
 C
-Silly, im here!
+I'm here, silly!
 PP
 I am not understanding...
 C
@@ -39,11 +39,11 @@ I don't know. Do you always remember the beginning of your dreams?
 PP
 Dreams? Now it makes sense.
 PP
-I'm dreaming, that's why i'm seeing myself through your eyes.
+I'm dreaming, that's why I'm seeing myself through your eyes.
 PP
 Also, that explains why you ARE IN MY BEDROOM WITHOUT MY PERMISSION!
 C
-Wow, easy there. Do you think i want to be here?
+Wow, easy there. Do you think I want to be here?
 C
 I want to wake up as much as you do.
 C
@@ -51,4 +51,6 @@ But for that, we need to cooperate. We will need each others help to leave this 
 PP
 I don't need your help. I just have to wake up, and that will happen at any moment.
 PP
-But for now, i just want to be with someone who knows what privacy is. Goodbye.
+But for now, I just don’t want to be with someone ... 
+PP
+... with obvious privacy boundaries issues. Goodbye.
