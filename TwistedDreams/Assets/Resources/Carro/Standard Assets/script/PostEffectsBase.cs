@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+/*
 namespace UnityStandardAssets.ImageEffects
 {
     [ExecuteInEditMode]
@@ -241,3 +241,4 @@ namespace UnityStandardAssets.ImageEffects
         }
     }
 }
+*/
