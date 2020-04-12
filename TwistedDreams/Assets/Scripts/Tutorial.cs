@@ -29,6 +29,10 @@ public class Tutorial : MonoBehaviour
         {
 
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cakeslice.OutlineEffect>().enabled = true;
+            GameObject.FindGameObjectWithTag("Phone").GetComponent<BoxCollider>().enabled = true;
+            GameObject.FindGameObjectWithTag("Door").GetComponent<BoxCollider>().enabled = true;
+            GameObject.FindGameObjectWithTag("Phone").GetComponent<Interactable>().enabled = true;
+            GameObject.FindGameObjectWithTag("Door").GetComponent<Interactable>().enabled = true;
             this.enabled = false;
 
         }
