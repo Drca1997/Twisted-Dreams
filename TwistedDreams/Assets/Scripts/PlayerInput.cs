@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public GameObject Canvas;
     private Vector3 movimento;
     private Vector3 salto;
     private Rigidbody rg;
@@ -29,8 +30,11 @@ public class PlayerInput : MonoBehaviour
         {
             rg.AddForce(salto, ForceMode.Impulse);
         }
+        if (Input.GetKeyDown(KeyCode.Return) && !Canvas.GetComponent<DialogSystem>().running)
+        {
+            Canvas.GetComponent<DialogSystem>().active = true;
+        }
     }
-    
 
 // Update is called once per frame
     void FixedUpdate()
@@ -43,7 +47,6 @@ public class PlayerInput : MonoBehaviour
 
 
     }
-
 
     public void OnCollisionEnter(Collision collision)
     {
