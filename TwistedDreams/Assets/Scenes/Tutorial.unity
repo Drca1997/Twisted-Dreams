@@ -18712,11 +18712,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxPanel: {fileID: 1472983193}
   whoBoxPanel: {fileID: 1368243098}
+  contText: {fileID: 1427245503}
   theText: {fileID: 1206364525}
   whoText: {fileID: 247107371}
   textFile: {fileID: 4900000, guid: 95f4c5ebda5c40d4798eeb39b76e5f3d, type: 3}
   active: 0
   running: 0
+  typeDelay: 0.01
 --- !u!1 &1338076184
 GameObject:
   m_ObjectHideFlags: 0
@@ -19869,7 +19871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 15}
+  m_AnchoredPosition: {x: -100, y: 15.000004}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427245503
