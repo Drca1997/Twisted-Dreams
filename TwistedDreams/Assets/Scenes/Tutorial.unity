@@ -26364,7 +26364,7 @@ GameObject:
   - component: {fileID: 1816613355}
   m_Layer: 0
   m_Name: GameHandler
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26396,7 +26396,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1816613353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0a288bb51dce14d96728b53d2cdc0e, type: 3}
+  m_Script: {fileID: 11500000, guid: f816b9971e5148c42a01b7d29ddb4b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1817449700
