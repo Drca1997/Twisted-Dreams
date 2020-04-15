@@ -36,5 +36,17 @@ public class Tutorial : MonoBehaviour
             this.enabled = false;
 
         }
+
+
     }
+
+    public void DoorAnimation(GameObject porta) {
+        
+        porta.GetComponentInChildren<Animator>().SetTrigger("Abrir");
+        
+
+    
+    }
+    
+    
 }

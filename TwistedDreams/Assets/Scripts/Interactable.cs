@@ -12,6 +12,7 @@ public class Interactable : MonoBehaviour
     private Som s;
     private Scene cena;
     private Revelation revelacao;
+    private Tutorial tutorial;
     private GameObject player;
     private void Awake()
     {
@@ -77,6 +78,11 @@ public class Interactable : MonoBehaviour
                     Destroy(gameObject);
 
                     //C: "Nice Phone!"
+                }
+                else if(gameObject.tag == "Door")
+                {
+                    tutorial = GameObject.FindGameObjectWithTag("GameController").GetComponent<Tutorial>();
+                    tutorial.DoorAnimation(gameObject);
                 }
             }
         }
