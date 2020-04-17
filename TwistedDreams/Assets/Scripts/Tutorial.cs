@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    
+    private int passedTime;
+    private int startDialogTime = 500;
     private bool DialogFinished = false;
     private bool dialogStarted = false;
-    
+
+    private void Start()
+    {
+        passedTime = 0;
+    }
 
     private void Update()
     {
-
+        if (passedTime > startDialogTime)
+            gameObject.GetComponentInChildren<DialogSystem>().active = true;
+        else
+            passedTime++;
         GlowingObjects();
     }
 

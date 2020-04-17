@@ -11,8 +11,8 @@ public class DialogSystem : MonoBehaviour
     public Text theText;
     public Text whoText;
 
-    private string cont = "Press space to continue...";
-    private string fin = "Press space to finish...";
+    private string cont = "Press Q to continue...";
+    private string fin = "Press Q to finish...";
 
     public TextAsset textFile;
     private string[] dialogLines;
@@ -25,6 +25,8 @@ public class DialogSystem : MonoBehaviour
 
     public bool active = false;
     public bool running = false;
+
+    private Coroutine st;
 
     public float typeDelay = 0.01f;
 
@@ -58,23 +60,16 @@ public class DialogSystem : MonoBehaviour
             if (!finished_current_line)
             {
                 contText.text = fin;
-                Coroutine st = StartCoroutine(showText(currentLine));
+                st = StartCoroutine(showText(currentLine));
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 if (finished_current_line)
                 {
                     currentLine += 2;
                     finished_current_line = false;
                 }
-                //else
-                //{
-                //    StopCoroutine(st);
-                //    theText.text = dialogLines[currentLine];
-                //    finished = true;
-                //    finished_current_line = true;
-                //}
             }
 
             if (currentLine > endAtLine)
@@ -99,19 +94,25 @@ public class DialogSystem : MonoBehaviour
         }
     }
 
+    public bool getFinished()
+    {
+        return finished;
+    }
+
+    public void finishText()
+    {
+        StopCoroutine(st);
+        theText.text = dialogLines[currentLine];
+        finished = true;
+        finished_current_line = true;
+        contText.text = cont;
+    }
+
     IEnumerator showText(int lineNum)
     {
         finished = false;
         for (int i = 0; i < dialogLines[lineNum].Length; i++)
         {
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //{
-            //    theText.text = dialogLines[lineNum];
-            //    finished = true;
-            //    finished_current_line = true;
-            //    contText.text = cont;
-            //    yield break;
-            //}
             currentText = dialogLines[lineNum].Substring(0, i);
             theText.text = currentText;
             yield return new WaitForSeconds(typeDelay);
