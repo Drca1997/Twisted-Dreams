@@ -214,4 +214,11 @@ public class DialogSystem : MonoBehaviour
         finished_current_line = false;
         call = true;
     }
+
+
+    public bool Is_Dialog_Finished()
+    {
+        return (currentLine > endAtLine ? true : false); 
+        
+    }
 }
