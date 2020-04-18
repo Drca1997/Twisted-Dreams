@@ -103,8 +103,6 @@ public class DialogSystem : MonoBehaviour
                     if (call)
                     {
                         autoDialogWait = StartCoroutine(DialogCont());
-                        //currentLine += 2;
-                        //finished_current_line = false;
                         call = false;
                     }
                 }
@@ -112,39 +110,30 @@ public class DialogSystem : MonoBehaviour
 
             if (currentLine > endAtLine)
             {
-                active = false;
                 textBoxPanel.SetActive(false);
                 whoBoxPanel.SetActive(false);
                 running = false;
-
-                if (textFile != null)
-                {
-                    dialogLines = (textFile.text.Split('\n'));
-                }
-
-                if (endAtLine == 0)
-                {
-                    endAtLine = dialogLines.Length - 1;
-                }
-
-                currentLine = 1;
+                active = false;
             }
         }
     }
 
     private void writeLine()
     {
-        // Initiate Writing of current line of dialog
-        if (writtingEffect)
+        if (currentLine <= endAtLine)
         {
-            if (!finished_current_line)
+            // Initiate Writing of current line of dialog
+            if (writtingEffect)
             {
-                contText.text = fin;
-                st = StartCoroutine(showText(currentLine));
+                if (!finished_current_line)
+                {
+                    contText.text = fin;
+                    st = StartCoroutine(showText(currentLine));
+                }
             }
+            else
+                finishText(false);
         }
-        else
-            finishText(false);
     }
 
     public bool getFinishedCurrLine()
@@ -220,13 +209,9 @@ public class DialogSystem : MonoBehaviour
 
     IEnumerator DialogCont()
     {
-        //while(currentLine <= endAtLine)
-        //{
-            yield return new WaitForSeconds(autoTime);
-            currentLine += 2;
-            finished_current_line = false;
-            //writeLine();
-        //}
+        yield return new WaitForSeconds(autoTime);
+        currentLine += 2;
+        finished_current_line = false;
         call = true;
     }
 }
