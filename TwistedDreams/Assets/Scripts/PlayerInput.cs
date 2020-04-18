@@ -28,15 +28,23 @@ public class PlayerInput : MonoBehaviour
     {
         // Jump
         if (Input.GetKeyDown("space") && can_jump)
-                    rg.AddForce(salto, ForceMode.Impulse);
+            rg.AddForce(salto, ForceMode.Impulse);
 
         // Skip writing effect on dialog
-        if (Input.GetKeyDown(KeyCode.Q) && Canvas.GetComponent<DialogSystem>().running && !Canvas.GetComponent<DialogSystem>().getFinished())
-            Canvas.GetComponent<DialogSystem>().finishText();
+        if (Input.GetKeyDown(KeyCode.Q) && !Canvas.GetComponent<DialogSystem>().getautoDialog() && Canvas.GetComponent<DialogSystem>().running && !Canvas.GetComponent<DialogSystem>().getFinished())
+            Canvas.GetComponent<DialogSystem>().finishText(true);
 
-        // Initiate dialog
-        //if (Input.GetKeyDown(KeyCode.Return) && !Canvas.GetComponent<DialogSystem>().running)
-        //    Canvas.GetComponent<DialogSystem>().active = true;
+        // Enable auto continue on dialog
+        if (Input.GetKeyDown(KeyCode.X))
+            Canvas.GetComponent<DialogSystem>().changeAutoDialog();
+
+        // Disable writting effect on dialog
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Canvas.GetComponent<DialogSystem>().changeWrittingEffect();
+            if(!Canvas.GetComponent<DialogSystem>().getFinished())
+                Canvas.GetComponent<DialogSystem>().finishText(true);
+        }
     }
 
 // Update is called once per frame

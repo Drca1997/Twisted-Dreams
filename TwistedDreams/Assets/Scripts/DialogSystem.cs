@@ -6,13 +6,25 @@ public class DialogSystem : MonoBehaviour
 {
     public GameObject textBoxPanel;
     public GameObject whoBoxPanel;
+    public GameObject contPanel;
 
     public Text contText;
     public Text theText;
     public Text whoText;
+    public Text autoText;
+    public Text writefText;
 
     private string cont = "Press Q to continue...";
     private string fin = "Press Q to finish...";
+    private string enabWrit = "Press Z to enable writing effect...";
+    private string disabWrit = "Press Z to disable writing effect...";
+    private string enabAuto = "Press X to automatically continue...";
+    private string disabAuto = "Press X to stop automatic continue...";
+
+    private bool autoDialog;
+    private bool writtingEffect;
+
+    private float autoTime;
 
     public TextAsset textFile;
     private string[] dialogLines;
@@ -26,13 +38,26 @@ public class DialogSystem : MonoBehaviour
     public bool active = false;
     public bool running = false;
 
+    private bool call;
+
     private Coroutine st;
+    private Coroutine autoDialogWait;
 
     public float typeDelay = 0.01f;
 
     // Start is called before the first frame update
     void Start()
     {
+        autoDialog = false;
+        autoText.text = enabAuto;
+        contPanel.SetActive(true);
+        writtingEffect = true;
+        writefText.text = disabWrit;
+
+        call = autoDialog;
+
+        autoTime = 2.0f;
+
         if (textFile != null)
         {
             dialogLines = (textFile.text.Split('\n'));
@@ -57,18 +82,31 @@ public class DialogSystem : MonoBehaviour
 
             whoText.text = dialogLines[currentLine - 1];
 
-            if (!finished_current_line)
-            {
-                contText.text = fin;
-                st = StartCoroutine(showText(currentLine));
-            }
+            writeLine();
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            // Next Line on dialog
+            if (!autoDialog)
+            {
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    if (finished_current_line)
+                    {
+                        currentLine += 2;
+                        finished_current_line = false;
+                    }
+                }
+            }
+            else
             {
                 if (finished_current_line)
                 {
-                    currentLine += 2;
-                    finished_current_line = false;
+                    if (call)
+                    {
+                        autoDialogWait = StartCoroutine(DialogCont());
+                        //currentLine += 2;
+                        //finished_current_line = false;
+                        call = false;
+                    }
                 }
             }
 
@@ -94,14 +132,72 @@ public class DialogSystem : MonoBehaviour
         }
     }
 
+    private void writeLine()
+    {
+        // Initiate Writing of current line of dialog
+        if (writtingEffect)
+        {
+            if (!finished_current_line)
+            {
+                contText.text = fin;
+                st = StartCoroutine(showText(currentLine));
+            }
+        }
+        else
+            finishText(false);
+    }
+
+    public bool getFinishedCurrLine()
+    {
+        return finished_current_line;
+    }
+
     public bool getFinished()
     {
         return finished;
     }
 
-    public void finishText()
+    public bool getautoDialog()
     {
-        StopCoroutine(st);
+        return autoDialog;
+    }
+
+
+    public void changeWrittingEffect()
+    {
+        if (writtingEffect)
+        {
+            writtingEffect = false;
+            writefText.text = enabWrit;
+        }
+        else
+        {
+            writtingEffect = true;
+            writefText.text = disabWrit;
+        }
+    }
+
+    public void changeAutoDialog()
+    {
+        if (autoDialog)
+        {
+            autoDialog = false;
+            autoText.text = enabAuto;
+            contPanel.SetActive(true);
+        }
+        else
+        {
+            autoDialog = true;
+            autoText.text = disabAuto;
+            contPanel.SetActive(false);
+        }
+        call = autoDialog;
+    }
+
+    public void finishText(bool stopST)
+    {
+        if(stopST)
+            StopCoroutine(st);
         theText.text = dialogLines[currentLine];
         finished = true;
         finished_current_line = true;
@@ -120,5 +216,17 @@ public class DialogSystem : MonoBehaviour
         finished = true;
         finished_current_line = true;
         contText.text = cont;
+    }
+
+    IEnumerator DialogCont()
+    {
+        //while(currentLine <= endAtLine)
+        //{
+            yield return new WaitForSeconds(autoTime);
+            currentLine += 2;
+            finished_current_line = false;
+            //writeLine();
+        //}
+        call = true;
     }
 }
