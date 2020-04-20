@@ -7,12 +7,14 @@ public class DialogSystem : MonoBehaviour
     public GameObject textBoxPanel;
     public GameObject whoBoxPanel;
     public GameObject contPanel;
+    public GameObject logPanel;
 
     public Text contText;
     public Text theText;
     public Text whoText;
     public Text autoText;
     public Text writefText;
+    public Text logText;
 
     private string cont = "Press Q to continue...";
     private string fin = "Press Q to finish...";
@@ -74,7 +76,7 @@ public class DialogSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (active && finished)
+        if (active && finished && !getLogStatus())
         {
             running = true;
             textBoxPanel.SetActive(true);
@@ -215,6 +217,45 @@ public class DialogSystem : MonoBehaviour
         call = true;
     }
 
+    public void switchLog()
+    {
+        if (logPanel.activeSelf)
+        {
+            logPanel.SetActive(false);
+            textBoxPanel.SetActive(true);
+            whoBoxPanel.SetActive(true);
+        }
+        else
+        {
+            textBoxPanel.SetActive(false);
+            whoBoxPanel.SetActive(false);
+            logPanel.SetActive(true);
+            logTextWrite();
+        }
+    }
+    
+    public bool getLogStatus()
+    {
+        return logPanel.activeSelf;
+    }
+
+    private void logTextWrite()
+    {
+        string log = "";
+        int i = 0;
+
+        while(i <= currentLine)
+        {
+            log += dialogLines[i];
+            if (i % 2 != 0)
+                log += "\n";
+            else
+                log += ": ";
+            i++;
+        }
+        
+        logText.text = log;
+    }
 
     public bool Is_Dialog_Finished()
     {
