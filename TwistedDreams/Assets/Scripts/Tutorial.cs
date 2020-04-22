@@ -18,7 +18,7 @@ public class Tutorial : MonoBehaviour
     {
         if (passedTime > startDialogTime)
         {
-            gameObject.GetComponentInChildren<DialogSystem>().active = true;
+            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
         }
         else
         {
