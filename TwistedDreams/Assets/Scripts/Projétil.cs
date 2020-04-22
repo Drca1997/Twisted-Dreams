@@ -5,11 +5,22 @@ using UnityEngine;
 public class Projétil : MonoBehaviour
 {
 
+    [HideInInspector]
+    public float bullet_speed;
+
+    private void Start()
+    {
+        bullet_speed = GameObject.FindGameObjectWithTag("John").GetComponent<EnemyAI>().bullet_speed;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
+
+       
         if (collision.gameObject.CompareTag("Floor")){
             //se tiver tempo fazer Bounce Effect
             Debug.Log("DESAPARECEU");
+            FindObjectOfType<TimeManager>().StopSlowMotion();
             Destroy(gameObject);
           
         }
@@ -20,4 +31,5 @@ public class Projétil : MonoBehaviour
         }
             
     }
+
 }

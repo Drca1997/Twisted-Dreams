@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float slowdownFactor = 0.05f;
+    public float slowdownRewinding = 0.5f;
+
+
+    private void Update()
     {
-        
+        Time.timeScale += (slowdownFactor) * Time.unscaledDeltaTime;
+        Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+    }
+    public void SlowMotion()
+    {
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Rewindable>().isRewinding)
+        {
+            Time.timeScale = slowdownFactor;
+           
+        }
+        else
+        {
+            Time.timeScale = slowdownFactor;
+           
+        }
+        //Time.fixedDeltaTime = Time.timeScale * 0.02f;
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StopSlowMotion()
     {
-        
+        Time.timeScale = 1f;
     }
+
+
+   
+
 }

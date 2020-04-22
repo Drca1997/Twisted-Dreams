@@ -65,7 +65,10 @@ public class EnemyAI : MonoBehaviour
             //Instantiate projétil
             GameObject projetil = Instantiate(bala, bullet_spawn.position, Quaternion.Euler(0f, -90f,0f));
             projetil.AddComponent<Projétil>();
+            projetil.AddComponent<Rewindable>();
+            
             projetil.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * bullet_speed);
+            FindObjectOfType<TimeManager>().SlowMotion();
             cooldown = 1f / attack_speed;
 
 
