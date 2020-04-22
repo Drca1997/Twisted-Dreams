@@ -10,16 +10,20 @@ public class EnemyAI : MonoBehaviour
     public float alcance = 12f;
     Transform target; 
     NavMeshAgent agent;
-    public float attack_speed = 0.33f;
-    public float cooldown = 0f;
+    public GameObject bala;
+    public float bullet_speed;
+    private Transform bullet_spawn;
     private Som gunshot_sound;
     public ParticleSystem muzzleFlash;
+    public float attack_speed = 0.33f;
+    public float cooldown = 0f;
+    
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        bullet_spawn = GameObject.Find("BulletSpawn").transform;
         gunshot_sound = GameObject.FindObjectOfType<AudioManager>().getSom("shotgun_gunshot");
-
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -58,12 +62,14 @@ public class EnemyAI : MonoBehaviour
         {
             muzzleFlash.Play();
             gunshot_sound.source.Play();
-            if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out disparo, alcance))
-            {
-               
-                Debug.Log("BAW GAWD, SHE DED");
-                cooldown = 1f / attack_speed;
-            }
+            //Instantiate projétil
+            GameObject projetil = Instantiate(bala, bullet_spawn.position, Quaternion.Euler(0f, -90f,0f));
+            projetil.AddComponent<Projétil>();
+            projetil.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * bullet_speed);
+            cooldown = 1f / attack_speed;
+
+
+
         }
     }
 
