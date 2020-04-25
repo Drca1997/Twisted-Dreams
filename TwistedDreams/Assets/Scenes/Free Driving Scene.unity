@@ -14780,6 +14780,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1663074151}
+    - target: {fileID: 6604469531197985212, guid: ffe00fa3bd41b9a4db665bf728e3c1e1,
+        type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
 --- !u!4 &1303599214 stripped
@@ -22878,11 +22883,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBoxPanel: {fileID: 706991342}
   whoBoxPanel: {fileID: 1318219473}
+  contPanel: {fileID: 0}
+  logPanel: {fileID: 0}
+  contText: {fileID: 0}
   theText: {fileID: 806522915}
   whoText: {fileID: 750311010}
+  autoText: {fileID: 0}
+  writefText: {fileID: 0}
+  logText: {fileID: 0}
   textFile: {fileID: 4900000, guid: 95f4c5ebda5c40d4798eeb39b76e5f3d, type: 3}
   active: 0
-  running: 0
+  typeDelay: 0.01
 --- !u!114 &2103930818
 MonoBehaviour:
   m_ObjectHideFlags: 0
