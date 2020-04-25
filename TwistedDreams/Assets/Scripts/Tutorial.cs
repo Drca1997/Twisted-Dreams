@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     private int passedTime;
+    [SerializeField]
     private int startDialogTime = 500;
     
     public bool dialogStarted = false;

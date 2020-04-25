@@ -18879,10 +18879,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -18956,7 +18956,6 @@ MonoBehaviour:
   logText: {fileID: 1047403319}
   textFile: {fileID: 4900000, guid: 95f4c5ebda5c40d4798eeb39b76e5f3d, type: 3}
   active: 0
-  running: 0
   typeDelay: 0.01
 --- !u!1 &1338076184
 GameObject:
@@ -26738,6 +26737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f816b9971e5148c42a01b7d29ddb4b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDialogTime: 100
   dialogStarted: 0
 --- !u!1 &1817449700
 GameObject:
