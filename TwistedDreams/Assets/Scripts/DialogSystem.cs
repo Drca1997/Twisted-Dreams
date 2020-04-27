@@ -396,11 +396,9 @@ public class DialogSystem : MonoBehaviour
                 dialogLines = (textFile.text.Split('\n'));
             }
 
-            // Definir indice do ultimo dialogo
-            if (endAtLine == 0)
-            {
-                endAtLine = dialogLines.Length - 1;
-            }
+
+            endAtLine = dialogLines.Length - 1;
+            
 
             // Linha inicial. Começa do 1 pois o indice 0 contem quem disse, enquanto que o indice 1 tem o que disse. Aumenta sempre de 2 em 2.
             currentLine = 1;

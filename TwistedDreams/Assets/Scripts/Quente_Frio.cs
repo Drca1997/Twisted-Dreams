@@ -13,6 +13,7 @@ public class Quente_Frio : MonoBehaviour
     private Som bonk;
     public TextAsset bonk1;
     public TextAsset bonk2;
+    private int waitfinish;
 
     private void Awake()
     {
@@ -23,11 +24,10 @@ public class Quente_Frio : MonoBehaviour
     void Start()
     {
         bonk.source.Play();
-        s.source.Play();
-        s.source.volume = 1;
 
         gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
         times_against_wall = 0;
+        waitfinish = 0;
     }
 
     // Update is called once per frame
@@ -39,8 +39,11 @@ public class Quente_Frio : MonoBehaviour
         calcula_quente_frio(distancia);
 
         // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
-        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && false)
+        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && waitfinish == 0)
         {
+            waitfinish++;
+            s.source.Play();
+            s.source.volume = 1;
             times_against_wall++;
             if (times_against_wall <= 1)
             {
@@ -80,7 +83,7 @@ public class Quente_Frio : MonoBehaviour
         {
             if (hit.transform == player.transform)
             {
-                Debug.Log("I SPEAK THE TRUUU MA FRIEND");
+              
                 return true;
             }
             
