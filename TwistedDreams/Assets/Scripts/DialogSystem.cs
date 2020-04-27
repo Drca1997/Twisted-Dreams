@@ -369,10 +369,10 @@ public class DialogSystem : MonoBehaviour
     }
 
     // Reinicio do sistema para novo guiao. Enquanto que o Start usa o guiao dado no unity, este usa um guiao dado por codigo
-    // Uso
-    // if(!Canvas.GetComponent<DialogSystem>().active && condicao de ativacao){
+    // Uso:
+    // if(!Canvas.GetComponent<DialogSystem>().is_active() && condicao de ativacao){
     //      ReStart(novoguiao);
-    //      Canvas.GetComponent<DialogSystem>().ActivateDialog() = true;
+    //      Canvas.GetComponent<DialogSystem>().ActivateDialog();
     //  }
     public void ReStart(TextAsset newGuiao)
     {
@@ -417,5 +417,10 @@ public class DialogSystem : MonoBehaviour
     public bool Is_Dialog_Finished()
     {
         return (currentLine > endAtLine ? true : false); 
+    }
+
+    public bool is_active()
+    {
+        return active;
     }
 }
