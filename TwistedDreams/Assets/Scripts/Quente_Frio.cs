@@ -27,8 +27,8 @@ public class Quente_Frio : MonoBehaviour
     {
         bonk.source.Play();
 
-        gameObject.GetComponentInChildren<DialogSystem>().setMovable(false);
-        gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
+      
+        gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
         times_against_wall = 0;
         waitfinish = 0;
     }
@@ -52,19 +52,19 @@ public class Quente_Frio : MonoBehaviour
             if (times_against_wall <= 1)
             {
                 gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk1, true);
-                gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
+                gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
             }
             else
             {
                 gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk2, true);
-                gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
+                gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
             }
         }
 
         if(!gameObject.GetComponentInChildren<DialogSystem>().is_active() && Is_Player_In_LOS())
         {
             gameObject.GetComponentInChildren<DialogSystem>().ReStart(final, true);
-            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
+            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
         }
     }
 

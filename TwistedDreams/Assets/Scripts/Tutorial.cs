@@ -29,7 +29,7 @@ public class Tutorial : MonoBehaviour
     {
         if (Time.time > startDialogTime || (Time.time - startedWalkingTime > tttdisw && startedWalking))
         {
-            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
+            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
             if (text != null)
             {
                 Destroy(text);

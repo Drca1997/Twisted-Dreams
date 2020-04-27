@@ -418,8 +418,9 @@ public class DialogSystem : MonoBehaviour
     }
 
     //Funcao que ativa dialogo
-    public void ActivateDialog()
+    public void ActivateDialog(bool mov)
     {
+        movable = mov;
         active = true;
     }
 
