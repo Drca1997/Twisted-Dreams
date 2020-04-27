@@ -60,6 +60,7 @@ public class Interactable : MonoBehaviour
             {
                 
                 revelacao = player.GetComponent<Revelation>();
+                Destroy(player.GetComponent<PlayerInput>());
                 revelacao.Revelacao(gameObject, revelacao.gameObject);
             }
             else if (cena.name == "Quente_Frio")

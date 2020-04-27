@@ -25157,7 +25157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c20a95266d56da439357ba5a9697677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 552587031}
   interpolation: 1
 --- !u!114 &1866589631
 MonoBehaviour:
