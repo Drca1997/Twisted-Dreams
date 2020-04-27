@@ -33,8 +33,9 @@ public class Quente_Frio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         distancia = Vector3.Distance(player.transform.position, camera.transform.position);
-        Debug.Log("DISTANCIA DA SARAH À CAMARA: " + distancia);
+        //Debug.Log("DISTANCIA DA SARAH À CAMARA: " + distancia);
         calcula_quente_frio(distancia);
 
         // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
@@ -52,6 +53,8 @@ public class Quente_Frio : MonoBehaviour
                 gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
             }
         }
+
+        Debug.Log(Is_Player_In_LOS());
     }
 
     public void calcula_quente_frio(float distancia)
@@ -67,5 +70,21 @@ public class Quente_Frio : MonoBehaviour
         {
             s.source.volume = 1 - distancia * 8/ 100;
         }
+    }
+
+    public bool Is_Player_In_LOS()
+    {
+        var RaycastDirection = player.transform.position - camera.transform.position;
+        RaycastHit hit;
+        if (Physics.Raycast(camera.transform.position, RaycastDirection, out hit))
+        {
+            if (hit.transform == player.transform)
+            {
+                Debug.Log("I SPEAK THE TRUUU MA FRIEND");
+                return true;
+            }
+            
+        }
+        return false;
     }
 }
