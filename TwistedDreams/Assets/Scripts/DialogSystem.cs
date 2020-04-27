@@ -65,8 +65,11 @@ public class DialogSystem : MonoBehaviour
 
     [Tooltip("Variavel que mantem a velocidade com que as letras sao impressas no ecra com o efeito de escrita.")]
     public float typeDelay = 0.01f;
-    [Tooltip("rapidez do continuar automatico")]
+    [Tooltip("Rapidez do continuar automatico.")]
     private float autoTime = 0.2f;
+
+    [Tooltip("Variavel que diz se se pode mexer ou nao durante o dialogo.")]
+    private bool movable;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +80,7 @@ public class DialogSystem : MonoBehaviour
         contPanel.SetActive(true);
         writtingEffect = true;
         writefText.text = disabWrit;
+        movable = true;
 
         call = autoDialog;
 
@@ -144,6 +148,7 @@ public class DialogSystem : MonoBehaviour
                 textBoxPanel.SetActive(false);
                 whoBoxPanel.SetActive(false);
                 active = false;
+                setMovable(true);
             }
         }
     }
@@ -243,7 +248,10 @@ public class DialogSystem : MonoBehaviour
             {
                 currentText = dialogLines[lineNum].Substring(0, i);
                 theText.text = currentText;
-                yield return new WaitForSeconds(typeDelay);
+                if(currentText.EndsWith(".") || currentText.EndsWith("?") || currentText.EndsWith("!"))
+                    yield return new WaitForSeconds(typeDelay+0.3f);
+                else
+                    yield return new WaitForSeconds(typeDelay);
             }
         }
         else
@@ -252,7 +260,10 @@ public class DialogSystem : MonoBehaviour
             {
                 currentText = dialog.Substring(0, i);
                 theText.text = currentText;
-                yield return new WaitForSeconds(typeDelay);
+                if (currentText.EndsWith(".") || currentText.EndsWith("?") || currentText.EndsWith("!"))
+                    yield return new WaitForSeconds(typeDelay + 0.3f);
+                else
+                    yield return new WaitForSeconds(typeDelay);
             }
         }
         WEfinished = true;
@@ -371,10 +382,10 @@ public class DialogSystem : MonoBehaviour
     // Reinicio do sistema para novo guiao. Enquanto que o Start usa o guiao dado no unity, este usa um guiao dado por codigo
     // Uso:
     // if(!Canvas.GetComponent<DialogSystem>().is_active() && condicao de ativacao){
-    //      ReStart(novoguiao);
+    //      ReStart(novoguiao,bool para se queremos que haja continuar automatico);
     //      Canvas.GetComponent<DialogSystem>().ActivateDialog();
     //  }
-    public void ReStart(TextAsset newGuiao)
+    public void ReStart(TextAsset newGuiao,bool auto)
     {
         if (!active)
         {
@@ -382,11 +393,12 @@ public class DialogSystem : MonoBehaviour
 
             WEfinished = false;
             finished_current_line = false;
-            autoDialog = false;
+            autoDialog = auto;
             autoText.text = enabAuto;
             contPanel.SetActive(true);
             writtingEffect = true;
             writefText.text = disabWrit;
+            movable = true;
 
             call = autoDialog;
 
@@ -417,6 +429,16 @@ public class DialogSystem : MonoBehaviour
     public bool Is_Dialog_Finished()
     {
         return (currentLine > endAtLine ? true : false); 
+    }
+
+    public void setMovable(bool mov)
+    {
+        movable = mov;
+    }
+
+    public bool getMovable()
+    {
+        return movable;
     }
 
     public bool is_active()

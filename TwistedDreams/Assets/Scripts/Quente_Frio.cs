@@ -13,6 +13,7 @@ public class Quente_Frio : MonoBehaviour
     private Som bonk;
     public TextAsset bonk1;
     public TextAsset bonk2;
+    public TextAsset final;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class Quente_Frio : MonoBehaviour
         s.source.Play();
         s.source.volume = 1;
 
+        gameObject.GetComponentInChildren<DialogSystem>().setMovable(false);
         gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
         times_against_wall = 0;
     }
@@ -33,28 +35,31 @@ public class Quente_Frio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         distancia = Vector3.Distance(player.transform.position, camera.transform.position);
         //Debug.Log("DISTANCIA DA SARAH À CAMARA: " + distancia);
         calcula_quente_frio(distancia);
 
         // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
-        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && false)
+        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && gameObject.GetComponentInChildren<PlayerInput>().getBonked())
         {
             times_against_wall++;
             if (times_against_wall <= 1)
             {
-                gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk1);
+                gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk1, true);
                 gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
             }
             else
             {
-                gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk2);
+                gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk2, true);
                 gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
             }
         }
 
-        Debug.Log(Is_Player_In_LOS());
+        if(!gameObject.GetComponentInChildren<DialogSystem>().is_active() && Is_Player_In_LOS())
+        {
+            gameObject.GetComponentInChildren<DialogSystem>().ReStart(final, true);
+            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog();
+        }
     }
 
     public void calcula_quente_frio(float distancia)

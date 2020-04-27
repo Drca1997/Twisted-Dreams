@@ -15,25 +15,26 @@ public class PlayerInput : MonoBehaviour
     private float velocidade;
     // Start is called before the first frame update
     private Som bonk;
+    private bool bonked;
     void Start()
     {
         rg = gameObject.GetComponent<Rigidbody>();
         salto = new Vector3(0.0f, impulsao, 0.0f);
         can_jump = true;
         bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
-       
+        bonked = false;
     }
 
     public void Update()
     {
         // Jump
-        if (Input.GetKeyDown("space") && can_jump)
+        if (Input.GetKeyDown("space") && can_jump && Canvas.GetComponent<DialogSystem>().getMovable())
             rg.AddForce(salto, ForceMode.Impulse);
 
         // Skip writing effect on dialog
-        if (Input.GetKeyDown(KeyCode.Q) && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getautoDialog() && !Canvas.GetComponent<DialogSystem>().getFinished())
+        if (Input.GetKeyDown(KeyCode.Q) && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getautoDialog() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
             Canvas.GetComponent<DialogSystem>().finishText(true);
-
+        }
         // Enable auto continue on dialog
         if (Input.GetKeyDown(KeyCode.X) && !Canvas.GetComponent<DialogSystem>().getLogStatus())
             Canvas.GetComponent<DialogSystem>().changeAutoDialog();
@@ -56,13 +57,13 @@ public class PlayerInput : MonoBehaviour
 // Update is called once per frame
     void FixedUpdate()
     {
-       
-        movimento.x = -Input.GetAxis("Horizontal");
-        movimento.z = -Input.GetAxis("Vertical");
-        movimento = Vector3.ClampMagnitude(movimento, 1);
-        rg.MovePosition(transform.position + movimento * velocidade * Time.fixedDeltaTime);
-
-
+        if (Canvas.GetComponent<DialogSystem>().getMovable())
+        {
+            movimento.x = -Input.GetAxis("Horizontal");
+            movimento.z = -Input.GetAxis("Vertical");
+            movimento = Vector3.ClampMagnitude(movimento, 1);
+            rg.MovePosition(transform.position + movimento * velocidade * Time.fixedDeltaTime);
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -75,7 +76,7 @@ public class PlayerInput : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             bonk.source.Play();
-            //triggers dialog with Sarah-Camera
+            bonked = true;
         }
     }
 
@@ -85,6 +86,16 @@ public class PlayerInput : MonoBehaviour
         {
             can_jump = false;
         }
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            bonked = false;
+        }
+    }
+
+    // devolve true se jogador bateu contra a parede
+    public bool getBonked()
+    {
+        return bonked;
     }
 
     public float GetVelocidade()
