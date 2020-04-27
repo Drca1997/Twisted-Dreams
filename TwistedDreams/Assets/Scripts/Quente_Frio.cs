@@ -10,16 +10,19 @@ public class Quente_Frio : MonoBehaviour
     private int times_against_wall;
     private float distancia;
     private Som s;
+    private Som bonk;
     public TextAsset bonk1;
     public TextAsset bonk2;
 
     private void Awake()
     {
         s = FindObjectOfType<AudioManager>().getSom("Quente_Frio");
+        bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
     }
     // Start is called before the first frame update
     void Start()
     {
+        bonk.source.Play();
         s.source.Play();
         s.source.volume = 1;
 

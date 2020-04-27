@@ -7792,6 +7792,7 @@ GameObject:
   - component: {fileID: 552587033}
   - component: {fileID: 552587032}
   - component: {fileID: 552587039}
+  - component: {fileID: 552587040}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7915,8 +7916,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552587031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.727, y: 1.543, z: 3.619}
-  m_LocalScale: {x: 0.29703054, y: 0.57653195, z: 0.3571369}
+  m_LocalPosition: {x: 6.3760004, y: 1.555, z: 3.9379997}
+  m_LocalScale: {x: 0.2970305, y: 0.57653195, z: 0.35713685}
   m_Children: []
   m_Father: {fileID: 1327108895}
   m_RootOrder: 0
@@ -7934,6 +7935,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   espelho: {fileID: 1507114369}
+  characters: {fileID: 1327108894}
+--- !u!95 &552587040
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552587031}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cfc079c45097874287cfb46c34520e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!28 &556727947
 Texture2D:
   m_ObjectHideFlags: 0
@@ -13032,9 +13053,10 @@ GameObject:
   - component: {fileID: 943765926}
   - component: {fileID: 943765925}
   - component: {fileID: 943765924}
+  - component: {fileID: 943765927}
   m_Layer: 0
   m_Name: Cube (24)
-  m_TagString: Untagged
+  m_TagString: SpecialCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13112,6 +13134,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943765922}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &943765927
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943765922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a254cc476086bd043bc1bcd0dadb4f29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!28 &944272576
 Texture2D:
   m_ObjectHideFlags: 0
@@ -17674,6 +17715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1327108895}
+  - component: {fileID: 1327108896}
   m_Layer: 0
   m_Name: Characters
   m_TagString: Untagged
@@ -17697,6 +17739,25 @@ Transform:
   m_Father: {fileID: 607789093}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1327108896
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327108894}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 078b522dad6b3aa4586552fe58377ba9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1331472214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21234,6 +21295,7 @@ GameObject:
   - component: {fileID: 1601576516}
   - component: {fileID: 1601576517}
   - component: {fileID: 1601576518}
+  - component: {fileID: 1601576519}
   m_Layer: 0
   m_Name: SarahCamara
   m_TagString: Untagged
@@ -21282,6 +21344,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextUI: {fileID: 188314429}
+--- !u!95 &1601576519
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601576515}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a9fc4aa1daa3b944eb77f983762848bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!28 &1603354538
 Texture2D:
   m_ObjectHideFlags: 0
