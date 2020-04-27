@@ -80,7 +80,7 @@ public class DialogSystem : MonoBehaviour
         contPanel.SetActive(true);
         writtingEffect = true;
         writefText.text = disabWrit;
-        movable = true;
+        movable = false;
 
         call = autoDialog;
 

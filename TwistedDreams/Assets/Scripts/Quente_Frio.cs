@@ -41,8 +41,8 @@ public class Quente_Frio : MonoBehaviour
         calcula_quente_frio(distancia);
 
         // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
-        //if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && waitfinish == 0)
-        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && gameObject.GetComponentInChildren<PlayerInput>().getBonked())
+        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && waitfinish == 0)
+        //if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && gameObject.GetComponentInChildren<PlayerInput>().getBonked())
 
         {
             waitfinish++;
