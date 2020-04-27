@@ -72,6 +72,8 @@ public class DialogSystem : MonoBehaviour
     [SerializeField]
     private bool movable;
 
+    private bool nonindep;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +83,7 @@ public class DialogSystem : MonoBehaviour
         contPanel.SetActive(true);
         writtingEffect = true;
         writefText.text = disabWrit;
-       
+        nonindep = true;
 
         call = autoDialog;
 
@@ -105,7 +107,7 @@ public class DialogSystem : MonoBehaviour
     void Update()
     {
         // So faz update se dialogo tiver sido ativado, o efeito de escrita tiver acabado ou ainda n tiver começado e o jogador n esteja a verificar o historico
-        if (active && WEfinished && !getLogStatus())
+        if (active && WEfinished && !getLogStatus() && nonindep)
         {
             // mostrar caixas de dialogo e de quem disse
             textBoxPanel.SetActive(true);
@@ -257,7 +259,7 @@ public class DialogSystem : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < dialog.Length; i++)
+            for (int i = 0; i < dialog.Length + 1; i++)
             {
                 currentText = dialog.Substring(0, i);
                 theText.text = currentText;
@@ -266,6 +268,8 @@ public class DialogSystem : MonoBehaviour
                 else
                     yield return new WaitForSeconds(typeDelay);
             }
+            yield return new WaitForSeconds(waitTime(dialog));
+            finishIndependent();
         }
         WEfinished = true;
         finished_current_line = true;
@@ -325,22 +329,18 @@ public class DialogSystem : MonoBehaviour
     }
 
     // Funcao que permite dialogos independentes
-    public void independentDialog(string who, string dialog, bool wait)
+    public void independentDialog(string who, string dialog)
     {
         if (!active)
         {
+            nonindep = true;
+            active = true;
             textBoxPanel.SetActive(true);
             whoBoxPanel.SetActive(true);
-            if(wait)
-                contPanel.SetActive(true);
             whoText.text = who;
-            showText(-1, dialog);
-        }
-
-        if (wait)
-        {
-            StartCoroutine(IndepFinish(dialog));
-            finishIndependent();
+            StartCoroutine(showText(-1, dialog));
+            active = false;
+            nonindep = false;
         }
     }
 
@@ -363,12 +363,6 @@ public class DialogSystem : MonoBehaviour
             contPanel.SetActive(false);
         whoText.text = null;
         theText.text = null;
-    }
-
-    // Co-rotina para esperar determinado tempo antes de se continuar apos o dialogo independente
-    IEnumerator IndepFinish(string line)
-    {
-        yield return new WaitForSeconds(waitTime(line));
     }
 
     // Funcao que calcula tempo de espera com base no tamanho da string

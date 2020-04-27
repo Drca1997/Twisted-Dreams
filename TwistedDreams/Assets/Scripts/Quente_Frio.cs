@@ -7,12 +7,9 @@ public class Quente_Frio : MonoBehaviour
 
     public GameObject player;
     public Camera camera;
-    private int times_against_wall;
     private float distancia;
     private Som s;
     private Som bonk;
-    public TextAsset bonk1;
-    public TextAsset bonk2;
     private int waitfinish;
     public TextAsset final;
 
@@ -29,7 +26,6 @@ public class Quente_Frio : MonoBehaviour
 
       
         gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
-        times_against_wall = 0;
         waitfinish = 0;
     }
 
@@ -46,22 +42,6 @@ public class Quente_Frio : MonoBehaviour
             waitfinish++;
             s.source.Play();
             s.source.volume = 1;
-        }
-        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && gameObject.GetComponentInChildren<PlayerInput>().getBonked())
-        {
-            times_against_wall++;
-            if (times_against_wall <= 1)
-            {
-                gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk1, true);
-                
-                gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
-               
-            }
-            else
-            {
-                gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk2, true);
-                gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
-            }
         }
 
         if(!gameObject.GetComponentInChildren<DialogSystem>().is_active() && Is_Player_In_LOS())

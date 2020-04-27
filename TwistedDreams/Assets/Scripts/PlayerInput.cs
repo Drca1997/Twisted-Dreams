@@ -81,9 +81,17 @@ public class PlayerInput : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             bonk.source.Play();
-            if (cena.name == "Quente_Frio")
+            if (cena.name == "Quente_Frio" && !Canvas.GetComponent<DialogSystem>().is_active())
             {
-                //thiago you lil bitch
+                if (bonked)
+                {
+                    Canvas.GetComponent<DialogSystem>().independentDialog("wtf", "Hehe");
+                }
+                else
+                {
+                    bonked = true;
+                    Canvas.GetComponent<DialogSystem>().independentDialog("wtf", "Wow, would you look at that? The mighty and incredibly stubborn Sarah banging her head against the wall!");
+                }
             }
         }
     }
@@ -98,12 +106,6 @@ public class PlayerInput : MonoBehaviour
         {
             
         }
-    }
-
-    // devolve true se jogador bateu contra a parede
-    public bool getBonked()
-    {
-        return bonked;
     }
 
     public float GetVelocidade()
