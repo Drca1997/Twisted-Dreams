@@ -14785,6 +14785,11 @@ PrefabInstance:
       propertyPath: m_HDR
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7494912242857234348, guid: ffe00fa3bd41b9a4db665bf728e3c1e1,
+        type: 3}
+      propertyPath: hdr
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
 --- !u!4 &1303599214 stripped

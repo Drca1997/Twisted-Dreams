@@ -58,9 +58,9 @@ public class Interactable : MonoBehaviour
             
             if (cena.name == "Revelation")
             {
-               
+                
                 revelacao = player.GetComponent<Revelation>();
-                revelacao.Revelacao(camera, revelacao.gameObject);
+                revelacao.Revelacao(gameObject, revelacao.gameObject);
             }
             else if (cena.name == "Quente_Frio")
             {

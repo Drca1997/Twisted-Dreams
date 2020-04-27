@@ -8,20 +8,22 @@ public class Revelation : MonoBehaviour
     private bool step_1 = false;
     private bool step_2 = false;
     private GameObject player;
-    private CameraController camera;
-    public void Revelacao(CameraController camera, GameObject player)
+    private GameObject camera;
+    private Vector3 by_side;
+    public void Revelacao(GameObject camera, GameObject player)
     {
         step_1 = true;
         this.player = player;
         this.camera = camera;
+        by_side = new Vector3(0f, 0f, 0f);
     }
 
     private void FixedUpdate()
     {
         if (step_1 && !Player_Behind_Camera())
         {
-            player.transform.RotateAround(camera.transform.position, Vector3.up, 30*Time.fixedDeltaTime);
-        }
+            player.transform.RotateAround(camera.transform.position, Vector3.up, -30*Time.fixedDeltaTime);
+        }    
         if (step_2 && Mathf.Abs(camera.transform.position.z - espelho.transform.position.z) > 0.25f)
         {
            camera.transform.position += new Vector3(0f, 0f, -1f * Time.fixedDeltaTime);
