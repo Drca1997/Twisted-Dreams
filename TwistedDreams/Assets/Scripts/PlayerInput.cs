@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -16,8 +17,10 @@ public class PlayerInput : MonoBehaviour
     // Start is called before the first frame update
     private Som bonk;
     private bool bonked;
+    private Scene cena;
     void Start()
     {
+        cena = SceneManager.GetActiveScene();
         rg = gameObject.GetComponent<Rigidbody>();
         salto = new Vector3(0.0f, impulsao, 0.0f);
         can_jump = true;
@@ -57,8 +60,10 @@ public class PlayerInput : MonoBehaviour
 // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.Log(Canvas.GetComponent<DialogSystem>().getMovable());
         if (Canvas.GetComponent<DialogSystem>().getMovable())
         {
+           
             movimento.x = -Input.GetAxis("Horizontal");
             movimento.z = -Input.GetAxis("Vertical");
             movimento = Vector3.ClampMagnitude(movimento, 1);
@@ -76,7 +81,10 @@ public class PlayerInput : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             bonk.source.Play();
-            bonked = true;
+            if (cena.name == "Quente_Frio")
+            {
+                //thiago you lil bitch
+            }
         }
     }
 
@@ -88,7 +96,7 @@ public class PlayerInput : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            bonked = false;
+            
         }
     }
 

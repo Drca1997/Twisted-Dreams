@@ -21,8 +21,10 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-       
+
+        gameObject.GetComponentInChildren<DialogSystem>().setMovable(true);
         startedWalking = false;
+
     }
 
     private void Update()

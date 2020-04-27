@@ -42,17 +42,20 @@ public class Quente_Frio : MonoBehaviour
 
         // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
         if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && waitfinish == 0)
-        //if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && gameObject.GetComponentInChildren<PlayerInput>().getBonked())
-
         {
             waitfinish++;
             s.source.Play();
             s.source.volume = 1;
+        }
+        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && gameObject.GetComponentInChildren<PlayerInput>().getBonked())
+        {
             times_against_wall++;
             if (times_against_wall <= 1)
             {
                 gameObject.GetComponentInChildren<DialogSystem>().ReStart(bonk1, true);
+                
                 gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
+               
             }
             else
             {

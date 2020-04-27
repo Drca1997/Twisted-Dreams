@@ -69,6 +69,7 @@ public class DialogSystem : MonoBehaviour
     private float autoTime = 0.2f;
 
     [Tooltip("Variavel que diz se se pode mexer ou nao durante o dialogo.")]
+    [SerializeField]
     private bool movable;
 
     // Start is called before the first frame update
@@ -80,7 +81,7 @@ public class DialogSystem : MonoBehaviour
         contPanel.SetActive(true);
         writtingEffect = true;
         writefText.text = disabWrit;
-        movable = true;
+       
 
         call = autoDialog;
 
@@ -398,7 +399,7 @@ public class DialogSystem : MonoBehaviour
             contPanel.SetActive(true);
             writtingEffect = true;
             writefText.text = disabWrit;
-            movable = true;
+           
 
             call = autoDialog;
 
