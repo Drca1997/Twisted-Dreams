@@ -13,17 +13,16 @@ public class Quente_Frio : MonoBehaviour
     private int waitfinish;
     public TextAsset final;
 
-
     private void Awake()
     {
         s = FindObjectOfType<AudioManager>().getSom("Quente_Frio");
         bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
     }
+
     // Start is called before the first frame update
     void Start()
     {
         bonk.source.Play();
-
       
         gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
         waitfinish = 0;
@@ -44,9 +43,10 @@ public class Quente_Frio : MonoBehaviour
             s.source.volume = 1;
         }
 
-        if(!gameObject.GetComponentInChildren<DialogSystem>().is_active() && Is_Player_In_LOS())
+        if(!gameObject.GetComponentInChildren<DialogSystem>().is_active() && Is_Player_In_LOS() && !gameObject.GetComponentInChildren<DialogSystem>().is_in_independent() && waitfinish == 1)
         {
-            gameObject.GetComponentInChildren<DialogSystem>().ReStart(final, true);
+            waitfinish++;
+            gameObject.GetComponentInChildren<DialogSystem>().ReStart(final, false);
             gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
         }
     }
@@ -77,7 +77,6 @@ public class Quente_Frio : MonoBehaviour
               
                 return true;
             }
-            
         }
         return false;
     }

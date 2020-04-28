@@ -21,10 +21,8 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-
         gameObject.GetComponentInChildren<DialogSystem>().setMovable(true);
         startedWalking = false;
-
     }
 
     private void Update()
@@ -69,11 +67,5 @@ public class Tutorial : MonoBehaviour
         porta.GetComponent<BoxCollider>().enabled = false;
         porta.GetComponentInChildren<cakeslice.Outline>().enabled = false;
         porta_prompt.SetText("");
-        
-        
     }
-
-    
-    
-    
 }

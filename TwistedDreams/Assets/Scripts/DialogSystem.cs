@@ -74,18 +74,11 @@ public class DialogSystem : MonoBehaviour
 
     private bool nonindep;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Comecar com definiçoes default: continuar automatico desligado; efeito de escrita ligado.
-        autoDialog = false;
-        autoText.text = enabAuto;
-        contPanel.SetActive(true);
-        writtingEffect = true;
-        writefText.text = disabWrit;
-        nonindep = true;
+    private bool waitindep;
 
-        call = autoDialog;
+    private void Awake()
+    {
+        nonindep = false;
 
         // Carregar linhas de dialogo
         if (textFile != null)
@@ -103,11 +96,24 @@ public class DialogSystem : MonoBehaviour
         currentLine = 1;
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Comecar com definiçoes default: continuar automatico desligado; efeito de escrita ligado.
+        autoDialog = false;
+        autoText.text = enabAuto;
+        contPanel.SetActive(true);
+        writtingEffect = true;
+        writefText.text = disabWrit;
+
+        call = autoDialog;
+    }
+
     // Update is called once per frame
     void Update()
     {
         // So faz update se dialogo tiver sido ativado, o efeito de escrita tiver acabado ou ainda n tiver começado e o jogador n esteja a verificar o historico
-        if (active && WEfinished && !getLogStatus() && nonindep)
+        if (active && WEfinished && !getLogStatus() && !nonindep)
         {
             // mostrar caixas de dialogo e de quem disse
             textBoxPanel.SetActive(true);
@@ -152,6 +158,14 @@ public class DialogSystem : MonoBehaviour
                 whoBoxPanel.SetActive(false);
                 active = false;
                 setMovable(true);
+            }
+        }
+        else
+        {
+            if (waitindep)
+            {
+                finishIndependent();
+                waitindep = false;
             }
         }
     }
@@ -269,7 +283,7 @@ public class DialogSystem : MonoBehaviour
                     yield return new WaitForSeconds(typeDelay);
             }
             yield return new WaitForSeconds(waitTime(dialog));
-            finishIndependent();
+            waitindep = true;
         }
         WEfinished = true;
         finished_current_line = true;
@@ -328,6 +342,11 @@ public class DialogSystem : MonoBehaviour
         logText.text = log;
     }
 
+    public bool is_in_independent()
+    {
+        return nonindep;
+    }
+
     // Funcao que permite dialogos independentes
     public void independentDialog(string who, string dialog)
     {
@@ -335,34 +354,25 @@ public class DialogSystem : MonoBehaviour
         {
             nonindep = true;
             active = true;
+            waitindep = false;
             textBoxPanel.SetActive(true);
             whoBoxPanel.SetActive(true);
+            contPanel.SetActive(false);
             whoText.text = who;
             StartCoroutine(showText(-1, dialog));
-            active = false;
-            nonindep = false;
         }
     }
 
     // Funcao que desliga dialogo independente.
-    // Deve ser usada da seguinte maneira:
-    // 
-    // if(condiçao para ativar dialogo independente){
-    //      independentActive = true;
-    //      espera = false; // se espera for true, nao e necessario o proximo if
-    //      independentDialog(teste,teste1,espera);
-    // }
-    // If((Input ou wait) && independentActive && !Canvas.GetComponent<DialogSystem>().getFinished()){
-    //      finishIndependent();
-    // }
     public void finishIndependent()
     {
+        contPanel.SetActive(true);
         textBoxPanel.SetActive(false);
         whoBoxPanel.SetActive(false);
-        if (contPanel.activeSelf)
-            contPanel.SetActive(false);
         whoText.text = null;
         theText.text = null;
+        active = false;
+        nonindep = false;
     }
 
     // Funcao que calcula tempo de espera com base no tamanho da string
@@ -384,9 +394,6 @@ public class DialogSystem : MonoBehaviour
     {
         if (!active)
         {
-            textFile = newGuiao;
-
-            WEfinished = false;
             finished_current_line = false;
             autoDialog = auto;
             autoText.text = enabAuto;
@@ -398,14 +405,10 @@ public class DialogSystem : MonoBehaviour
             call = autoDialog;
 
             // Carregar linhas de dialogo
-            if (textFile != null)
-            {
-                dialogLines = (textFile.text.Split('\n'));
-            }
-
+            if (newGuiao != null)
+                dialogLines = newGuiao.text.Split('\n');
 
             endAtLine = dialogLines.Length - 1;
-            
 
             // Linha inicial. Começa do 1 pois o indice 0 contem quem disse, enquanto que o indice 1 tem o que disse. Aumenta sempre de 2 em 2.
             currentLine = 1;

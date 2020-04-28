@@ -35,7 +35,7 @@ public class PlayerInput : MonoBehaviour
             rg.AddForce(salto, ForceMode.Impulse);
 
         // Skip writing effect on dialog
-        if (Input.GetKeyDown(KeyCode.Q) && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getautoDialog() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
+        if (Input.GetKeyDown(KeyCode.Q) && !Canvas.GetComponent<DialogSystem>().is_in_independent() && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getautoDialog() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
             Canvas.GetComponent<DialogSystem>().finishText(true);
         }
         // Enable auto continue on dialog
@@ -60,10 +60,8 @@ public class PlayerInput : MonoBehaviour
 // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(Canvas.GetComponent<DialogSystem>().getMovable());
         if (Canvas.GetComponent<DialogSystem>().getMovable())
         {
-           
             movimento.x = -Input.GetAxis("Horizontal");
             movimento.z = -Input.GetAxis("Vertical");
             movimento = Vector3.ClampMagnitude(movimento, 1);
@@ -85,12 +83,12 @@ public class PlayerInput : MonoBehaviour
             {
                 if (bonked)
                 {
-                    Canvas.GetComponent<DialogSystem>().independentDialog("wtf", "Hehe");
+                    Canvas.GetComponent<DialogSystem>().independentDialog("???", "Hehe");
                 }
                 else
                 {
                     bonked = true;
-                    Canvas.GetComponent<DialogSystem>().independentDialog("wtf", "Wow, would you look at that? The mighty and incredibly stubborn Sarah banging her head against the wall!");
+                    Canvas.GetComponent<DialogSystem>().independentDialog("???", "Wow, would you look at that? The mighty and incredibly stubborn Sarah banging her head against the wall!");
                 }
             }
         }
