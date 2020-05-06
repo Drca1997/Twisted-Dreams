@@ -100,7 +100,7 @@ public class DialogSystem : MonoBehaviour
     void Start()
     {
         // Comecar com definiçoes default: continuar automatico desligado; efeito de escrita ligado.
-        autoDialog = false;
+        autoDialog = PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false;
         autoText.text = enabAuto;
         contPanel.SetActive(true);
         writtingEffect = true;
@@ -229,12 +229,14 @@ public class DialogSystem : MonoBehaviour
         if (autoDialog)
         {
             autoDialog = false;
+            PlayerPrefs.SetInt("AutoDialog", autoDialog ? 1 : 0);
             autoText.text = enabAuto;
             contPanel.SetActive(true);
         }
         else
         {
             autoDialog = true;
+            PlayerPrefs.SetInt("AutoDialog", autoDialog ? 1 : 0);
             autoText.text = disabAuto;
             contPanel.SetActive(false);
         }
@@ -396,6 +398,7 @@ public class DialogSystem : MonoBehaviour
         {
             finished_current_line = false;
             autoDialog = auto;
+            PlayerPrefs.SetInt("AutoDialog", auto ? 1 : 0);
             autoText.text = enabAuto;
             contPanel.SetActive(true);
             writtingEffect = true;
