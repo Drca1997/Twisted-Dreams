@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject MenuPanel;
     public GameObject OptionsPanel;
+
+    public void Start()
+    {
+        if(PlayerPrefs.HasKey("AutoDialog"))
+        {
+            GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
+        }
+    }
 
     public void PlayGame()
     {
@@ -29,8 +38,8 @@ public class MainMenu : MonoBehaviour
     public void changeAutoDialog(bool new_value)
     {
         PlayerPrefs.SetInt("AutoDialog",new_value ? 1 : 0);
-        // To retrieve
-        // autoDialog = PlayerPrefs.GetInt("Test") == 1 ? true : false;
+        // To retrieve:
+        // autoDialog = PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false;
     }
 
     public void QuitGame()
