@@ -8054,7 +8054,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 537561861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dc669ab1bcd35e48bcda9f60c103266, type: 3}
+  m_Script: {fileID: 11500000, guid: 441e6ee1632cd0a4a83e1f8bb29d7790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &537561864
@@ -19126,6 +19126,7 @@ MonoBehaviour:
   textFile: {fileID: 4900000, guid: 95f4c5ebda5c40d4798eeb39b76e5f3d, type: 3}
   active: 0
   typeDelay: 0.01
+  movable: 0
 --- !u!1 &1338076184
 GameObject:
   m_ObjectHideFlags: 0

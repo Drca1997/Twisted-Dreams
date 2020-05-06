@@ -77,7 +77,7 @@ public class Rewindable : MonoBehaviour
         if (gameObject.tag.CompareTo("Projétil") == 0)
         {
             
-            rb.AddForce(gameObject.transform.forward * gameObject.GetComponent<Projétil>().bullet_speed);
+            rb.AddForce(GameObject.FindGameObjectWithTag("John").transform.forward * gameObject.GetComponent<Projétil>().bullet_speed);
         }
     }
 

@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
        
-       //transform.position = (transform.position * comp_interpolation) + ((player.transform.position + offset) * interpolation);
+       transform.position = (transform.position * comp_interpolation) + ((player.transform.position + offset) * interpolation);
     }
 
     public void Move(Vector3 destino){

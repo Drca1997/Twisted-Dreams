@@ -6,7 +6,14 @@ public class TimeManager : MonoBehaviour
 {
     public float slowdownFactor = 0.05f;
     public float slowdownRewinding = 0.5f;
+    private GameObject player;
+    private PlayerInput player_stats;
 
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerManager>().player;
+        player_stats = player.GetComponent<PlayerInput>();
+    }
 
     private void Update()
     {
@@ -15,17 +22,15 @@ public class TimeManager : MonoBehaviour
     }
     public void SlowMotion()
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Rewindable>().isRewinding)
-        {
-            Time.timeScale = slowdownFactor;
-           
-        }
-        else
-        {
-            Time.timeScale = slowdownFactor;
-           
-        }
-        //Time.fixedDeltaTime = Time.timeScale * 0.02f;
+         
+        
+         Time.timeScale = slowdownFactor;
+      
+
+
+
+
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
 
 
     }
@@ -33,6 +38,7 @@ public class TimeManager : MonoBehaviour
     public void StopSlowMotion()
     {
         Time.timeScale = 1f;
+       
     }
 
 

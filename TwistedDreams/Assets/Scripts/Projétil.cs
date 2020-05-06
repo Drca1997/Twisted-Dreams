@@ -20,7 +20,7 @@ public class Projétil : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor")){
             //se tiver tempo fazer Bounce Effect
             Debug.Log("DESAPARECEU");
-            FindObjectOfType<TimeManager>().StopSlowMotion();
+            //FindObjectOfType<TimeManager>().StopSlowMotion();
             Destroy(gameObject);
           
         }

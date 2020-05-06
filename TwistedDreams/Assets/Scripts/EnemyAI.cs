@@ -7,7 +7,6 @@ public class EnemyAI : MonoBehaviour
 {
 
     public float lookRadius = 10f;
-    public float alcance = 12f;
     Transform target; 
     NavMeshAgent agent;
     public GameObject bala;
@@ -17,7 +16,7 @@ public class EnemyAI : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public float attack_speed = 0.33f;
     public float cooldown = 0f;
-    
+    private TimeManager timemanager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +25,7 @@ public class EnemyAI : MonoBehaviour
         gunshot_sound = GameObject.FindObjectOfType<AudioManager>().getSom("shotgun_gunshot");
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
+        timemanager = FindObjectOfType<TimeManager>();
     }
 
     // Update is called once per frame
@@ -65,10 +65,12 @@ public class EnemyAI : MonoBehaviour
             //Instantiate projétil
             GameObject projetil = Instantiate(bala, bullet_spawn.position, Quaternion.Euler(0f, -90f,0f));
             projetil.AddComponent<Projétil>();
-            projetil.AddComponent<Rewindable>();
-            
             projetil.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * bullet_speed);
-            FindObjectOfType<TimeManager>().SlowMotion();
+            //projetil.AddComponent<Rewindable>();
+            //projetil.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * bullet_speed / timemanager.slowdownFactor);
+            //timemanager.SlowMotion();
+
+
             cooldown = 1f / attack_speed;
 
 

@@ -12,9 +12,12 @@ public class Quente_Frio : MonoBehaviour
     private Som bonk;
     private int waitfinish;
     public TextAsset final;
+    public TextAsset away;
+    private bool sneak_away;
 
     private void Awake()
     {
+        sneak_away = false;
         s = FindObjectOfType<AudioManager>().getSom("Quente_Frio");
         bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
     }
@@ -48,6 +51,21 @@ public class Quente_Frio : MonoBehaviour
             waitfinish++;
             gameObject.GetComponentInChildren<DialogSystem>().ReStart(final, false);
             gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
+
+        }
+        if (!sneak_away && !gameObject.GetComponentInChildren<DialogSystem>().is_active() && s.source.volume == 0)
+        {
+            sneak_away = true;
+            gameObject.GetComponentInChildren<DialogSystem>().ReStart(away, true);
+            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
+        }
+
+        if (gameObject.GetComponentInChildren<DialogSystem>().Is_Dialog_Finished() && waitfinish == 2)
+        {
+            
+            //Muda para a cena seguinte
+            Debug.Log("ACABOU A CENA");
+            Application.Quit();
         }
     }
 
