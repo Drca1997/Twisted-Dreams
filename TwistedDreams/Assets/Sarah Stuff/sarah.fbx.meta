@@ -1,0 +1,933 @@
+fileFormatVersion: 2
+guid: 3aaf752b2ac0ee645ab4a53434251854
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      74: -9094328352408936117
+    second: Armature|_t-pose
+  - first:
+      74: -1177204111565223770
+    second: Armature|dab
+  - first:
+      74: -1978303741906493279
+    second: Armature|idle
+  - first:
+      74: 6958968346802185837
+    second: Armature|idle2
+  - first:
+      74: 8363436409549982457
+    second: Armature|interact
+  - first:
+      74: -4799524434163024911
+    second: Armature|walk
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cabelo
+    second: {fileID: 2100000, guid: d6ccbd7e88f5e60408773fa7ef700d73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "cal\xE7as"
+    second: {fileID: 2100000, guid: dc42b95d5e2155041890e719db8e4361, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "cal\xE7as extra"
+    second: {fileID: 2100000, guid: fe9835f840d8d1949b46b3ff16d8fb30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: camisa
+    second: {fileID: 2100000, guid: b016ffae1dd0d0c4e9a69b961f112927, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt
+    second: {fileID: 2100000, guid: 87bd0d29530b0f14885942e6fc60bcd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoe
+    second: {fileID: 2100000, guid: 40302ac706c572840b1d061b2f3a661c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skin
+    second: {fileID: 2100000, guid: 35bbc8ba44dceb640b5f24dac04b00da, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: <Root Transform>
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|_t-pose
+      takeName: Armature|_t-pose
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Hip
+        weight: 1
+      - path: Armature/root/Hip/lower_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair/lower_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L/thumb.L
+        weight: 0
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R/thumb.R
+        weight: 0
+      - path: Armature/root/Hip/upper_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L/toe.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R/toe.R
+        weight: 1
+      - path: sarah
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|dab
+      takeName: Armature|dab
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Hip
+        weight: 1
+      - path: Armature/root/Hip/lower_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair/lower_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L/thumb.L
+        weight: 0
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R/thumb.R
+        weight: 0
+      - path: Armature/root/Hip/upper_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L/toe.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R/toe.R
+        weight: 1
+      - path: sarah
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|idle
+      takeName: Armature|idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Hip
+        weight: 1
+      - path: Armature/root/Hip/lower_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair/lower_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L/thumb.L
+        weight: 0
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R/thumb.R
+        weight: 0
+      - path: Armature/root/Hip/upper_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L/toe.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R/toe.R
+        weight: 1
+      - path: sarah
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|idle2
+      takeName: Armature|idle2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Hip
+        weight: 1
+      - path: Armature/root/Hip/lower_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair/lower_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L/thumb.L
+        weight: 0
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R/thumb.R
+        weight: 0
+      - path: Armature/root/Hip/upper_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L/toe.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R/toe.R
+        weight: 1
+      - path: sarah
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|interact
+      takeName: Armature|interact
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Hip
+        weight: 1
+      - path: Armature/root/Hip/lower_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair/lower_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L/thumb.L
+        weight: 0
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R/thumb.R
+        weight: 0
+      - path: Armature/root/Hip/upper_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L/toe.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R/toe.R
+        weight: 1
+      - path: sarah
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|walk
+      takeName: Armature|walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/Hip
+        weight: 1
+      - path: Armature/root/Hip/lower_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/neck/head/upper_hair/lower_hair
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.L/lower_arm.L/hand.L/thumb.L
+        weight: 0
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R
+        weight: 1
+      - path: Armature/root/Hip/lower_spine/upper_spine/upper_arm.R/lower_arm.R/hand.R/thumb.R
+        weight: 0
+      - path: Armature/root/Hip/upper_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.L/lower_leg.L/foot.L/toe.L
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R
+        weight: 1
+      - path: Armature/root/Hip/upper_leg.R/lower_leg.R/foot.R/toe.R
+        weight: 1
+      - path: sarah
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Hip
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_leg.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_leg.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: lower_leg.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: lower_leg.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: lower_spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_spine
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_arm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_arm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: lower_arm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: lower_arm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: sarah(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: sarah(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: 5.302452e-33, z: 5.302451e-33, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: root
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.00000004371139, y: -0.000000059604645, z: 1, w: -5.3290705e-15}
+      scale: {x: 1, y: 0.99999934, z: 0.99999934}
+    - name: Hip
+      parentName: root
+      position: {x: -3.0259682e-21, y: -0.0003997472, z: 0.0075852727}
+      rotation: {x: -0.00000005110618, y: -0.7360547, z: -0.676922, w: -0.00000005557058}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: lower_spine
+      parentName: Hip
+      position: {x: -1.0472261e-17, y: 0.0017941238, z: -3.7252902e-11}
+      rotation: {x: -0.06512678, y: 0.00000013765232, z: 8.499548e-10, w: 0.997877}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: upper_spine
+      parentName: lower_spine
+      position: {x: -1.217867e-18, y: 0.0014597606, z: -1.8626451e-11}
+      rotation: {x: -0.009108052, y: -0.00000010714635, z: -1.6161894e-10, w: 0.9999585}
+      scale: {x: 1, y: 0.9999997, z: 0.9999997}
+    - name: neck
+      parentName: upper_spine
+      position: {x: 3.6241314e-18, y: 0.0027311924, z: -7.4505804e-11}
+      rotation: {x: 0.050891917, y: 0.000000077133116, z: -6.195492e-10, w: 0.99870425}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: head
+      parentName: neck
+      position: {x: -6.5694403e-18, y: 0.0007384704, z: -7.4505804e-11}
+      rotation: {x: 0.005899973, y: -0.000000032529123, z: 1.9192536e-10, w: 0.9999826}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
+    - name: upper_hair
+      parentName: head
+      position: {x: 0.0000069601833, y: 0.00017331734, z: -0.0015722248}
+      rotation: {x: 0.7070701, y: 0.007184895, z: 0.7070705, w: 0.007185949}
+      scale: {x: 1.0000014, y: 1.0000021, z: 0.9999261}
+    - name: lower_hair
+      parentName: upper_hair
+      position: {x: -1.518055e-10, y: 0.0016001343, z: 1.1882938e-13}
+      rotation: {x: -0.0041472963, y: -0.7070949, z: -0.004147273, w: 0.7070944}
+      scale: {x: 0.9999995, y: 1.0000008, z: 1.0000008}
+    - name: upper_arm.L
+      parentName: upper_spine
+      position: {x: -0.0020158854, y: 0.0020605666, z: -0.000022161497}
+      rotation: {x: 0.0102484245, y: -0.03577168, z: 0.7128265, w: 0.7003526}
+      scale: {x: 1, y: 1, z: 1.0000004}
+    - name: lower_arm.L
+      parentName: upper_arm.L
+      position: {x: 8.4070506e-10, y: 0.0018427278, z: 5.5879353e-11}
+      rotation: {x: 0.03228572, y: -0.00002282113, z: -0.014451805, w: 0.9993742}
+      scale: {x: 1.0000008, y: 1.0000006, z: 0.9999997}
+    - name: hand.L
+      parentName: lower_arm.L
+      position: {x: -0.0000000014584615, y: 0.0022496446, z: 5.3260008e-11}
+      rotation: {x: -0.014163547, y: 0.0033759805, z: -0.043610383, w: 0.9989425}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000001}
+    - name: thumb.L
+      parentName: hand.L
+      position: {x: -0.00014150537, y: 0.00055296626, z: 0.00050607027}
+      rotation: {x: 0.09181329, y: 0.0016133428, z: 0.01749639, w: 0.9956212}
+      scale: {x: 1.0000012, y: 1.0000007, z: 0.9999997}
+    - name: upper_arm.R
+      parentName: upper_spine
+      position: {x: 0.0020158854, y: 0.0020605666, z: -0.000022161894}
+      rotation: {x: 0.008043476, y: 0.037999, z: -0.7126912, w: 0.70040184}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000005}
+    - name: lower_arm.R
+      parentName: upper_arm.R
+      position: {x: 4.0446138e-10, y: 0.0018486308, z: 3.4924594e-11}
+      rotation: {x: 0.038081497, y: 0.000026935712, z: 0.014435561, w: 0.99917036}
+      scale: {x: 1.0000005, y: 1, z: 0.9999997}
+    - name: hand.R
+      parentName: lower_arm.R
+      position: {x: 8.1159973e-10, y: 0.0022445698, z: -4.0163286e-11}
+      rotation: {x: -0.016760474, y: -0.0039781504, z: 0.042643964, w: 0.99894184}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
+    - name: thumb.R
+      parentName: hand.R
+      position: {x: 0.00014150685, y: 0.0005529673, z: 0.0005060703}
+      rotation: {x: 0.09181327, y: -0.0016132374, z: -0.017496336, w: 0.99562126}
+      scale: {x: 1.0000008, y: 1.0000006, z: 0.9999997}
+    - name: upper_leg.L
+      parentName: Hip
+      position: {x: -0.0013857165, y: 0.0010590345, z: 0.00032448184}
+      rotation: {x: -0.000028219984, y: 0.049871955, z: 0.9987553, w: 0.0008332204}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000222}
+    - name: lower_leg.L
+      parentName: upper_leg.L
+      position: {x: -1.2325473e-10, y: 0.0042232326, z: 2.2118911e-11}
+      rotation: {x: -0.023866527, y: -0.00008903852, z: 0.011515239, w: 0.99964887}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000001}
+    - name: foot.L
+      parentName: lower_leg.L
+      position: {x: -1.2836608e-10, y: 0.0031912148, z: -1.1641532e-12}
+      rotation: {x: 0.30977738, y: -0.0029865834, z: -0.010255857, w: 0.9507491}
+      scale: {x: 1.0000008, y: 1.0000017, z: 0.99999905}
+    - name: toe.L
+      parentName: foot.L
+      position: {x: 1.7004823e-10, y: 0.0011677152, z: 1.3387762e-10}
+      rotation: {x: 0.44111887, y: 0.0000010549558, z: 0.00000059953896, w: 0.8974487}
+      scale: {x: 1.0000005, y: 0.9999901, z: 1.0000094}
+    - name: upper_leg.R
+      parentName: Hip
+      position: {x: 0.0013857165, y: 0.0010590345, z: 0.00032448143}
+      rotation: {x: 0.000028337523, y: 0.049871955, z: 0.9987553, w: -0.0008332143}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000218}
+    - name: lower_leg.R
+      parentName: upper_leg.R
+      position: {x: 1.7011188e-10, y: 0.0042232326, z: 6.984919e-12}
+      rotation: {x: -0.023866527, y: 0.000089007786, z: -0.011515227, w: 0.99964887}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1}
+    - name: foot.R
+      parentName: lower_leg.R
+      position: {x: 2.0700099e-10, y: 0.003191215, z: 9.3132255e-12}
+      rotation: {x: 0.3097775, y: 0.0029867291, z: 0.010255908, w: 0.9507491}
+      scale: {x: 1.000001, y: 1.0000017, z: 0.9999993}
+    - name: toe.R
+      parentName: foot.R
+      position: {x: -1.0561507e-12, y: 0.0011677152, z: 1.1641532e-12}
+      rotation: {x: 0.4411188, y: 0.0000010859222, z: 0.0000005837065, w: 0.8974488}
+      scale: {x: 1.0000001, y: 0.9999906, z: 1.0000095}
+    - name: sarah
+      parentName: sarah(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.508
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
