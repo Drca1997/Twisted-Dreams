@@ -51,13 +51,16 @@ public class Tutorial : MonoBehaviour
     }
 
     public void GlowingObjects()
-    {     
+    {
+        GameObject porta = GameObject.FindGameObjectWithTag("Door");
         Debug.Log("Acabou");
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cakeslice.OutlineEffect>().enabled = true;
         GameObject.FindGameObjectWithTag("Phone").GetComponent<BoxCollider>().enabled = true;
-        GameObject.FindGameObjectWithTag("Door").GetComponent<BoxCollider>().enabled = true;
+        //GameObject.FindGameObjectWithTag("Door").GetComponent<BoxCollider>().enabled = true;
         GameObject.FindGameObjectWithTag("Phone").GetComponent<Interactable>().enabled = true;
-        GameObject.FindGameObjectWithTag("Door").GetComponent<Interactable>().enabled = true;
+        porta.AddComponent<Interactable>();
+        porta.GetComponent<Interactable>().TextUI = porta_prompt;
+        porta.GetComponent<Interactable>().enabled = true;
         this.enabled = false;
     }
 
