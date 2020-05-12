@@ -59,12 +59,12 @@ public class PlayerInput : MonoBehaviour
             Canvas.GetComponent<DialogSystem>().changeAutoDialog();
 
         // Disable writting effect on dialog
-        if (Input.GetKeyDown(KeyCode.Z) && !Canvas.GetComponent<DialogSystem>().getLogStatus())
-        {
-            Canvas.GetComponent<DialogSystem>().changeWrittingEffect();
-            if(!Canvas.GetComponent<DialogSystem>().getFinished())
-                Canvas.GetComponent<DialogSystem>().finishText(true);
-        }
+        //if (Input.GetKeyDown(KeyCode.Z) && !Canvas.GetComponent<DialogSystem>().getLogStatus())
+        //{
+        //    Canvas.GetComponent<DialogSystem>().changeWrittingEffect();
+        //    if(!Canvas.GetComponent<DialogSystem>().getFinished())
+        //        Canvas.GetComponent<DialogSystem>().finishText(true);
+        //}
 
         // Enable/Disable Log
         if (Input.GetKeyDown(KeyCode.L))
