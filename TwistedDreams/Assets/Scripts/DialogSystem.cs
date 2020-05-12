@@ -76,6 +76,8 @@ public class DialogSystem : MonoBehaviour
 
     private bool waitindep;
 
+    private Coroutine autoDialogWait;
+
     private void Awake()
     {
         nonindep = false;
@@ -134,26 +136,28 @@ public class DialogSystem : MonoBehaviour
             writeLine();
 
             // Next Line on dialog 
-            if (!autoDialog)
+            // Input para avançar no dialogo - So se o dialogo automatico estiver desligado e o dialogo atual tiver terminado de ser escrito.
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                // Input para avançar no dialogo - So se o dialogo automatico estiver desligado e o dialogo atual tiver terminado de ser escrito.
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (finished_current_line)
                 {
-                    if (finished_current_line)
+                    if (call)
                     {
-                        currentLine += 2;
-                        finished_current_line = false;
+                        StopCoroutine(autoDialogWait);
+                        call = false;
                     }
+                    currentLine += 2;
+                    finished_current_line = false;
                 }
             }
-            else
+            if(autoDialog)
             {
                 // Esperar para escrever a proxima linha de dialogo - so escreve quando o tempo passar a partir do momento que terminou de escrever a linha (importante para o efeito de escrita)
                 if (finished_current_line)
                 {
                     if (call)
                     {
-                        StartCoroutine(DialogCont(dialogLines[currentLine]));
+                        autoDialogWait = StartCoroutine(DialogCont(dialogLines[currentLine]));
                         call = false;
                     }
                 }
