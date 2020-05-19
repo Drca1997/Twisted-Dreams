@@ -51,7 +51,7 @@ public class PlayerInput : MonoBehaviour
             rg.AddForce(salto, ForceMode.Impulse);
 
         // Skip writing effect on dialog
-        if (Input.GetKeyDown(KeyCode.Q) && !Canvas.GetComponent<DialogSystem>().is_in_independent() && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getautoDialog() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
+        if (Input.GetKeyDown(KeyCode.Q) && !Canvas.GetComponent<DialogSystem>().is_in_independent() && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
             Canvas.GetComponent<DialogSystem>().finishText(true);
         }
         // Enable auto continue on dialog
@@ -59,12 +59,12 @@ public class PlayerInput : MonoBehaviour
             Canvas.GetComponent<DialogSystem>().changeAutoDialog();
 
         // Disable writting effect on dialog
-        if (Input.GetKeyDown(KeyCode.Z) && !Canvas.GetComponent<DialogSystem>().getLogStatus())
-        {
-            Canvas.GetComponent<DialogSystem>().changeWrittingEffect();
-            if(!Canvas.GetComponent<DialogSystem>().getFinished())
-                Canvas.GetComponent<DialogSystem>().finishText(true);
-        }
+        //if (Input.GetKeyDown(KeyCode.Z) && !Canvas.GetComponent<DialogSystem>().getLogStatus())
+        //{
+        //    Canvas.GetComponent<DialogSystem>().changeWrittingEffect();
+        //    if(!Canvas.GetComponent<DialogSystem>().getFinished())
+        //        Canvas.GetComponent<DialogSystem>().finishText(true);
+        //}
 
         // Enable/Disable Log
         if (Input.GetKeyDown(KeyCode.L))

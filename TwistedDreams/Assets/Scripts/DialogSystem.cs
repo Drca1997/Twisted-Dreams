@@ -76,9 +76,12 @@ public class DialogSystem : MonoBehaviour
 
     private bool waitindep;
 
+    private Coroutine autoDialogWait;
+
     private void Awake()
     {
         nonindep = false;
+        writefText.text = "";
 
         // Carregar linhas de dialogo
         if (textFile != null)
@@ -101,10 +104,16 @@ public class DialogSystem : MonoBehaviour
     {
         // Comecar com definiçoes default: continuar automatico desligado; efeito de escrita ligado.
         autoDialog = PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false;
-        autoText.text = enabAuto;
+        if (autoDialog)
+        {
+            autoText.text = disabAuto;
+        }
+        else
+        {
+            autoText.text = enabAuto;
+        }
         contPanel.SetActive(true);
         writtingEffect = true;
-        writefText.text = disabWrit;
 
         call = autoDialog;
     }
@@ -112,6 +121,7 @@ public class DialogSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // So faz update se dialogo tiver sido ativado, o efeito de escrita tiver acabado ou ainda n tiver começado e o jogador n esteja a verificar o historico
         if (active && WEfinished && !getLogStatus() && !nonindep)
         {
@@ -126,26 +136,28 @@ public class DialogSystem : MonoBehaviour
             writeLine();
 
             // Next Line on dialog 
-            if (!autoDialog)
+            // Input para avançar no dialogo - So se o dialogo automatico estiver desligado e o dialogo atual tiver terminado de ser escrito.
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                // Input para avançar no dialogo - So se o dialogo automatico estiver desligado e o dialogo atual tiver terminado de ser escrito.
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (finished_current_line)
                 {
-                    if (finished_current_line)
+                    if (call)
                     {
-                        currentLine += 2;
-                        finished_current_line = false;
+                        StopCoroutine(autoDialogWait);
+                        call = false;
                     }
+                    currentLine += 2;
+                    finished_current_line = false;
                 }
             }
-            else
+            if(autoDialog)
             {
                 // Esperar para escrever a proxima linha de dialogo - so escreve quando o tempo passar a partir do momento que terminou de escrever a linha (importante para o efeito de escrita)
                 if (finished_current_line)
                 {
                     if (call)
                     {
-                        StartCoroutine(DialogCont(dialogLines[currentLine]));
+                        autoDialogWait = StartCoroutine(DialogCont(dialogLines[currentLine]));
                         call = false;
                     }
                 }
@@ -211,15 +223,16 @@ public class DialogSystem : MonoBehaviour
     // Funcao que ativa/desativa o efeito de escrita com base no seu estado atual - inverte o seu estado
     public void changeWrittingEffect()
     {
+        writefText.text = "";
         if (writtingEffect)
         {
             writtingEffect = false;
-            writefText.text = enabWrit;
+            //writefText.text = enabWrit;
         }
         else
         {
             writtingEffect = true;
-            writefText.text = disabWrit;
+            //writefText.text = disabWrit;
         }
     }
 
@@ -231,14 +244,12 @@ public class DialogSystem : MonoBehaviour
             autoDialog = false;
             PlayerPrefs.SetInt("AutoDialog", autoDialog ? 1 : 0);
             autoText.text = enabAuto;
-            contPanel.SetActive(true);
         }
         else
         {
             autoDialog = true;
             PlayerPrefs.SetInt("AutoDialog", autoDialog ? 1 : 0);
             autoText.text = disabAuto;
-            contPanel.SetActive(false);
         }
         call = autoDialog;
     }
@@ -402,7 +413,7 @@ public class DialogSystem : MonoBehaviour
             autoText.text = enabAuto;
             contPanel.SetActive(true);
             writtingEffect = true;
-            writefText.text = disabWrit;
+            writefText.text = "";
            
 
             call = autoDialog;
