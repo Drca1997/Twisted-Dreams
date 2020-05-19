@@ -86,6 +86,21 @@ public class Interactable : MonoBehaviour
                     tutorial.DoorAnimation(gameObject);
                 }
             }
+            else if (cena.name == "JohnShooting")
+            {
+                if (gameObject.tag.CompareTo("Door") == 0)
+                {
+                    if (gameObject.GetComponentInChildren<Animator>().GetBool("Aberta"))
+                    {
+                        DoorAnimation_Close(gameObject);
+                    }
+                    else
+                    {
+                        DoorAnimation_Open(gameObject);
+                    }
+                   
+                }
+            }
         }
     }
     
@@ -103,5 +118,26 @@ public class Interactable : MonoBehaviour
             }
         }
         return "E";
+    }
+
+    public void DoorAnimation_Open(GameObject porta)
+    {
+        porta.GetComponentInChildren<Animator>().ResetTrigger("Fechar");
+        porta.GetComponentInChildren<Animator>().SetTrigger("Abrir");
+        porta.GetComponentInChildren<Animator>().SetBool("Aberta", true);
+        porta.GetComponent<BoxCollider>().enabled = false;
+        porta.GetComponentInChildren<cakeslice.Outline>().enabled = false;
+        TextUI.SetText("");
+    }
+
+    public void DoorAnimation_Close(GameObject porta)
+    {
+
+        porta.GetComponentInChildren<Animator>().ResetTrigger("Abrir");
+        porta.GetComponentInChildren<Animator>().SetTrigger("Fechar");
+        porta.GetComponentInChildren<Animator>().SetBool("Aberta", false);
+        porta.GetComponent<BoxCollider>().enabled = false;
+        porta.GetComponentInChildren<cakeslice.Outline>().enabled = false;
+        TextUI.SetText("");
     }
 }

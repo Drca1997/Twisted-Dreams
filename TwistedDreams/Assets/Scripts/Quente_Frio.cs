@@ -35,8 +35,12 @@ public class Quente_Frio : MonoBehaviour
     void Update()
     {
         distancia = Vector3.Distance(player.transform.position, camera.transform.position);
+
         //Debug.Log("DISTANCIA DA SARAH À CAMARA: " + distancia);
-        calcula_quente_frio(distancia);
+        if (waitfinish <= 1) {
+            Debug.Log("entrou aqui");
+            calcula_quente_frio(distancia);
+        }
 
         // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
         if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && waitfinish == 0)
@@ -51,9 +55,12 @@ public class Quente_Frio : MonoBehaviour
             waitfinish++;
             gameObject.GetComponentInChildren<DialogSystem>().ReStart(final, false);
             gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
+            Debug.Log("entrou aqui");
+            s.source.volume = 0;
+
 
         }
-        if (!sneak_away && !gameObject.GetComponentInChildren<DialogSystem>().is_active() && s.source.volume == 0)
+        if (!sneak_away && !gameObject.GetComponentInChildren<DialogSystem>().is_active() && s.source.volume == 0 && !Is_Player_In_LOS())
         {
             sneak_away = true;
             gameObject.GetComponentInChildren<DialogSystem>().ReStart(away, true);
