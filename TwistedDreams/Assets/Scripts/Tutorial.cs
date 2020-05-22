@@ -18,15 +18,31 @@ public class Tutorial : MonoBehaviour
     [Tooltip("Move-Text-to-Disappear-After-Started-Walking Time (MTDASWT)")]
     private float mtdaswt;
     public TMPro.TextMeshPro porta_prompt;
+    public GameObject C;
+    private string trigger_sentence;
+    private bool Anim_Done;
 
     private void Start()
     {
         gameObject.GetComponentInChildren<DialogSystem>().setMovable(true);
         startedWalking = false;
+        trigger_sentence = "Well, you see... That would be kind of hard.";
+
+        Anim_Done = false;
     }
 
     private void Update()
     {
+        if (gameObject.GetComponentInChildren<DialogSystem>().is_active())
+        {
+       
+            if (gameObject.GetComponentInChildren<DialogSystem>().GetCurrentLine().Contains(trigger_sentence) && !Anim_Done)
+            {
+                
+                Camera_Animation();
+            }
+        }
+        
         if (Time.time > startDialogTime || (Time.time - startedWalkingTime > tttdisw && startedWalking))
         {
             gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
@@ -70,5 +86,11 @@ public class Tutorial : MonoBehaviour
         porta.GetComponent<BoxCollider>().enabled = false;
         porta.GetComponentInChildren<cakeslice.Outline>().enabled = false;
         porta_prompt.SetText("");
+    }
+
+    public void Camera_Animation()
+    {
+        C.GetComponent<Animator>().SetTrigger("LookDown");
+        Anim_Done = true;
     }
 }

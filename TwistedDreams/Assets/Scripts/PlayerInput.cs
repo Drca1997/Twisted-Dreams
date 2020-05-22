@@ -31,7 +31,9 @@ public class PlayerInput : MonoBehaviour
     private Animator animator;
     private CharacterController controller;
     float currentSpeed;
-
+    private AudioSource footstep_source;
+    private bool movement_started;
+ 
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -42,6 +44,7 @@ public class PlayerInput : MonoBehaviour
         can_jump = true;
         bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
         bonked = false;
+        footstep_source = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -76,8 +79,8 @@ public class PlayerInput : MonoBehaviour
 // Update is called once per frame
     void FixedUpdate()
     {
-        //if (Canvas.GetComponent<DialogSystem>().getMovable())
-        //{
+        if (Canvas.GetComponent<DialogSystem>().getMovable())
+        {
             //movimento.x = -Input.GetAxis("Horizontal");
             //movimento.z = -Input.GetAxis("Vertical");
             Vector2 input = new Vector2(-Input.GetAxisRaw("Horizontal"), -Input.GetAxisRaw("Vertical"));
@@ -91,6 +94,8 @@ public class PlayerInput : MonoBehaviour
             //roda a Sarah na direção correta
             if (inputDirection != Vector2.zero)
             {
+                
+                
                 //não rodar instantaneamente na direção indicada
                 float targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.y) * Mathf.Rad2Deg;
                 //transform.eulerAngles.y - rotação atual
@@ -99,6 +104,8 @@ public class PlayerInput : MonoBehaviour
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
 
             }
+
+           
 
 
             //Mover a Sarah
@@ -110,7 +117,7 @@ public class PlayerInput : MonoBehaviour
             velocityY += Time.deltaTime * gravity;
             Vector3 velocity = transform.forward * currentSpeed + Vector3.up * velocityY;
             controller.Move(velocity * Time.deltaTime);
-
+         
             //atualizar as velocidades de acordo com o estado do controller
             if (controller.isGrounded) velocityY = 0;
             currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
@@ -119,6 +126,7 @@ public class PlayerInput : MonoBehaviour
             //atualizar animator
             if (inputDirection != Vector2.zero && currentSpeed != 0)
             {
+                
                 animator.SetBool("isWalking", true);
                 animator.SetInteger("time_wasted", 0);
             }
@@ -128,13 +136,38 @@ public class PlayerInput : MonoBehaviour
                 animator.SetInteger("time_wasted", animator.GetInteger("time_wasted") + 1);
             }
 
-        //}
+        }
         if (Input.GetKeyDown(KeyCode.E)) //Interact
         {
             animator.ResetTrigger("Dab");
             animator.ResetTrigger("T");
             animator.SetTrigger("Interact");
             animator.SetInteger("time_wasted", 0);
+        }
+
+        
+        if (is_she_walking(currentSpeed))
+        {
+            if (movement_started)
+            {
+               
+                footstep_source.UnPause();
+            }
+            else
+            {
+               
+                movement_started = true;
+                footstep_source.Play();
+            }
+        }
+        else
+        {
+            if (movement_started)
+            {
+                footstep_source.Pause();
+            }
+            
+            
         }
         //movimento = Vector3.ClampMagnitude(movimento, 1);
             //rg.MovePosition(transform.position + movimento * velocidade * Time.fixedDeltaTime);
@@ -155,12 +188,12 @@ public class PlayerInput : MonoBehaviour
             {
                 if (bonked)
                 {
-                    Canvas.GetComponent<DialogSystem>().independentDialog("???", "Hehe");
+                    Canvas.GetComponent<DialogSystem>().independentDialog("???", "Ahah");
                 }
                 else
                 {
                     bonked = true;
-                    Canvas.GetComponent<DialogSystem>().independentDialog("???", "Wow, would you look at that? The mighty and incredibly stubborn Sarah banging her head against the wall!");
+                    Canvas.GetComponent<DialogSystem>().independentDialog("???", "Wow, stubborn Sarah banging her head against the wall!");
                 }
             }
         }
@@ -186,5 +219,15 @@ public class PlayerInput : MonoBehaviour
     public void SetVelocidade(float nova_velocidade)
     {
         velocidade = nova_velocidade;
+    }
+
+    public bool is_she_walking(float currentSpeed)
+    {
+        if (currentSpeed != 0)
+        {
+            
+            return true;
+        }
+        return false;
     }
 }

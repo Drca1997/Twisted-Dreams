@@ -456,4 +456,10 @@ public class DialogSystem : MonoBehaviour
     {
         return active;
     }
+
+    public string GetCurrentLine()
+    {
+        
+        return dialogLines[currentLine];
+    }
 }

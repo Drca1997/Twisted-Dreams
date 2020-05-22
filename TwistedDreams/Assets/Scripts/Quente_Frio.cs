@@ -25,8 +25,7 @@ public class Quente_Frio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bonk.source.Play();
-      
+
         gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
         waitfinish = 0;
     }
@@ -36,7 +35,7 @@ public class Quente_Frio : MonoBehaviour
     {
         distancia = Vector3.Distance(player.transform.position, camera.transform.position);
 
-        //Debug.Log("DISTANCIA DA SARAH À CAMARA: " + distancia);
+        Debug.Log("DISTANCIA DA SARAH À CAMARA: " + distancia);
         if (waitfinish <= 1) {
             Debug.Log("entrou aqui");
             calcula_quente_frio(distancia);
@@ -50,7 +49,7 @@ public class Quente_Frio : MonoBehaviour
             s.source.volume = 1;
         }
 
-        if(!gameObject.GetComponentInChildren<DialogSystem>().is_active() && Is_Player_In_LOS() && !gameObject.GetComponentInChildren<DialogSystem>().is_in_independent() && waitfinish == 1)
+        if(!gameObject.GetComponentInChildren<DialogSystem>().is_active() && Is_Player_In_LOS() && distancia <= 2f && !gameObject.GetComponentInChildren<DialogSystem>().is_in_independent() && waitfinish == 1)
         {
             waitfinish++;
             gameObject.GetComponentInChildren<DialogSystem>().ReStart(final, false);
@@ -60,11 +59,13 @@ public class Quente_Frio : MonoBehaviour
 
 
         }
-        if (!sneak_away && !gameObject.GetComponentInChildren<DialogSystem>().is_active() && s.source.volume == 0 && !Is_Player_In_LOS())
+        if (!sneak_away && !gameObject.GetComponentInChildren<DialogSystem>().is_active() && distancia >= 11f && !Is_Player_In_LOS())
         {
             sneak_away = true;
+           
             gameObject.GetComponentInChildren<DialogSystem>().ReStart(away, true);
             gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
+            
         }
 
         if (gameObject.GetComponentInChildren<DialogSystem>().Is_Dialog_Finished() && waitfinish == 2)
@@ -78,16 +79,16 @@ public class Quente_Frio : MonoBehaviour
 
     public void calcula_quente_frio(float distancia)
     {
-        if (distancia <= 3f){
+        if (distancia <= 1.2f){
             s.source.volume = 1;
         }
-        else if (distancia >= 15f)
+        else if (distancia >= 10f)
         {
             s.source.volume = 0.01f;
         }
         else
         {
-            s.source.volume = 1 - distancia * 8/ 100;
+            s.source.volume = 1 - distancia * 14/ 100;
         }
     }
 
