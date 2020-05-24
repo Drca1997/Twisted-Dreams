@@ -102,8 +102,28 @@ public class Interactable : MonoBehaviour
                         
                         DoorAnimation_Open(gameObject);
                     }
-                   
+                    
                 }
+                else if(gameObject.tag.CompareTo("Gas") == 0)
+                {
+                    Destroy(TextUI);
+                    Destroy(gameObject);
+                    //Contador Bidoes Apanhados
+                    FindObjectOfType<CamsLevel>().Set_Bidoes_Apanhados(FindObjectOfType<CamsLevel>().getBidoes_Apanhados() + 1);
+                    
+                }
+                else if(gameObject.tag.CompareTo("Car") == 0)
+                {
+                    if (FindObjectOfType<CamsLevel>().getBidoes_Apanhados() == 4)
+                    {
+                        //passa para cena seguinte
+                    }
+                    else
+                    {
+                        //C: There's still more gas left to find!
+                    }
+                }
+
             }
         }
     }

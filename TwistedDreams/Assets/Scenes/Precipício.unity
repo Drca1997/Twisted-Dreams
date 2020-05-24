@@ -917,11 +917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 95634781a76e94b469cdbe55d9207a00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4
+      value: -5.73
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 95634781a76e94b469cdbe55d9207a00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.26
+      value: 34.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 95634781a76e94b469cdbe55d9207a00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -967,10 +967,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.9723
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 95634781a76e94b469cdbe55d9207a00, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 95634781a76e94b469cdbe55d9207a00, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 52cba12ea89d1e6439748f84a31bbd98, type: 2}
+      objectReference: {fileID: 2100000, guid: 1d39b53457a0c7c4499a268b2f794030, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95634781a76e94b469cdbe55d9207a00, type: 3}
 --- !u!1 &1753383996
@@ -1011,14 +1015,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753383996}
-  m_LocalRotation: {x: 0.08314866, y: 0.8304431, z: -0.10065486, w: 0.54158956}
-  m_LocalPosition: {x: -21.73, y: 0.39, z: -27.6}
+  m_LocalRotation: {x: 0.035619974, y: -0.6707512, z: -0.02998139, w: -0.74021965}
+  m_LocalPosition: {x: -289.24, y: 33.8, z: -192.18}
   m_LocalScale: {x: 1.032557, y: 0.03983703, z: 239.9951}
   m_Children:
   - {fileID: 1006573979}
   m_Father: {fileID: 1284815312}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 14.906001, y: 114.003006, z: 1.7240001}
+  m_LocalEulerAnglesHint: {x: -5.334, y: 444.372, z: -0.19600001}
 --- !u!114 &1753383998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,7 +1522,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 62
+  field of view: 61
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1612,7 +1616,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 52cba12ea89d1e6439748f84a31bbd98, type: 2}
+      objectReference: {fileID: 2100000, guid: 1d39b53457a0c7c4499a268b2f794030, type: 2}
     - target: {fileID: 64283584153285790, guid: 6a1e91d16d83a7644b6ebaa82e9f487f,
         type: 3}
       propertyPath: m_Convex
@@ -1756,18 +1760,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5498434, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498434, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498434, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2566741147865332928, guid: ffe00fa3bd41b9a4db665bf728e3c1e1,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -1802,6 +1794,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -9.4800005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498434, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498434, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498434, guid: ffe00fa3bd41b9a4db665bf728e3c1e1, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 266819790793394629, guid: ffe00fa3bd41b9a4db665bf728e3c1e1,
         type: 3}
