@@ -14,7 +14,6 @@ public class Quente_Frio : MonoBehaviour
     public TextAsset final;
     public TextAsset away;
     private bool sneak_away;
-
     private void Awake()
     {
         sneak_away = false;

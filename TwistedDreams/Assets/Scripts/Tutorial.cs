@@ -82,9 +82,9 @@ public class Tutorial : MonoBehaviour
 
     public void DoorAnimation(GameObject porta) {
         
-        porta.GetComponentInChildren<Animator>().SetTrigger("Abrir");
-        porta.GetComponent<BoxCollider>().enabled = false;
-        porta.GetComponentInChildren<cakeslice.Outline>().enabled = false;
+        porta.GetComponent<Animator>().SetTrigger("Abrir");
+        porta.GetComponent<BoxCollider>().enabled = true;
+        porta.GetComponent<cakeslice.Outline>().enabled = false;
         porta_prompt.SetText("");
     }
 

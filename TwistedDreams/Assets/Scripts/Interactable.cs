@@ -8,12 +8,14 @@ public class Interactable : MonoBehaviour
 
     private string interact;
     public TMPro.TextMeshPro TextUI;
+    [SerializeField]
     private bool within_reach;
     private Som s;
     private Scene cena;
     private Revelation revelacao;
     private Tutorial tutorial;
     private GameObject player;
+
     private void Awake()
     {
         cena = SceneManager.GetActiveScene();
@@ -92,10 +94,12 @@ public class Interactable : MonoBehaviour
                 {
                     if (gameObject.GetComponentInChildren<Animator>().GetBool("Aberta"))
                     {
+                        
                         DoorAnimation_Close(gameObject);
                     }
                     else
                     {
+                        
                         DoorAnimation_Open(gameObject);
                     }
                    
@@ -122,10 +126,13 @@ public class Interactable : MonoBehaviour
 
     public void DoorAnimation_Open(GameObject porta)
     {
-        porta.GetComponentInChildren<Animator>().ResetTrigger("Fechar");
-        porta.GetComponentInChildren<Animator>().SetTrigger("Abrir");
-        porta.GetComponentInChildren<Animator>().SetBool("Aberta", true);
-        porta.GetComponent<BoxCollider>().enabled = false;
+        //porta.GetComponentInChildren<Animator>().ResetTrigger("Fechar");
+        //porta.GetComponentInChildren<Animator>().SetTrigger("Abrir");
+        //porta.GetComponentInChildren<Animator>().SetBool("Aberta", true);
+        porta.GetComponent<Animator>().ResetTrigger("Fechar");
+        porta.GetComponent<Animator>().SetTrigger("Abrir");
+        porta.GetComponent<Animator>().SetBool("Aberta", true);
+        //porta.GetComponent<BoxCollider>().enabled = false;
         porta.GetComponentInChildren<cakeslice.Outline>().enabled = false;
         TextUI.SetText("");
     }
@@ -133,10 +140,13 @@ public class Interactable : MonoBehaviour
     public void DoorAnimation_Close(GameObject porta)
     {
 
-        porta.GetComponentInChildren<Animator>().ResetTrigger("Abrir");
-        porta.GetComponentInChildren<Animator>().SetTrigger("Fechar");
-        porta.GetComponentInChildren<Animator>().SetBool("Aberta", false);
-        porta.GetComponent<BoxCollider>().enabled = false;
+        //porta.GetComponentInChildren<Animator>().ResetTrigger("Abrir");
+        //porta.GetComponentInChildren<Animator>().SetTrigger("Fechar");
+        //porta.GetComponentInChildren<Animator>().SetBool("Aberta", false);
+        porta.GetComponent<Animator>().ResetTrigger("Abrir");
+        porta.GetComponent<Animator>().SetTrigger("Fechar");
+        porta.GetComponent<Animator>().SetBool("Aberta", false);
+        porta.GetComponent<BoxCollider>().enabled = true;
         porta.GetComponentInChildren<cakeslice.Outline>().enabled = false;
         TextUI.SetText("");
     }
