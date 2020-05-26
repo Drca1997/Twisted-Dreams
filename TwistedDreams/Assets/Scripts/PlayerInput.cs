@@ -79,8 +79,8 @@ public class PlayerInput : MonoBehaviour
 // Update is called once per frame
     void FixedUpdate()
     {
-        //if (Canvas.GetComponent<DialogSystem>().getMovable())
-        //{
+        if (Canvas.GetComponent<DialogSystem>().getMovable())
+        {
             //movimento.x = -Input.GetAxis("Horizontal");
             //movimento.z = -Input.GetAxis("Vertical");
             Vector2 input = new Vector2(-Input.GetAxisRaw("Horizontal"), -Input.GetAxisRaw("Vertical"));
@@ -136,7 +136,7 @@ public class PlayerInput : MonoBehaviour
                 animator.SetInteger("time_wasted", animator.GetInteger("time_wasted") + 1);
             }
 
-        //}
+        }
         if (Input.GetKeyDown(KeyCode.E)) //Interact
         {
             animator.ResetTrigger("Dab");

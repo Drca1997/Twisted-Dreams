@@ -72,7 +72,7 @@ public class Quente_Frio : MonoBehaviour
             
             //Muda para a cena seguinte
             Debug.Log("ACABOU A CENA");
-            Application.Quit();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("CamsLevel");
         }
     }
 

@@ -88,7 +88,7 @@ public class Interactable : MonoBehaviour
                     tutorial.DoorAnimation(gameObject);
                 }
             }
-            else if (cena.name == "JohnShooting")
+            else if (cena.name == "CamsLevel")
             {
                 if (gameObject.tag.CompareTo("Door") == 0)
                 {
@@ -110,17 +110,21 @@ public class Interactable : MonoBehaviour
                     Destroy(gameObject);
                     //Contador Bidoes Apanhados
                     FindObjectOfType<CamsLevel>().Set_Bidoes_Apanhados(FindObjectOfType<CamsLevel>().getBidoes_Apanhados() + 1);
-                    
+                    if (FindObjectOfType<CamsLevel>().getBidoes_Apanhados() == 3)
+                    {
+                        FindObjectOfType<CamsLevel>().Wall_Break();
+                    }
                 }
                 else if(gameObject.tag.CompareTo("Car") == 0)
                 {
-                    if (FindObjectOfType<CamsLevel>().getBidoes_Apanhados() == 4)
+                    if (FindObjectOfType<CamsLevel>().getBidoes_Apanhados() == 5)
                     {
-                        //passa para cena seguinte
+                        Application.Quit();
                     }
                     else
                     {
-                        //C: There's still more gas left to find!
+
+                        FindObjectOfType<CamsLevel>().NEED_MORE_GAS();
                     }
                 }
 
