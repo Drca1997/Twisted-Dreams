@@ -33,6 +33,10 @@ public class PlayerInput : MonoBehaviour
     float currentSpeed;
     private AudioSource footstep_source;
     private bool movement_started;
+    private float timeBeforePause = 1.0f;
+    public GameObject pauseMenu;
+    public bool is_paused = false;
+    private bool was_playing = false;
  
     void Start()
     {
@@ -50,15 +54,15 @@ public class PlayerInput : MonoBehaviour
     public void Update()
     {
         // Jump
-        if (Input.GetKeyDown("space") && can_jump && Canvas.GetComponent<DialogSystem>().getMovable())
+        if (Input.GetKeyDown("space") && Time.timeScale > 0.0f && can_jump && Canvas.GetComponent<DialogSystem>().getMovable())
             rg.AddForce(salto, ForceMode.Impulse);
 
         // Skip writing effect on dialog
-        if (Input.GetKeyDown(KeyCode.Q) && !Canvas.GetComponent<DialogSystem>().is_in_independent() && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
+        if (Input.GetKeyDown(KeyCode.Q) && Time.timeScale > 0.0f && !Canvas.GetComponent<DialogSystem>().is_in_independent() && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
             Canvas.GetComponent<DialogSystem>().finishText(true);
         }
         // Enable auto continue on dialog
-        if (Input.GetKeyDown(KeyCode.X) && !Canvas.GetComponent<DialogSystem>().getLogStatus())
+        if (Input.GetKeyDown(KeyCode.X) && Time.timeScale > 0.0f && !Canvas.GetComponent<DialogSystem>().getLogStatus())
             Canvas.GetComponent<DialogSystem>().changeAutoDialog();
 
         // Disable writting effect on dialog
@@ -70,9 +74,39 @@ public class PlayerInput : MonoBehaviour
         //}
 
         // Enable/Disable Log
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L) && Time.timeScale > 0.0f)
         {
             Canvas.GetComponent<DialogSystem>().switchLog();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(Time.timeScale > 0.0f) // pause
+            {
+                timeBeforePause = Time.timeScale;
+                Time.timeScale = 0.0f;
+                is_paused = true;
+                if (footstep_source.isPlaying)
+                {
+                    was_playing = true;
+                    footstep_source.Pause();
+                }
+                else
+                {
+                    was_playing = false;
+                }
+                pauseMenu.SetActive(true);
+            }
+            else // unpause
+            {
+                is_paused = false;
+                if (was_playing)
+                {
+                    footstep_source.UnPause();
+                }
+                Time.timeScale = timeBeforePause;
+                pauseMenu.SetActive(false);
+            }
         }
     }
 
@@ -106,10 +140,7 @@ public class PlayerInput : MonoBehaviour
             }
 
            
-
-
             //Mover a Sarah
-
             //Não meter instantaneamente na velocidade máxima
             float targetSpeed = walkSpeed * inputDirection.magnitude;
             currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
@@ -150,12 +181,10 @@ public class PlayerInput : MonoBehaviour
         {
             if (movement_started)
             {
-               
                 footstep_source.UnPause();
             }
             else
             {
-               
                 movement_started = true;
                 footstep_source.Play();
             }
@@ -166,8 +195,6 @@ public class PlayerInput : MonoBehaviour
             {
                 footstep_source.Pause();
             }
-            
-            
         }
         //movimento = Vector3.ClampMagnitude(movimento, 1);
             //rg.MovePosition(transform.position + movimento * velocidade * Time.fixedDeltaTime);
@@ -176,12 +203,12 @@ public class PlayerInput : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Floor"))
+        if (collision.gameObject.CompareTag("Floor") && Time.timeScale > 0.0f)
         {
             can_jump = true;
         }
 
-        else if (collision.gameObject.CompareTag("Obstacle"))
+        else if (collision.gameObject.CompareTag("Obstacle") && Time.timeScale > 0.0f)
         {
             bonk.source.Play();
             if (cena.name == "Quente_Frio" && !Canvas.GetComponent<DialogSystem>().is_active())

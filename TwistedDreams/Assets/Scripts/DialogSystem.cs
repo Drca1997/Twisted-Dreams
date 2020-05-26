@@ -121,63 +121,65 @@ public class DialogSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // So faz update se dialogo tiver sido ativado, o efeito de escrita tiver acabado ou ainda n tiver começado e o jogador n esteja a verificar o historico
-        if (active && WEfinished && !getLogStatus() && !nonindep)
+        if (Time.timeScale > 0.0f)
         {
-            // mostrar caixas de dialogo e de quem disse
-            textBoxPanel.SetActive(true);
-            whoBoxPanel.SetActive(true);
-
-            // Meter quem disse na caixa apropriada
-            whoText.text = dialogLines[currentLine - 1];
-
-            // Meter o que disse na caixa de dialogo
-            writeLine();
-
-            // Next Line on dialog 
-            // Input para avançar no dialogo - So se o dialogo automatico estiver desligado e o dialogo atual tiver terminado de ser escrito.
-            if (Input.GetKeyDown(KeyCode.Q))
+            // So faz update se dialogo tiver sido ativado, o efeito de escrita tiver acabado ou ainda n tiver começado e o jogador n esteja a verificar o historico
+            if (active && WEfinished && !getLogStatus() && !nonindep)
             {
-                if (finished_current_line)
+                // mostrar caixas de dialogo e de quem disse
+                textBoxPanel.SetActive(true);
+                whoBoxPanel.SetActive(true);
+
+                // Meter quem disse na caixa apropriada
+                whoText.text = dialogLines[currentLine - 1];
+
+                // Meter o que disse na caixa de dialogo
+                writeLine();
+
+                // Next Line on dialog 
+                // Input para avançar no dialogo - So se o dialogo automatico estiver desligado e o dialogo atual tiver terminado de ser escrito.
+                if (Input.GetKeyDown(KeyCode.Q))
                 {
-                    if (call)
+                    if (finished_current_line)
                     {
-                        StopCoroutine(autoDialogWait);
-                        call = false;
-                    }
-                    currentLine += 2;
-                    finished_current_line = false;
-                }
-            }
-            if(autoDialog)
-            {
-                // Esperar para escrever a proxima linha de dialogo - so escreve quando o tempo passar a partir do momento que terminou de escrever a linha (importante para o efeito de escrita)
-                if (finished_current_line)
-                {
-                    if (call)
-                    {
-                        autoDialogWait = StartCoroutine(DialogCont(dialogLines[currentLine]));
-                        call = false;
+                        if (call)
+                        {
+                            StopCoroutine(autoDialogWait);
+                            call = false;
+                        }
+                        currentLine += 2;
+                        finished_current_line = false;
                     }
                 }
-            }
+                if (autoDialog)
+                {
+                    // Esperar para escrever a proxima linha de dialogo - so escreve quando o tempo passar a partir do momento que terminou de escrever a linha (importante para o efeito de escrita)
+                    if (finished_current_line)
+                    {
+                        if (call)
+                        {
+                            autoDialogWait = StartCoroutine(DialogCont(dialogLines[currentLine]));
+                            call = false;
+                        }
+                    }
+                }
 
-            // Fim do dialogo
-            if (Is_Dialog_Finished())
-            {
-                textBoxPanel.SetActive(false);
-                whoBoxPanel.SetActive(false);
-                active = false;
-                setMovable(true);
+                // Fim do dialogo
+                if (Is_Dialog_Finished())
+                {
+                    textBoxPanel.SetActive(false);
+                    whoBoxPanel.SetActive(false);
+                    active = false;
+                    setMovable(true);
+                }
             }
-        }
-        else
-        {
-            if (waitindep)
+            else
             {
-                finishIndependent();
-                waitindep = false;
+                if (waitindep)
+                {
+                    finishIndependent();
+                    waitindep = false;
+                }
             }
         }
     }
