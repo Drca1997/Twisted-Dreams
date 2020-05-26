@@ -52,7 +52,7 @@ public class Interactable : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("e") && within_reach)
+        if (Input.GetKeyDown("e") && within_reach && !player.GetComponent<PlayerInput>().is_paused)
         {
             Debug.Log("INTERACTION WITH OBJECT");
             

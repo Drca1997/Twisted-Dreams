@@ -14,6 +14,8 @@ public class Quente_Frio : MonoBehaviour
     public TextAsset final;
     public TextAsset away;
     private bool sneak_away;
+    private bool was_paused = false;
+    private bool was_playing = false;
     private void Awake()
     {
         sneak_away = false;
@@ -55,9 +57,8 @@ public class Quente_Frio : MonoBehaviour
             gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
             Debug.Log("entrou aqui");
             s.source.volume = 0;
-
-
         }
+
         if (!sneak_away && !gameObject.GetComponentInChildren<DialogSystem>().is_active() && distancia >= 11f && !Is_Player_In_LOS())
         {
             sneak_away = true;
@@ -69,10 +70,26 @@ public class Quente_Frio : MonoBehaviour
 
         if (gameObject.GetComponentInChildren<DialogSystem>().Is_Dialog_Finished() && waitfinish == 2)
         {
-            
             //Muda para a cena seguinte
             Debug.Log("ACABOU A CENA");
             UnityEngine.SceneManagement.SceneManager.LoadScene("CamsLevel");
+        }
+
+        if (player.GetComponent<PlayerInput>().is_paused)
+        {
+            if (s.source.isPlaying)
+            {
+                was_playing = true;
+                s.source.Pause();
+                was_paused = true;
+            }
+        }
+        else
+        {
+            if(was_paused && was_playing)
+            {
+                s.source.UnPause();
+            }
         }
     }
 
