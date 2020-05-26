@@ -144,7 +144,11 @@ public class DialogSystem : MonoBehaviour
                     {
                         if (call)
                         {
-                            StopCoroutine(autoDialogWait);
+                            if (autoDialogWait != null)
+                            {
+                                StopCoroutine(autoDialogWait);
+                            }
+                           
                             call = false;
                         }
                         currentLine += 2;
