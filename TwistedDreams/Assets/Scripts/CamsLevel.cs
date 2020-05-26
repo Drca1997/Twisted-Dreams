@@ -34,8 +34,7 @@ public class CamsLevel : MonoBehaviour
 
     public void Update_Timer()
     {
-        //int minutes = time / 
-        //time.ToString();
+        
         string minutes = Mathf.Floor(time / 60).ToString("00");
         string seconds = (time % 60).ToString("00");
         countdown.SetText(minutes + ':' + seconds);

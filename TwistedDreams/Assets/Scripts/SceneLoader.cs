@@ -31,7 +31,7 @@ public class SceneLoader : MonoBehaviour
         }
         else if (cena.name == "Quente_Frio")
         {
-            scene_name = "Free Driving Scene";
+            scene_name = "JukeboxScene";
         }
         return scene_name;
     }
