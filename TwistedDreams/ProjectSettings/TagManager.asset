@@ -8,6 +8,10 @@ TagManager:
   - Door
   - Phone
   - Obstacle
+  - Puzzle
+  - Piece
+  - Lever
+  - Camera
   layers:
   - Default
   - TransparentFX

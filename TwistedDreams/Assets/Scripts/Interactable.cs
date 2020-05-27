@@ -13,7 +13,10 @@ public class Interactable : MonoBehaviour
     private Scene cena;
     private Revelation revelacao;
     private Tutorial tutorial;
+    private Paper paper;
     private GameObject player;
+
+    
     private void Awake()
     {
         cena = SceneManager.GetActiveScene();
@@ -54,7 +57,6 @@ public class Interactable : MonoBehaviour
         {
             Debug.Log("INTERACTION WITH OBJECT");
             
-            CameraController camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
             
             if (cena.name == "Revelation")
             {
@@ -65,6 +67,31 @@ public class Interactable : MonoBehaviour
             }
             else if (cena.name == "Quente_Frio")
             {
+
+            }
+            else if (cena.name == "Paper")
+            {
+                if (gameObject.tag == "Puzzle" && GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>().Picked()==4)
+                {
+                    Destroy(TextUI);
+                    SceneManager.LoadScene("2D Puzzle");
+                }
+                if (gameObject.tag == "Lever")
+                {
+                    Destroy(TextUI);
+                    Debug.Log("on it boss");
+                    paper = GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>();
+                    paper.SwitchCam();
+
+                }
+                if (gameObject.tag == "Piece")
+                {
+                    Destroy(TextUI);
+                    Debug.Log("on it boss");
+                    paper = GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>();
+                    paper.PiecePickUP();
+                    Destroy(gameObject);
+                }
 
             }
             else if(cena.name == "Precipício")
@@ -102,6 +129,18 @@ public class Interactable : MonoBehaviour
                 return "   Press E\n    To Get\nYour Phone";
             }
         }
+        else if (cena.name == "Paper")
+        {
+            if (gameObject.tag == "Puzzle")
+            {
+                return "  Praise be to the glorious cube";
+            }
+            else if (gameObject.tag == "Lever")
+            {
+                return "   Press E\n    To\nUse Lever";
+            }
+        }
         return "E";
     }
+
 }
