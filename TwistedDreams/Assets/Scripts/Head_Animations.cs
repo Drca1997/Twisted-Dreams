@@ -138,7 +138,7 @@ public class Head_Animations : MonoBehaviour
 
     }
 
-    public IEnumerator Close_Eyes_Anim(string next_scene_name)
+    public void Close_Eyes_Anim(string next_scene_name)
     {
         Debug.Log("Close Eyes");
         animator.ResetTrigger("X_Shake");
@@ -149,8 +149,8 @@ public class Head_Animations : MonoBehaviour
         animator.ResetTrigger("Novo_Slide");
         animator.SetInteger("Random_Int", 0);
         animator.SetTrigger("Close_Eyes");
-        yield return StartCoroutine(DelayedLoad(next_scene_name));
-        SceneManager.LoadScene(next_scene_name);
+        StartCoroutine(DelayedLoad(next_scene_name));
+       
     }
 
     IEnumerator DelayedLoad(string next_scene_name)
@@ -158,7 +158,7 @@ public class Head_Animations : MonoBehaviour
         Debug.Log("Delaying...");
         //Wait until clip finish playing
         yield return new WaitForSeconds(2); //duraçao da animaçao de fechar os olhos
-        
+        SceneManager.LoadScene(next_scene_name);
     }
 
     

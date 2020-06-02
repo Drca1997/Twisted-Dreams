@@ -27189,7 +27189,7 @@ MonoBehaviour:
   mtdaswt: 2
   porta_prompt: {fileID: 290135122}
   C: {fileID: 1203797384}
-  time_to_wait: 60
+  time_to_wait: 5
   change_of_mind: {fileID: 4900000, guid: 27c63b1c1d7bf9840b1fe7e1ecde00e3, type: 3}
   hasPhone: {fileID: 6959129686781698355, guid: bc3ace6a1127a4f41aea9c244849ddd0,
     type: 3}

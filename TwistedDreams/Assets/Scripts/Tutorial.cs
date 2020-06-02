@@ -28,6 +28,8 @@ public class Tutorial : MonoBehaviour
     private DialogSystem dialogSystem;
     public TextAsset change_of_mind;
     public GameObject hasPhone;
+    private bool dialog_has_started;
+    private int wait_finish;
 
     private void Start()
     {
@@ -37,7 +39,8 @@ public class Tutorial : MonoBehaviour
         trigger_sentence = "Well, you see... That would be kind of hard.";
         blinking = false;
         Anim_Done = false;
-
+        dialog_has_started = false;
+        wait_finish = 0;
         
     }
 
@@ -53,13 +56,14 @@ public class Tutorial : MonoBehaviour
             }
         }
         
-        if (Time.time > startDialogTime || (Time.time - startedWalkingTime > tttdisw && startedWalking))
+        if (Time.time > startDialogTime || (Time.time - startedWalkingTime > tttdisw && startedWalking) && !dialog_has_started)
         {
             dialogSystem.ActivateDialog(true);
             if (text != null)
             {
                 Destroy(text);
             }
+            dialog_has_started = true;
         }
         if (!startedWalking && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
@@ -76,19 +80,25 @@ public class Tutorial : MonoBehaviour
             Debug.Log("DS active: " + dialogSystem.active);
             GlowingObjects();
             blinking = true;
+            wait_finish++;
         }
         if (blinking)
         {
             time_to_wait -= Time.deltaTime;
         }
 
-        if (time_to_wait <= 0 && dialogSystem.Is_Dialog_Finished())
+        if (time_to_wait <= 0 && dialogSystem.Is_Dialog_Finished() && wait_finish == 1)
         {
            
             dialogSystem.ReStart(change_of_mind, false);
             dialogSystem.ActivateDialog(false);
-            FindObjectOfType<Head_Animations>().Close_Eyes_Anim("Galeria");
+            wait_finish ++;
             
+            
+        }
+        if (wait_finish == 2)
+        {
+            FindObjectOfType<Head_Animations>().Close_Eyes_Anim("Galeria");
         }
 
     }
