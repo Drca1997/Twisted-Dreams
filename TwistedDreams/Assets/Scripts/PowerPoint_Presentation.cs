@@ -6,6 +6,7 @@ public class PowerPoint_Presentation : MonoBehaviour
 {
     public GameObject tela;
     private DialogSystem dialogSystem;
+    private string slide1_trigger;
     private string slide2_trigger;
     private string slide3_trigger;
     private string slide4_trigger;
@@ -16,15 +17,21 @@ public class PowerPoint_Presentation : MonoBehaviour
     [Tooltip("Quantidade de tempo que 'One Hour Later' fica no ecrã")]
     public float time_on_screen;
     public TextAsset final;
-
+    private bool [] Anims_Done;
     private void Awake()
     {
         dialogSystem = FindObjectOfType<DialogSystem>();
+        slide1_trigger = "So, here we go. Since you don't remember s**t, I prepared a PowerPoint presentation to explain you the situation.";
         slide2_trigger = "As you already now, you are dreaming.";
         slide3_trigger = "And bad news for you, because it's actually a nightmare.";
         slide4_trigger = "You see, you had a terrible car accident...";
         animator = C.GetComponent<Animator>();
-
+        dialogSystem.ActivateDialog(false);
+        Anims_Done = new bool[5];
+        for (int i=0; i< Anims_Done.Length; i++)
+        {
+            Anims_Done[i] = false;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -32,20 +39,29 @@ public class PowerPoint_Presentation : MonoBehaviour
         
         if (dialogSystem.is_active())
         {
-            if (dialogSystem.GetCurrentLine().Contains(slide2_trigger))
+            if (dialogSystem.GetCurrentLine().Contains(slide2_trigger) && !Anims_Done[0])
             {
                 tela.GetComponent<SpriteRenderer>().sprite = slides[0];
                 C.GetComponent<Head_Animations>().Do_NewSlide_Anim();
+                Anims_Done[0] = true;
             }
-            else if (dialogSystem.GetCurrentLine().Contains(slide3_trigger))
+            else if (dialogSystem.GetCurrentLine().Contains(slide2_trigger) && !Anims_Done[1])
             {
                 tela.GetComponent<SpriteRenderer>().sprite = slides[1];
-                animator.SetTrigger("Novo_Slide");
+                C.GetComponent<Head_Animations>().Do_NewSlide_Anim();
+                Anims_Done[1] = true;
             }
-            else if (dialogSystem.GetCurrentLine().Contains(slide4_trigger))
+            else if (dialogSystem.GetCurrentLine().Contains(slide3_trigger) && !Anims_Done[2])
             {
                 tela.GetComponent<SpriteRenderer>().sprite = slides[2];
                 animator.SetTrigger("Novo_Slide");
+                Anims_Done[2] = true;
+            }
+            else if (dialogSystem.GetCurrentLine().Contains(slide4_trigger) && !Anims_Done[3])
+            {
+                tela.GetComponent<SpriteRenderer>().sprite = slides[3];
+                animator.SetTrigger("Novo_Slide");
+                Anims_Done[3] = true;
             }
             
         }
@@ -58,7 +74,7 @@ public class PowerPoint_Presentation : MonoBehaviour
         if (time_on_screen <= 0)
         {
             time_lapse.GetComponent<SpriteRenderer>().enabled = false;
-            tela.GetComponent<SpriteRenderer>().sprite = slides[3];
+            tela.GetComponent<SpriteRenderer>().sprite = slides[4];
             animator.SetTrigger("Novo_Slide");
             dialogSystem.ReStart(final, false);
             dialogSystem.ActivateDialog(false);

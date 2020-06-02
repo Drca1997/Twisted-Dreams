@@ -56,7 +56,7 @@ public class Tutorial : MonoBehaviour
             }
         }
         
-        if (Time.time > startDialogTime || (Time.time - startedWalkingTime > tttdisw && startedWalking) && !dialog_has_started)
+        if ((Time.time > startDialogTime || (Time.time - startedWalkingTime > tttdisw && startedWalking)) && !dialog_has_started)
         {
             dialogSystem.ActivateDialog(true);
             if (text != null)
