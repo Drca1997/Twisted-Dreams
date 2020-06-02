@@ -6,91 +6,130 @@ public class Quente_Frio : MonoBehaviour
 {
 
     public GameObject player;
-    public Camera camera;
+    public GameObject sarah_camera;
     private float distancia;
     private Som s;
     private Som bonk;
     private int waitfinish;
     public TextAsset final;
     public TextAsset away;
+    public TextAsset no_phone;
     private bool sneak_away;
     private bool was_paused = false;
     private bool was_playing = false;
+    private DialogSystem dialogSystem;
+    private string trigger_sentence;
+    private GameObject phone;
     private void Awake()
     {
-        sneak_away = false;
-        s = FindObjectOfType<AudioManager>().getSom("Quente_Frio");
-        bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
+        phone = GameObject.FindGameObjectWithTag("HasPhone");
+        dialogSystem = gameObject.GetComponentInChildren<DialogSystem>();
+        Debug.Log(phone);
+        if (phone == null)
+        {
+
+            dialogSystem.textFile = no_phone;
+        }
+        else
+        {
+            sneak_away = false;
+            s = FindObjectOfType<AudioManager>().getSom("Quente_Frio");
+            bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
+            
+            trigger_sentence = "I have been trying to help you all along, Sarah.";
+        }
+        
     }
+
 
     // Start is called before the first frame update
     void Start()
     {
-
-        gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
+        
+        dialogSystem.ActivateDialog(false);
         waitfinish = 0;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        distancia = Vector3.Distance(player.transform.position, camera.transform.position);
 
-        Debug.Log("DISTANCIA DA SARAH À CAMARA: " + distancia);
-        if (waitfinish <= 1) {
-            Debug.Log("entrou aqui");
-            calcula_quente_frio(distancia);
-        }
-
-        // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
-        if (!gameObject.GetComponentInChildren<DialogSystem>().is_active() && waitfinish == 0)
+        if (phone)
         {
-            waitfinish++;
-            s.source.Play();
-            s.source.volume = 1;
-        }
+            distancia = Vector3.Distance(player.transform.position, sarah_camera.transform.position);
 
-        if(!gameObject.GetComponentInChildren<DialogSystem>().is_active() && Is_Player_In_LOS() && distancia <= 2f && !gameObject.GetComponentInChildren<DialogSystem>().is_in_independent() && waitfinish == 1)
-        {
-            waitfinish++;
-            gameObject.GetComponentInChildren<DialogSystem>().ReStart(final, false);
-            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
-            Debug.Log("entrou aqui");
-            s.source.volume = 0;
-        }
-
-        if (!sneak_away && !gameObject.GetComponentInChildren<DialogSystem>().is_active() && distancia >= 11f && !Is_Player_In_LOS())
-        {
-            sneak_away = true;
-           
-            gameObject.GetComponentInChildren<DialogSystem>().ReStart(away, true);
-            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
-            
-        }
-
-        if (gameObject.GetComponentInChildren<DialogSystem>().Is_Dialog_Finished() && waitfinish == 2)
-        {
-            //Muda para a cena seguinte
-            Debug.Log("ACABOU A CENA");
-            UnityEngine.SceneManagement.SceneManager.LoadScene("CamsLevel");
-        }
-
-        if (player.GetComponent<PlayerInput>().is_paused)
-        {
-            if (s.source.isPlaying)
+            Debug.Log("DISTANCIA DA SARAH À CAMARA: " + distancia);
+            if (waitfinish <= 1)
             {
-                was_playing = true;
-                s.source.Pause();
-                was_paused = true;
+                Debug.Log("entrou aqui");
+                calcula_quente_frio(distancia);
+            }
+
+            if (dialogSystem.is_active() && sneak_away && dialogSystem.GetCurrentLine().Contains(trigger_sentence))
+            {
+                sarah_camera.GetComponent<Head_Animations>().Do_Horizontal_Headshake();
+            }
+            // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
+            if (!dialogSystem.is_active() && waitfinish == 0)
+            {
+                waitfinish++;
+                s.source.Play();
+                s.source.volume = 1;
+            }
+
+            if (!dialogSystem.is_active() && Is_Player_In_LOS() && distancia <= 2f && !dialogSystem.is_in_independent() && waitfinish == 1)
+            {
+                waitfinish++;
+                dialogSystem.ReStart(final, false);
+                dialogSystem.ActivateDialog(false);
+                Debug.Log("entrou aqui");
+                s.source.volume = 0;
+            }
+
+            if (!sneak_away && !dialogSystem.is_active() && distancia >= 11f && !Is_Player_In_LOS())
+            {
+                sneak_away = true;
+
+                dialogSystem.ReStart(away, true);
+                dialogSystem.ActivateDialog(true);
+
+            }
+
+            if (dialogSystem.Is_Dialog_Finished() && waitfinish == 2)
+            {
+                //Muda para a cena seguinte
+                Debug.Log("ACABOU A CENA");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("CamsLevel");
+            }
+
+            if (player.GetComponent<PlayerInput>().is_paused)
+            {
+                if (s.source.isPlaying)
+                {
+                    was_playing = true;
+                    s.source.Pause();
+                    was_paused = true;
+                }
+            }
+            else
+            {
+                if (was_paused && was_playing)
+                {
+                    s.source.UnPause();
+                }
             }
         }
         else
         {
-            if(was_paused && was_playing)
+            if (dialogSystem.Is_Dialog_Finished())
             {
-                s.source.UnPause();
+                //Guarda Conquista de Final
+                //sair ou restart? 
+                Application.Quit();
             }
         }
+        
     }
 
     public void calcula_quente_frio(float distancia)
@@ -110,9 +149,9 @@ public class Quente_Frio : MonoBehaviour
 
     public bool Is_Player_In_LOS()
     {
-        var RaycastDirection = player.transform.position - camera.transform.position;
+        var RaycastDirection = player.transform.position - sarah_camera.transform.position;
         RaycastHit hit;
-        if (Physics.Raycast(camera.transform.position, RaycastDirection, out hit))
+        if (Physics.Raycast(sarah_camera.transform.position, RaycastDirection, out hit))
         {
             if (hit.transform == player.transform)
             {

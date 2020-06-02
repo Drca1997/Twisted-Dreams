@@ -80,6 +80,13 @@ public class DialogSystem : MonoBehaviour
 
     private void Awake()
     {
+        
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
         nonindep = false;
         writefText.text = "";
 
@@ -92,16 +99,14 @@ public class DialogSystem : MonoBehaviour
         // Definir index do ultimo dialogo
         if (endAtLine == 0)
         {
+
             endAtLine = dialogLines.Length - 1;
+
         }
 
         // Linha inicial. Começa do 1 pois o indice 0 contem quem disse, enquanto que o indice 1 tem o que disse. Aumenta sempre de 2 em 2.
         currentLine = 1;
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         // Comecar com definiçoes default: continuar automatico desligado; efeito de escrita ligado.
         autoDialog = PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false;
         if (autoDialog)
@@ -131,6 +136,7 @@ public class DialogSystem : MonoBehaviour
                 whoBoxPanel.SetActive(true);
 
                 // Meter quem disse na caixa apropriada
+                
                 whoText.text = dialogLines[currentLine - 1];
 
                 // Meter o que disse na caixa de dialogo
@@ -171,6 +177,7 @@ public class DialogSystem : MonoBehaviour
                 // Fim do dialogo
                 if (Is_Dialog_Finished())
                 {
+                    
                     textBoxPanel.SetActive(false);
                     whoBoxPanel.SetActive(false);
                     active = false;
@@ -445,6 +452,7 @@ public class DialogSystem : MonoBehaviour
     // Funcao que determina se o dialogo ja terminou.
     public bool Is_Dialog_Finished()
     {
+        Debug.Log("cURRENTlINE: " + currentLine + "ENDaTlINE: " + endAtLine);
         return (currentLine > endAtLine ? true : false); 
     }
 
@@ -452,7 +460,7 @@ public class DialogSystem : MonoBehaviour
     {
         movable = mov;
     }
-
+    
     public bool getMovable()
     {
         return movable;

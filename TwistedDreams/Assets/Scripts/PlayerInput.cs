@@ -175,8 +175,21 @@ public class PlayerInput : MonoBehaviour
             animator.SetTrigger("Interact");
             animator.SetInteger("time_wasted", 0);
         }
+        //Temporario
+        else if (Input.GetKeyDown(KeyCode.Y)) //Dab
+        {
+            animator.ResetTrigger("Interact");
+            animator.ResetTrigger("T");
+            animator.SetTrigger("Dab");
+        }
+        else if (Input.GetKeyDown(KeyCode.T)) //T-pose
+        {
+            animator.ResetTrigger("Interact");
+            animator.ResetTrigger("Dab");
+            animator.SetTrigger("T");
+        }
 
-        
+
         if (is_she_walking(currentSpeed))
         {
             if (movement_started)

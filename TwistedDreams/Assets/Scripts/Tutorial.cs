@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -21,22 +22,31 @@ public class Tutorial : MonoBehaviour
     public GameObject C;
     private string trigger_sentence;
     private bool Anim_Done;
+    private bool blinking;
+    [Tooltip("Tempo necessário para desbloquear Cena Galeria")]
+    public float time_to_wait;
+    private DialogSystem dialogSystem;
+    public TextAsset change_of_mind;
+    public GameObject hasPhone;
 
     private void Start()
     {
-        gameObject.GetComponentInChildren<DialogSystem>().setMovable(true);
+        dialogSystem = gameObject.GetComponentInChildren<DialogSystem>();
+        dialogSystem.setMovable(true);
         startedWalking = false;
         trigger_sentence = "Well, you see... That would be kind of hard.";
-
+        blinking = false;
         Anim_Done = false;
+
+        
     }
 
     private void Update()
     {
-        if (gameObject.GetComponentInChildren<DialogSystem>().is_active())
+        if (dialogSystem.is_active() && !Anim_Done)
         {
        
-            if (gameObject.GetComponentInChildren<DialogSystem>().GetCurrentLine().Contains(trigger_sentence) && !Anim_Done)
+            if (dialogSystem.GetCurrentLine().Contains(trigger_sentence))
             {
                 
                 Camera_Animation();
@@ -45,7 +55,7 @@ public class Tutorial : MonoBehaviour
         
         if (Time.time > startDialogTime || (Time.time - startedWalkingTime > tttdisw && startedWalking))
         {
-            gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
+            dialogSystem.ActivateDialog(true);
             if (text != null)
             {
                 Destroy(text);
@@ -61,9 +71,26 @@ public class Tutorial : MonoBehaviour
         {
             Destroy(text);
         }
-        if (gameObject.GetComponentInChildren<DialogSystem>().Is_Dialog_Finished()){
+        if (dialogSystem.Is_Dialog_Finished() && !blinking){
+            
+            Debug.Log("DS active: " + dialogSystem.active);
             GlowingObjects();
+            blinking = true;
         }
+        if (blinking)
+        {
+            time_to_wait -= Time.deltaTime;
+        }
+
+        if (time_to_wait <= 0 && dialogSystem.Is_Dialog_Finished())
+        {
+           
+            dialogSystem.ReStart(change_of_mind, false);
+            dialogSystem.ActivateDialog(false);
+            FindObjectOfType<Head_Animations>().Close_Eyes_Anim();
+            SceneManager.LoadScene("Galeria");
+        }
+
     }
 
     public void GlowingObjects()
@@ -77,7 +104,7 @@ public class Tutorial : MonoBehaviour
         porta.AddComponent<Interactable>();
         porta.GetComponent<Interactable>().TextUI = porta_prompt;
         porta.GetComponent<Interactable>().enabled = true;
-        this.enabled = false;
+        
     }
 
     public void DoorAnimation(GameObject porta) {
@@ -90,7 +117,7 @@ public class Tutorial : MonoBehaviour
 
     public void Camera_Animation()
     {
-        C.GetComponent<Animator>().SetTrigger("LookDown");
+        C.GetComponent<Head_Animations>().Do_LookDown_Anim();
         Anim_Done = true;
     }
 }

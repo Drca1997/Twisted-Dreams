@@ -8324,6 +8324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441e6ee1632cd0a4a83e1f8bb29d7790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SarahCamera: {fileID: 1203797384}
 --- !u!65 &537561864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18261,9 +18262,10 @@ GameObject:
   - component: {fileID: 1203797387}
   - component: {fileID: 1203797386}
   - component: {fileID: 1203797385}
+  - component: {fileID: 1203797388}
   m_Layer: 0
   m_Name: SarahCamara
-  m_TagString: Untagged
+  m_TagString: SarahCamara
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18315,6 +18317,20 @@ Transform:
   m_Father: {fileID: 518751486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203797388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203797384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dab2cd5a1345344eae013ce2ac583ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min_time_between_rand_anims: 4
+  max_time_between_rand_anims: 12
 --- !u!1 &1206364523
 GameObject:
   m_ObjectHideFlags: 0
@@ -20105,7 +20121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1381004631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c24ccd5f09022643ba2ab9625fc2b24, type: 3}
+  m_Script: {fileID: 11500000, guid: a800341a83ff2fb49b669f9942ed7bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PMenu: {fileID: 1381004631}
@@ -25252,19 +25268,19 @@ PrefabInstance:
       objectReference: {fileID: 1488853148}
     - target: {fileID: 10804804, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 1.810905e+22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 10804804, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 4.36048e+27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 10804804, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 3.8256393e+21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 10804804, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 893.7031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11442134, guid: ef94d4274068ef047aaa846843c42d3a, type: 3}
       propertyPath: currentDisplay
@@ -27173,6 +27189,10 @@ MonoBehaviour:
   mtdaswt: 2
   porta_prompt: {fileID: 290135122}
   C: {fileID: 1203797384}
+  time_to_wait: 5
+  change_of_mind: {fileID: 4900000, guid: 27c63b1c1d7bf9840b1fe7e1ecde00e3, type: 3}
+  hasPhone: {fileID: 6959129686781698355, guid: bc3ace6a1127a4f41aea9c244849ddd0,
+    type: 3}
 --- !u!1 &1817449700
 GameObject:
   m_ObjectHideFlags: 0
@@ -29760,9 +29780,13 @@ MonoBehaviour:
     source: {fileID: 0}
     nome: Interaction_Possible
     volume: 1
-  - clip: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b770ab438b73b8e4080ed810fd550f91, type: 3}
     source: {fileID: 0}
-    nome: 
+    nome: Quente_Frio
+    volume: 1
+  - clip: {fileID: 8300000, guid: a5f0eef304378274f8e878e7003d0e76, type: 3}
+    source: {fileID: 0}
+    nome: Bonk
     volume: 1
 --- !u!224 &1951785791
 RectTransform:
