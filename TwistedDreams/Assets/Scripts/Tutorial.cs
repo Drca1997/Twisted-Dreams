@@ -87,8 +87,8 @@ public class Tutorial : MonoBehaviour
            
             dialogSystem.ReStart(change_of_mind, false);
             dialogSystem.ActivateDialog(false);
-            FindObjectOfType<Head_Animations>().Close_Eyes_Anim();
-            SceneManager.LoadScene("Galeria");
+            FindObjectOfType<Head_Animations>().Close_Eyes_Anim("Galeria");
+            
         }
 
     }

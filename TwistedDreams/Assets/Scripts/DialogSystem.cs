@@ -452,7 +452,7 @@ public class DialogSystem : MonoBehaviour
     // Funcao que determina se o dialogo ja terminou.
     public bool Is_Dialog_Finished()
     {
-        Debug.Log("cURRENTlINE: " + currentLine + "ENDaTlINE: " + endAtLine);
+        //Debug.Log("cURRENTlINE: " + currentLine + "ENDaTlINE: " + endAtLine);
         return (currentLine > endAtLine ? true : false); 
     }
 

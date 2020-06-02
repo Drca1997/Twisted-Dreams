@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Head_Animations : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class Head_Animations : MonoBehaviour
         animator.ResetTrigger("Close_Eyes");
         animator.SetInteger("Random_Int", num);
         animator.SetTrigger("Random_Trigger");
-        Debug.Log("Random Anim: " + num);
+       
     }
 
     public void Do_Horizontal_Headshake()
@@ -137,7 +138,7 @@ public class Head_Animations : MonoBehaviour
 
     }
 
-    public void Close_Eyes_Anim()
+    public IEnumerator Close_Eyes_Anim(string next_scene_name)
     {
         Debug.Log("Close Eyes");
         animator.ResetTrigger("X_Shake");
@@ -148,13 +149,19 @@ public class Head_Animations : MonoBehaviour
         animator.ResetTrigger("Novo_Slide");
         animator.SetInteger("Random_Int", 0);
         animator.SetTrigger("Close_Eyes");
-        StartCoroutine(DelayedLoad());
+        yield return StartCoroutine(DelayedLoad(next_scene_name));
+        SceneManager.LoadScene(next_scene_name);
     }
 
-    IEnumerator DelayedLoad()
+    IEnumerator DelayedLoad(string next_scene_name)
     {
         Debug.Log("Delaying...");
         //Wait until clip finish playing
         yield return new WaitForSeconds(2); //duraçao da animaçao de fechar os olhos
+        
     }
+
+    
+
+
 }

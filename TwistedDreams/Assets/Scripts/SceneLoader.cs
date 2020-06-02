@@ -23,14 +23,14 @@ public class SceneLoader : MonoBehaviour
             if (head_animations)
             {
                 Debug.Log("HEAD ANIMATIONS");
-                head_animations.Close_Eyes_Anim();
+                head_animations.Close_Eyes_Anim(next_scene_name);
             }
             else
             {
                 Debug.Log("HEAD ANIMATIONS NULL");
             }
           
-            SceneManager.LoadScene(next_scene_name);
+           
         }
     }
 

@@ -14,7 +14,9 @@ public class Interactable : MonoBehaviour
     private Scene cena;
     private Revelation revelacao;
     private Tutorial tutorial;
+    private Paper paper;
     private GameObject player;
+    private GreenToRed forest;
 
     private void Awake()
     {
@@ -79,14 +81,50 @@ public class Interactable : MonoBehaviour
                 {
                     Destroy(TextUI);
                     Destroy(gameObject);
-
-                    //C: "Nice Phone!"
+                    GameObject phone = Instantiate(GameObject.FindGameObjectWithTag("GameController").GetComponent<Tutorial>().hasPhone);
+                    DontDestroyOnLoad(phone);
+                    Debug.Log(phone);
+                    if (FindObjectOfType<DialogSystem>().Is_Dialog_Finished())
+                        FindObjectOfType<DialogSystem>().independentDialog("???", "Nice Phone!");
+                    
                 }
                 else if(gameObject.tag == "Door")
                 {
                     tutorial = GameObject.FindGameObjectWithTag("GameController").GetComponent<Tutorial>();
                     tutorial.DoorAnimation(gameObject);
                 }
+            }
+            else if (cena.name == "ForestLevel")
+            {
+                if (gameObject.tag.CompareTo("Car") == 0)
+                {
+                    forest = GameObject.FindGameObjectWithTag("GameCo").GetComponent<GreenToRed>(); 
+                }
+            }
+            else if (cena.name == "Paper")
+            {
+                if (gameObject.tag == "Puzzle" && GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>().Picked() == 4)
+                {
+                    Destroy(TextUI);
+                    SceneManager.LoadScene("2D Puzzle");
+                }
+                if (gameObject.tag == "Lever")
+                {
+                    Destroy(TextUI);
+                    Debug.Log("on it boss");
+                    paper = GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>();
+                    paper.SwitchCam();
+
+                }
+                else if (gameObject.tag == "Piece")
+                {
+                    Destroy(TextUI);
+                    Debug.Log("on it boss");
+                    paper = GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>();
+                    paper.PiecePickUP();
+                    Destroy(gameObject);
+                }
+
             }
             else if (cena.name == "CamsLevel")
             {
@@ -119,7 +157,7 @@ public class Interactable : MonoBehaviour
                 {
                     if (FindObjectOfType<CamsLevel>().getBidoes_Apanhados() == 5)
                     {
-                        Application.Quit();
+                        SceneManager.LoadScene("ClimbingCliff");
                     }
                     else
                     {
