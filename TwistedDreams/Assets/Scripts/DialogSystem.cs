@@ -80,13 +80,6 @@ public class DialogSystem : MonoBehaviour
 
     private void Awake()
     {
-        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
         nonindep = false;
         writefText.text = "";
 
@@ -106,6 +99,11 @@ public class DialogSystem : MonoBehaviour
 
         // Linha inicial. Começa do 1 pois o indice 0 contem quem disse, enquanto que o indice 1 tem o que disse. Aumenta sempre de 2 em 2.
         currentLine = 1;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
 
         // Comecar com definiçoes default: continuar automatico desligado; efeito de escrita ligado.
         autoDialog = PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false;

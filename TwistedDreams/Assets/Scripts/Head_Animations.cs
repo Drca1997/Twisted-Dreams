@@ -157,7 +157,7 @@ public class Head_Animations : MonoBehaviour
     {
         Debug.Log("Delaying...");
         //Wait until clip finish playing
-        yield return new WaitForSeconds(2); //duraçao da animaçao de fechar os olhos
+        yield return new WaitForSeconds(2.5f); //duraçao da animaçao de fechar os olhos
         SceneManager.LoadScene(next_scene_name);
     }
 

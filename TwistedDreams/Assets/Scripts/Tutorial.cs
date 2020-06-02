@@ -96,7 +96,7 @@ public class Tutorial : MonoBehaviour
             
             
         }
-        if (wait_finish == 2)
+        if (wait_finish == 2 && dialogSystem.Is_Dialog_Finished())
         {
             FindObjectOfType<Head_Animations>().Close_Eyes_Anim("Galeria");
         }

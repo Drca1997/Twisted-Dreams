@@ -20,18 +20,27 @@ public class Quente_Frio : MonoBehaviour
     private DialogSystem dialogSystem;
     private string trigger_sentence;
     private GameObject phone;
+    public GameObject CanvasPhone;
+    public GameObject CanvasNoPhone;
     private void Awake()
     {
         phone = GameObject.FindGameObjectWithTag("HasPhone");
-        dialogSystem = gameObject.GetComponentInChildren<DialogSystem>();
+        
         Debug.Log(phone);
         if (phone == null)
         {
 
+            CanvasPhone.SetActive(false);
+            CanvasNoPhone.SetActive(true);
+            dialogSystem = gameObject.GetComponentInChildren<DialogSystem>();
             dialogSystem.textFile = no_phone;
+            
         }
         else
         {
+            CanvasPhone.SetActive(true);
+            CanvasNoPhone.SetActive(false);
+            dialogSystem = gameObject.GetComponentInChildren<DialogSystem>();
             sneak_away = false;
             s = FindObjectOfType<AudioManager>().getSom("Quente_Frio");
             bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
