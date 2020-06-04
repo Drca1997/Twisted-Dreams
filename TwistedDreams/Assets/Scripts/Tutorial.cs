@@ -123,6 +123,7 @@ public class Tutorial : MonoBehaviour
         porta.GetComponent<BoxCollider>().enabled = true;
         porta.GetComponent<cakeslice.Outline>().enabled = false;
         porta_prompt.SetText("");
+        Destroy(porta.GetComponent<Interactable>());
     }
 
     public void Camera_Animation()

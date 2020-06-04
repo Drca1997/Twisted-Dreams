@@ -12,6 +12,7 @@ public class Head_Animations : MonoBehaviour
     public float min_time_between_rand_anims;
     [Tooltip("Quanto tempo máximo entre animações aleatórias")]
     public float max_time_between_rand_anims;
+    public bool RandomHeadAnimations;
 
     private void Awake()
     {
@@ -39,7 +40,10 @@ public class Head_Animations : MonoBehaviour
     {
         //float length = animator.GetCurrentAnimatorStateInfo(0).length;
         //string name = animator.n
-
+        if (!RandomHeadAnimations)
+        {
+            return false;
+        }
         return true;
     }
 

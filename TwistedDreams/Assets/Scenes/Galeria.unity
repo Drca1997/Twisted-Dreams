@@ -2849,7 +2849,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 773b63f404a8fa54f867b7da5ca6a5e1, type: 3}
   time_lapse: {fileID: 1313342951}
   C: {fileID: 432048252}
-  time_on_screen: 3
+  time_on_screen: 5
   final: {fileID: 4900000, guid: fc9ff8743c4a5c948ae1350764996af3, type: 3}
 --- !u!1 &182979396
 GameObject:
@@ -7713,6 +7713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min_time_between_rand_anims: 4
   max_time_between_rand_anims: 12
+  RandomHeadAnimations: 0
 --- !u!95 &432048255
 Animator:
   serializedVersion: 3
@@ -19934,13 +19935,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313342951}
-  m_LocalRotation: {x: -0, y: 0.9422995, z: -0, w: -0.33477122}
-  m_LocalPosition: {x: 3.479653, y: 0.04116893, z: -1.4823492}
-  m_LocalScale: {x: 0.09999999, y: 0.1, z: 0.09999999}
+  m_LocalRotation: {x: -0, y: 0.81658643, z: -0, w: -0.5772232}
+  m_LocalPosition: {x: 3.628, y: -0.141, z: -1.43}
+  m_LocalScale: {x: 0.10211237, y: 0.08646074, z: 0.09999999}
   m_Children: []
   m_Father: {fileID: 182605345}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 219.11699, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 250.51099, z: 0}
 --- !u!1 &1313605434
 GameObject:
   m_ObjectHideFlags: 0

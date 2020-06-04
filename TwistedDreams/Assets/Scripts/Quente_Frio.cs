@@ -109,7 +109,8 @@ public class Quente_Frio : MonoBehaviour
             {
                 //Muda para a cena seguinte
                 Debug.Log("ACABOU A CENA");
-                UnityEngine.SceneManagement.SceneManager.LoadScene("CamsLevel");
+                //UnityEngine.SceneManagement.SceneManager.LoadScene("CamsLevel");
+                sarah_camera.GetComponent<Head_Animations>().Close_Eyes_Anim("ForestLevel");
             }
 
             if (player.GetComponent<PlayerInput>().is_paused)
@@ -134,8 +135,9 @@ public class Quente_Frio : MonoBehaviour
             if (dialogSystem.Is_Dialog_Finished())
             {
                 //Guarda Conquista de Final
-                //sair ou restart? 
-                Application.Quit();
+
+                //Restart
+                sarah_camera.GetComponent<Head_Animations>().Close_Eyes_Anim("Tutorial");
             }
         }
         
@@ -152,7 +154,7 @@ public class Quente_Frio : MonoBehaviour
         }
         else
         {
-            s.source.volume = 1 - distancia * 14/ 100;
+            s.source.volume = 1 - distancia * 12/ 100;
         }
     }
 

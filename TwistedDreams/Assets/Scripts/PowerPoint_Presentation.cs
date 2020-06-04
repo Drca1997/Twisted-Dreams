@@ -18,6 +18,7 @@ public class PowerPoint_Presentation : MonoBehaviour
     public float time_on_screen;
     public TextAsset final;
     private bool [] Anims_Done;
+    private int wait_finish;
     private void Awake()
     {
         dialogSystem = FindObjectOfType<DialogSystem>();
@@ -32,14 +33,15 @@ public class PowerPoint_Presentation : MonoBehaviour
         {
             Anims_Done[i] = false;
         }
+        wait_finish = 0;
     }
     // Update is called once per frame
     void Update()
     {
         
-        if (dialogSystem.is_active())
+        if (dialogSystem.is_active() && wait_finish == 0)
         {
-            if (dialogSystem.GetCurrentLine().Contains(slide2_trigger) && !Anims_Done[0])
+            if (dialogSystem.GetCurrentLine().Contains(slide1_trigger) && !Anims_Done[0])
             {
                 tela.GetComponent<SpriteRenderer>().sprite = slides[0];
                 C.GetComponent<Head_Animations>().Do_NewSlide_Anim();
@@ -54,31 +56,39 @@ public class PowerPoint_Presentation : MonoBehaviour
             else if (dialogSystem.GetCurrentLine().Contains(slide3_trigger) && !Anims_Done[2])
             {
                 tela.GetComponent<SpriteRenderer>().sprite = slides[2];
-                animator.SetTrigger("Novo_Slide");
+                C.GetComponent<Head_Animations>().Do_NewSlide_Anim();
                 Anims_Done[2] = true;
             }
             else if (dialogSystem.GetCurrentLine().Contains(slide4_trigger) && !Anims_Done[3])
             {
                 tela.GetComponent<SpriteRenderer>().sprite = slides[3];
-                animator.SetTrigger("Novo_Slide");
+                C.GetComponent<Head_Animations>().Do_NewSlide_Anim();
                 Anims_Done[3] = true;
+                wait_finish++;
             }
             
         }
-        if (dialogSystem.Is_Dialog_Finished())
+        if (dialogSystem.Is_Dialog_Finished() && wait_finish==1)
         {
             time_lapse.GetComponent<SpriteRenderer>().enabled = true;
             time_on_screen -= Time.deltaTime;
             animator.ResetTrigger("Novo_Slide");
+           
         }
-        if (time_on_screen <= 0)
+        else if (dialogSystem.Is_Dialog_Finished() && wait_finish == 2)
+        {
+            //escolha de fim            
+        }
+        if (time_on_screen <= 0 && wait_finish==1)
         {
             time_lapse.GetComponent<SpriteRenderer>().enabled = false;
             tela.GetComponent<SpriteRenderer>().sprite = slides[4];
-            animator.SetTrigger("Novo_Slide");
+            C.GetComponent<Head_Animations>().Do_NewSlide_Anim();
             dialogSystem.ReStart(final, false);
             dialogSystem.ActivateDialog(false);
+            wait_finish++;
         }
+        
        
     }
 }
