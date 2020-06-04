@@ -30,7 +30,11 @@ public class GreenToRed : MonoBehaviour
     private int wait_finish;
     private bool is_moving;
     public TextAsset[] guioes;
+    [SerializeField]
     private bool started_walking;
+    private float time;
+    private NavMeshAgent agent;
+    private Transform target;
 
 
     private void Awake()
@@ -43,14 +47,15 @@ public class GreenToRed : MonoBehaviour
         SunShafts = camara.GetComponent<SunShafts>();
         GlobalFog = camara.GetComponent<GlobalFog>();
         ColorCorrectionCurves = camara.GetComponent<ColorCorrectionCurves>();
-       
-        actual_waypoint = -1;
+        agent = C.GetComponent<NavMeshAgent>();
+        actual_waypoint = 0;
         rb = C.GetComponent<Rigidbody>();
         dialogSystem = FindObjectOfType<DialogSystem>();
         parado = new Vector3 (0, 0, 0);
         dialogSystem.ActivateDialog(false);
         wait_finish = 0;
         is_moving = false;
+        time = 1f;
         started_walking = false;
     }
 
@@ -58,48 +63,55 @@ public class GreenToRed : MonoBehaviour
     private void Update()
     {
         
-        if (is_moving)
+       if (dialogSystem.Is_Dialog_Finished())
         {
             MoveCamera();
-        }
-        /*if (dialogSystem.Is_Dialog_Finished() && wait_finish < 8)
-        {
-            MoveCamera();
+            FaceTarget();
             
-        }
-       */
-        
-
-        if (dialogSystem.Is_Dialog_Finished() && rb.velocity == parado)
-        {
-
-            actual_waypoint++;
-            passo = actual_waypoint;
-            Lets_Get_Trippy(passo);
-            wait_finish++;
-            is_moving = true;
-            if (actual_waypoint > 0)
+            if (agent.velocity == parado && !started_walking)
             {
+                started_walking = true;
+            }
+            else if (agent.velocity == parado && started_walking)
+            {
+                started_walking = false;
+                actual_waypoint++;
+                passo++;
+                Lets_Get_Trippy(passo);
                 dialogSystem.ReStart(guioes[actual_waypoint - 1], true);
                 dialogSystem.ActivateDialog(true);
             }
-            
-        }
-        
 
+       }
+      
+      
         
     }
 
 
+
     public void MoveCamera()
     {
-   
-        Vector3 dir = (WayPoints[actual_waypoint].transform.position - C.transform.position).normalized * camera_speed;
+        target = WayPoints[actual_waypoint].transform;
+        agent.SetDestination(target.position);
+        FaceTarget();
+        /*Vector3 dir = (WayPoints[actual_waypoint].transform.position - C.transform.position).normalized * camera_speed;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
         GameObject.FindGameObjectWithTag("MainCamera").transform.rotation = 
             Quaternion.Slerp(GameObject.FindGameObjectWithTag("MainCamera").transform.rotation, lookRotation, Time.deltaTime * 3f);
         rb.velocity = dir;
+        Debug.Log(rb.velocity);
+        float distance = Vector3.Distance(WayPoints[actual_waypoint].transform.position, C.transform.position);
+        Debug.Log(distance);
+        */
+    }
 
+    void FaceTarget()
+    {
+        
+        Vector3 direction = (target.position - C.transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        C.transform.rotation = Quaternion.Slerp(C.transform.rotation, lookRotation, Time.deltaTime * 3f);
     }
 
     public void ChangeTexture()
@@ -146,6 +158,7 @@ public class GreenToRed : MonoBehaviour
     {
         C.GetComponent<Head_Animations>().Close_Eyes_Anim(next_scene);
     }
+
 
 
 }
