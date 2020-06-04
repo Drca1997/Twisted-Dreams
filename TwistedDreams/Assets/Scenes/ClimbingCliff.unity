@@ -878,6 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min_time_between_rand_anims: 4
   max_time_between_rand_anims: 12
+  RandomHeadAnimations: 0
 --- !u!95 &191064206
 Animator:
   serializedVersion: 3
@@ -1813,6 +1814,7 @@ MonoBehaviour:
   speedSmoothTime: 0.05
   pauseMenu: {fileID: 2004429719}
   is_paused: 0
+  C: {fileID: 191064203}
 --- !u!82 &386086277
 AudioSource:
   m_ObjectHideFlags: 0

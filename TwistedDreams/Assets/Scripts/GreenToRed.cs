@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityStandardAssets.ImageEffects;
+
 
 public class GreenToRed : MonoBehaviour
 {
@@ -13,9 +15,23 @@ public class GreenToRed : MonoBehaviour
     private SunShafts SunShafts;
     private GlobalFog GlobalFog;
     private ColorCorrectionCurves ColorCorrectionCurves;
-    public float time;
-    private float time_temp;
+ 
+    public GameObject C;
+    public GameObject[] WayPoints;
+    [SerializeField]
+    private int actual_waypoint;
+    private Rigidbody rb;
+    private DialogSystem dialogSystem;
+    private Vector3 parado;
+    public float camera_speed;
+    [SerializeField]
     private int passo;
+    [SerializeField]
+    private int wait_finish;
+    private bool is_moving;
+    public TextAsset[] guioes;
+    private bool started_walking;
+
 
     private void Awake()
     {
@@ -27,25 +43,63 @@ public class GreenToRed : MonoBehaviour
         SunShafts = camara.GetComponent<SunShafts>();
         GlobalFog = camara.GetComponent<GlobalFog>();
         ColorCorrectionCurves = camara.GetComponent<ColorCorrectionCurves>();
-        passo = 0;
-        time_temp = time;
+       
+        actual_waypoint = -1;
+        rb = C.GetComponent<Rigidbody>();
+        dialogSystem = FindObjectOfType<DialogSystem>();
+        parado = new Vector3 (0, 0, 0);
+        dialogSystem.ActivateDialog(false);
+        wait_finish = 0;
+        is_moving = false;
+        started_walking = false;
     }
 
 
     private void Update()
     {
-        //temporario, so para testar
-        if (Input.GetKeyDown(KeyCode.E))
+        
+        if (is_moving)
         {
-            ChangeTexture();
+            MoveCamera();
         }
-        time -= Time.deltaTime;
-        if (time <= 0)
+        /*if (dialogSystem.Is_Dialog_Finished() && wait_finish < 8)
         {
-            passo++;
+            MoveCamera();
+            
+        }
+       */
+        
+
+        if (dialogSystem.Is_Dialog_Finished() && rb.velocity == parado)
+        {
+
+            actual_waypoint++;
+            passo = actual_waypoint;
             Lets_Get_Trippy(passo);
-            time = time_temp;
+            wait_finish++;
+            is_moving = true;
+            if (actual_waypoint > 0)
+            {
+                dialogSystem.ReStart(guioes[actual_waypoint - 1], true);
+                dialogSystem.ActivateDialog(true);
+            }
+            
         }
+        
+
+        
+    }
+
+
+    public void MoveCamera()
+    {
+   
+        Vector3 dir = (WayPoints[actual_waypoint].transform.position - C.transform.position).normalized * camera_speed;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
+        GameObject.FindGameObjectWithTag("MainCamera").transform.rotation = 
+            Quaternion.Slerp(GameObject.FindGameObjectWithTag("MainCamera").transform.rotation, lookRotation, Time.deltaTime * 3f);
+        rb.velocity = dir;
+
     }
 
     public void ChangeTexture()
@@ -81,8 +135,17 @@ public class GreenToRed : MonoBehaviour
         {
             //ultimo passo
             ChangeTexture();
+            
         }
+        
 
       
     }
+
+    public void LoadNextScene(string next_scene)
+    {
+        C.GetComponent<Head_Animations>().Close_Eyes_Anim(next_scene);
+    }
+
+
 }

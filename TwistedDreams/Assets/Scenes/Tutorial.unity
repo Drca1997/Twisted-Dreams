@@ -27937,6 +27937,7 @@ MonoBehaviour:
   speedSmoothTime: 0.05
   pauseMenu: {fileID: 1381004631}
   is_paused: 0
+  C: {fileID: 1203797384}
 --- !u!65 &1848664520
 BoxCollider:
   m_ObjectHideFlags: 0

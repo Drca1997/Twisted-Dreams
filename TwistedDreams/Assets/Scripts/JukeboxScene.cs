@@ -5,6 +5,7 @@ using UnityEngine;
 public class JukeboxScene : MonoBehaviour
 {
     public float time;
+    public GameObject C;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class JukeboxScene : MonoBehaviour
        
         if (time <= 0)
         {
-            Application.Quit();
+            C.GetComponent<Head_Animations>().Close_Eyes_Anim("Tutorial");
         }
     }
 }

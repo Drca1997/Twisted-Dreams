@@ -37,6 +37,7 @@ public class PlayerInput : MonoBehaviour
     public GameObject pauseMenu;
     public bool is_paused = false;
     private bool was_playing = false;
+    public GameObject C;
  
     void Start()
     {
@@ -237,6 +238,13 @@ public class PlayerInput : MonoBehaviour
                 }
             }
         }
+        else if (collision.gameObject.CompareTag("John") && cena.name == "ForestLevel" && Time.timeScale > 0.0f)
+        {
+            C.GetComponent<Head_Animations>().Close_Eyes_Anim("Paper");
+        }
+        
+
+        
     }
 
     public void OnCollisionExit(Collision collision)

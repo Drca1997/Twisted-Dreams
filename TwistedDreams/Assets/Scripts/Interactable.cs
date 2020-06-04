@@ -98,7 +98,8 @@ public class Interactable : MonoBehaviour
             {
                 if (gameObject.tag.CompareTo("Car") == 0)
                 {
-                    forest = GameObject.FindGameObjectWithTag("GameCo").GetComponent<GreenToRed>(); 
+                    forest = GameObject.FindGameObjectWithTag("GameCo").GetComponent<GreenToRed>();
+                    forest.LoadNextScene("Free Driving Scene");
                 }
             }
             else if (cena.name == "Paper")
