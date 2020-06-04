@@ -78,6 +78,8 @@ public class DialogSystem : MonoBehaviour
 
     private Coroutine autoDialogWait;
 
+    private bool just_skipped = false;
+
     private void Awake()
     {
         nonindep = false;
@@ -129,6 +131,7 @@ public class DialogSystem : MonoBehaviour
             // So faz update se dialogo tiver sido ativado, o efeito de escrita tiver acabado ou ainda n tiver começado e o jogador n esteja a verificar o historico
             if (active && WEfinished && !getLogStatus() && !nonindep)
             {
+
                 // mostrar caixas de dialogo e de quem disse
                 textBoxPanel.SetActive(true);
                 whoBoxPanel.SetActive(true);
@@ -142,7 +145,7 @@ public class DialogSystem : MonoBehaviour
 
                 // Next Line on dialog 
                 // Input para avançar no dialogo - So se o dialogo automatico estiver desligado e o dialogo atual tiver terminado de ser escrito.
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(KeyCode.Q) && !just_skipped)
                 {
                     if (finished_current_line)
                     {
@@ -191,6 +194,7 @@ public class DialogSystem : MonoBehaviour
                 }
             }
         }
+        just_skipped = false;
     }
 
     // Para escrever a proxima linha
@@ -473,5 +477,10 @@ public class DialogSystem : MonoBehaviour
     {
         
         return dialogLines[currentLine];
+    }
+
+    public void skipped_line()
+    {
+        just_skipped = true;
     }
 }

@@ -38,6 +38,8 @@ public class PlayerInput : MonoBehaviour
     public bool is_paused = false;
     private bool was_playing = false;
     public GameObject C;
+    private bool movable_scene = true;
+
  
     void Start()
     {
@@ -55,12 +57,13 @@ public class PlayerInput : MonoBehaviour
     public void Update()
     {
         // Jump
-        if (Input.GetKeyDown("space") && Time.timeScale > 0.0f && can_jump && Canvas.GetComponent<DialogSystem>().getMovable())
+        if (Input.GetKeyDown("space") && Time.timeScale > 0.0f && can_jump && Canvas.GetComponent<DialogSystem>().getMovable() && movable_scene)
             rg.AddForce(salto, ForceMode.Impulse);
 
         // Skip writing effect on dialog
         if (Input.GetKeyDown(KeyCode.Q) && Time.timeScale > 0.0f && !Canvas.GetComponent<DialogSystem>().is_in_independent() && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
             Canvas.GetComponent<DialogSystem>().finishText(true);
+            Canvas.GetComponent<DialogSystem>().skipped_line();
         }
         // Enable auto continue on dialog
         if (Input.GetKeyDown(KeyCode.X) && Time.timeScale > 0.0f && !Canvas.GetComponent<DialogSystem>().getLogStatus())
@@ -114,7 +117,7 @@ public class PlayerInput : MonoBehaviour
 // Update is called once per frame
     void FixedUpdate()
     {
-        if (Canvas.GetComponent<DialogSystem>().getMovable())
+        if (Canvas.GetComponent<DialogSystem>().getMovable() && movable_scene)
         {
             //movimento.x = -Input.GetAxis("Horizontal");
             //movimento.z = -Input.GetAxis("Vertical");
@@ -277,5 +280,10 @@ public class PlayerInput : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void change_movable_scene(bool value)
+    {
+        movable_scene = value;
     }
 }
