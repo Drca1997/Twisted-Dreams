@@ -5,7 +5,9 @@ using UnityEngine;
 public class PowerPoint_Presentation : MonoBehaviour
 {
     public GameObject tela;
+    public GameObject choice_canvas;
     private DialogSystem dialogSystem;
+    private PlayerInput inputScript;
     private string slide1_trigger;
     private string slide2_trigger;
     private string slide3_trigger;
@@ -19,9 +21,12 @@ public class PowerPoint_Presentation : MonoBehaviour
     public TextAsset final;
     private bool [] Anims_Done;
     private int wait_finish;
+    private bool choice_made = false;
+    private int choice;
     private void Awake()
     {
         dialogSystem = FindObjectOfType<DialogSystem>();
+        inputScript = FindObjectOfType<PlayerInput>();
         slide1_trigger = "So, here we go. Since you don't remember s**t, I prepared a PowerPoint presentation to explain you the situation.";
         slide2_trigger = "As you already now, you are dreaming.";
         slide3_trigger = "And bad news for you, because it's actually a nightmare.";
@@ -34,11 +39,12 @@ public class PowerPoint_Presentation : MonoBehaviour
             Anims_Done[i] = false;
         }
         wait_finish = 0;
+        inputScript.change_movable_scene(false);
     }
     // Update is called once per frame
     void Update()
     {
-        
+
         if (dialogSystem.is_active() && wait_finish == 0)
         {
             if (dialogSystem.GetCurrentLine().Contains(slide1_trigger) && !Anims_Done[0])
@@ -66,18 +72,19 @@ public class PowerPoint_Presentation : MonoBehaviour
                 Anims_Done[3] = true;
                 wait_finish++;
             }
-            
         }
+
         if (dialogSystem.Is_Dialog_Finished() && wait_finish==1)
         {
             time_lapse.GetComponent<SpriteRenderer>().enabled = true;
             time_on_screen -= Time.deltaTime;
             animator.ResetTrigger("Novo_Slide");
-           
         }
         else if (dialogSystem.Is_Dialog_Finished() && wait_finish == 2)
         {
-            //escolha de fim            
+            //escolha de fim
+            choice_canvas.SetActive(true);
+            wait_finish++;
         }
         if (time_on_screen <= 0 && wait_finish==1)
         {
@@ -89,6 +96,31 @@ public class PowerPoint_Presentation : MonoBehaviour
             wait_finish++;
         }
         
-       
+       if(wait_finish == 3 && choice_made)
+       {
+            choice_canvas.SetActive(false);
+            inputScript.change_movable_scene(true);
+            if (choice == 1) // Stay 
+            {
+                C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final B");
+            }
+            else // Get out
+            {
+
+                C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final A");
+            }
+       }
+    }
+    public void choice1()
+    {
+        choice_made = true;
+        choice = 1;
+    }
+
+    public void choice2()
+    {
+        choice_made = true;
+        choice = 2;
     }
 }
+
