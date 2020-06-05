@@ -1803,7 +1803,7 @@ MonoBehaviour:
   autoText: {fileID: 284164677}
   writefText: {fileID: 572045367}
   logText: {fileID: 252903335}
-  textFile: {fileID: 4900000, guid: 17b4967d3e99ffa4281ea758d618bf8a, type: 3}
+  textFile: {fileID: 4900000, guid: f90207d354b00f646840e8ef6f2abaae, type: 3}
   active: 0
   typeDelay: 0.01
   movable: 0
@@ -2490,6 +2490,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476993154}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!84 &490404148
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 540
+  m_Height: 502
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &520643722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3830,7 +3865,7 @@ MonoBehaviour:
   autoText: {fileID: 1948094560}
   writefText: {fileID: 1892963523}
   logText: {fileID: 935539299}
-  textFile: {fileID: 4900000, guid: d5442c80313d00b48ad3183f105c5d87, type: 3}
+  textFile: {fileID: 4900000, guid: 853de8aaad83ddf49ae7b2682b263666, type: 3}
   active: 0
   typeDelay: 0.01
   movable: 0
@@ -4435,41 +4470,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873945152}
   m_CullTransparentMesh: 0
---- !u!84 &876776820
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 678
-  m_Height: 507
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &908065529
 GameObject:
   m_ObjectHideFlags: 0
@@ -5966,9 +5966,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 394632326}
   sarah_camera: {fileID: 1118402669}
-  final: {fileID: 4900000, guid: 6011e661b5de55042a5e4928e2d05d30, type: 3}
-  away: {fileID: 4900000, guid: ca5088b73c06b4d4b8783ef198cad69a, type: 3}
-  no_phone: {fileID: 4900000, guid: d5442c80313d00b48ad3183f105c5d87, type: 3}
+  final: {fileID: 4900000, guid: d3a110efa3478b5458f89eb7d586f945, type: 3}
+  away: {fileID: 4900000, guid: 7e6dc6c9ae9afbe419d7e1d21d36d846, type: 3}
+  no_phone: {fileID: 4900000, guid: 853de8aaad83ddf49ae7b2682b263666, type: 3}
   CanvasPhone: {fileID: 296579030}
   CanvasNoPhone: {fileID: 770213219}
 --- !u!4 &1168370413
@@ -6443,7 +6443,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 876776820}
+  m_TargetTexture: {fileID: 490404148}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -6694,8 +6694,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 1413030116}
   outlineCamera: {fileID: 1342359341}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 876776820}
-  extraRenderTexture: {fileID: 1818402554}
+  renderTexture: {fileID: 490404148}
+  extraRenderTexture: {fileID: 1819449332}
 --- !u!114 &1413030103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9489,7 +9489,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810302976}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &1818402554
+--- !u!84 &1819449332
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9502,8 +9502,8 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   serializedVersion: 3
-  m_Width: 678
-  m_Height: 507
+  m_Width: 540
+  m_Height: 502
   m_AntiAliasing: 1
   m_MipCount: -1
   m_DepthFormat: 1

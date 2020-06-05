@@ -102,12 +102,12 @@ public class PowerPoint_Presentation : MonoBehaviour
             inputScript.change_movable_scene(true);
             if (choice == 1) // Stay 
             {
-                C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final B");
+                C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final_B");
             }
             else // Get out
             {
 
-                C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final A");
+                C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final_A");
             }
        }
     }

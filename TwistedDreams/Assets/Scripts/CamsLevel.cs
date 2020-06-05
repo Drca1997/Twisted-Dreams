@@ -27,6 +27,7 @@ public class CamsLevel : MonoBehaviour
             Update_Timer();
             if (time <= 0)
             {
+                //Load PrecipicioFail
                 Application.Quit();
             }
         }

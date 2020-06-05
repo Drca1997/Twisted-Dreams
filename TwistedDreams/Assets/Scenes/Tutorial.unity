@@ -19504,7 +19504,7 @@ MonoBehaviour:
   autoText: {fileID: 1754657757}
   writefText: {fileID: 378375774}
   logText: {fileID: 1047403319}
-  textFile: {fileID: 4900000, guid: 95f4c5ebda5c40d4798eeb39b76e5f3d, type: 3}
+  textFile: {fileID: 4900000, guid: 70ec489de7d16c94dbc98b83a737f67b, type: 3}
   active: 0
   typeDelay: 0.01
   movable: 0
@@ -27191,7 +27191,7 @@ MonoBehaviour:
   porta_prompt: {fileID: 290135122}
   C: {fileID: 1203797384}
   time_to_wait: 60
-  change_of_mind: {fileID: 4900000, guid: 27c63b1c1d7bf9840b1fe7e1ecde00e3, type: 3}
+  change_of_mind: {fileID: 4900000, guid: a204e214a59b2d8458b399b059333d63, type: 3}
   hasPhone: {fileID: 6959129686781698355, guid: bc3ace6a1127a4f41aea9c244849ddd0,
     type: 3}
 --- !u!1 &1817449700

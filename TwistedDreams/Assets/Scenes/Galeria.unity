@@ -2853,7 +2853,7 @@ MonoBehaviour:
   time_lapse: {fileID: 1313342951}
   C: {fileID: 432048252}
   time_on_screen: 5
-  final: {fileID: 4900000, guid: fc9ff8743c4a5c948ae1350764996af3, type: 3}
+  final: {fileID: 4900000, guid: 5f462d154f830a848b8c247c7f0754fb, type: 3}
 --- !u!1 &182979396
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,6 +4877,7 @@ MonoBehaviour:
   speedSmoothTime: 0.05
   pauseMenu: {fileID: 0}
   is_paused: 0
+  C: {fileID: 0}
 --- !u!82 &246646322
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24593,7 +24594,7 @@ MonoBehaviour:
   autoText: {fileID: 681037750}
   writefText: {fileID: 637923697}
   logText: {fileID: 1124043309}
-  textFile: {fileID: 4900000, guid: bea1c7a205401b548bc84bb8f7f67f52, type: 3}
+  textFile: {fileID: 4900000, guid: d041b6b02fdeabc4db857bb62e45fa4b, type: 3}
   active: 0
   typeDelay: 0.01
   movable: 0

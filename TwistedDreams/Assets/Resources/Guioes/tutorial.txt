@@ -1,5 +1,5 @@
 SARAH
-Wait... Why am i seeing myself? It's so weird...
+Wait... Why am I seeing myself? It's so weird...
 ???
 Hey, Sarah!
 SARAH
@@ -13,17 +13,13 @@ You are seeing the world through my eyes.
 SARAH
 Ok... But why?
 SARAH
-And even more important,
-SARAH
-WHAT ARE YOU DOING IN MY BEDROOM?
+And even more important, WHAT ARE YOU DOING IN MY BEDROOM?
 ???
 Calm Down. Don't yell at me. I'm here to help you.
 SARAH
 Help me? I don't need your help. With nothing at all.
 ???
-And that's where you're wrong.
-???
-Don't you want to get out of here?
+And that's where you're wrong. Don't you want to get out of here?
 ???
 You'll need my help to do so.
 SARAH

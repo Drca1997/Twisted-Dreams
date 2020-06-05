@@ -1988,6 +1988,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450235949}
   m_CullTransparentMesh: 0
+--- !u!1 &1476913058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1476913060}
+  - component: {fileID: 1476913059}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1476913059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476913058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17a10f945c774048913fab6ddfda136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sons:
+  - clip: {fileID: 8300000, guid: f03272769909e8541bd0ab0e48532c6d, type: 3}
+    source: {fileID: 0}
+    nome: Interaction_Possible
+    volume: 1
+  - clip: {fileID: 8300000, guid: b770ab438b73b8e4080ed810fd550f91, type: 3}
+    source: {fileID: 0}
+    nome: Quente_Frio
+    volume: 1
+  - clip: {fileID: 8300000, guid: a5f0eef304378274f8e878e7003d0e76, type: 3}
+    source: {fileID: 0}
+    nome: Bonk
+    volume: 1
+--- !u!224 &1476913060
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476913058}
+  m_LocalRotation: {x: -0.015107196, y: -0.99704397, z: -0.060628787, w: 0.04471284}
+  m_LocalPosition: {x: 0, y: 0, z: -4.013}
+  m_LocalScale: {x: 0.29238, y: 0.22127, z: 0.35154998}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.2285233, y: 6.211725}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1545210273
 GameObject:
   m_ObjectHideFlags: 0
