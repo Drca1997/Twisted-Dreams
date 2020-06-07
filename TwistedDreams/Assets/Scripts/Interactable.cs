@@ -158,7 +158,7 @@ public class Interactable : MonoBehaviour
                 {
                     if (FindObjectOfType<CamsLevel>().getBidoes_Apanhados() == 5)
                     {
-                        SceneManager.LoadScene("ClimbingCliff");
+                        FindObjectOfType<CamsLevel>().AdvanceScene();
                     }
                     else
                     {

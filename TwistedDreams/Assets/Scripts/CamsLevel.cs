@@ -7,15 +7,17 @@ public class CamsLevel : MonoBehaviour
     private int bidoes_apanhados;
     public GameObject Canvas;
     private float time_left;
-    public float time;
+    private float time;
     public TMPro.TextMeshPro countdown;
     public TextAsset wall_break;
-
+    [Tooltip("Referencia ao Scriptableobject que guarda o tempo do Timer entre cenas")]
+    public Store_Time variable;
     private void Awake()
     {
         bidoes_apanhados = 0;
-        gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false);
-
+        gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false); 
+        time = variable.time;
+        Update_Timer();
     }
 
 
@@ -79,5 +81,11 @@ public class CamsLevel : MonoBehaviour
             Canvas.GetComponent<DialogSystem>().ReStart(wall_break, true);
             gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
         }
+    }
+
+    public void AdvanceScene()
+    {
+        variable.time = time;
+        FindObjectOfType<Head_Animations>().Close_Eyes_Anim("ClimbingCliff");
     }
 }

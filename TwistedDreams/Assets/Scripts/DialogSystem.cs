@@ -149,23 +149,26 @@ public class DialogSystem : MonoBehaviour
                 {
                     if (finished_current_line)
                     {
+                       
                         if (call)
                         {
                             if (autoDialogWait != null)
                             {
                                 StopCoroutine(autoDialogWait);
                             }
-                           
+
                             call = false;
                         }
                         currentLine += 2;
                         finished_current_line = false;
+                        
+                     
                     }
                 }
                 if (autoDialog)
                 {
                     // Esperar para escrever a proxima linha de dialogo - so escreve quando o tempo passar a partir do momento que terminou de escrever a linha (importante para o efeito de escrita)
-                    if (finished_current_line)
+                    if (finished_current_line && currentLine < endAtLine)
                     {
                         if (call)
                         {

@@ -9679,13 +9679,14 @@ MonoBehaviour:
   - {fileID: 357739995}
   - {fileID: 1573942380}
   - {fileID: 675057256}
-  time: 20
+  time: 720
   countdown: {fileID: 1844403984}
   MinHeighLimit: -12
   final: {fileID: 4900000, guid: 4ba968f61af429047b762f0acd070f54, type: 3}
   fail: {fileID: 4900000, guid: fb5b8166536b22e41adc1002402b30c7, type: 3}
   time_fail: {fileID: 4900000, guid: 4d1c9831b882c374bbca3371d8f66048, type: 3}
   wait_finish: 0
+  variable: {fileID: 11400000, guid: 4b76748db5219fd4eb48c4503235f5b9, type: 2}
 --- !u!1001 &798905596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16779,7 +16780,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fogShader
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
     - target: {fileID: 7622202972484669042, guid: baa82bddd6baa7e4b9b45df4a016b57e,
         type: 3}
       propertyPath: m_Enabled
@@ -22332,7 +22333,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844403982}
   m_LocalRotation: {x: 0.040652942, y: -0.00021034852, z: 0.010381054, w: 0.99911946}
-  m_LocalPosition: {x: 0, y: 0, z: 0.45}
+  m_LocalPosition: {x: 0, y: 0, z: 0.44999695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1359120162}
@@ -22340,7 +22341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 4.6600003, y: 360.024, z: 1.192}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.82, y: 1.11}
+  m_AnchoredPosition: {x: 19.820007, y: 1.1099968}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1844403984

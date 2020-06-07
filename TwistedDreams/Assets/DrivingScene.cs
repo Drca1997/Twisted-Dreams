@@ -19,6 +19,7 @@ public class DrivingScene : MonoBehaviour
     public TextAsset time_fail;
     [SerializeField]
     private int wait_finish;
+    public Store_Time variable;
     private void Awake()
     {
         dialogSystem = FindObjectOfType<DialogSystem>();
@@ -41,9 +42,12 @@ public class DrivingScene : MonoBehaviour
             car.GetComponent<CarUserControl>().enabled = true;
             wait_finish++;
             Debug.Log("FINISH FIRST DIALOG");
+            
         }
         else if (wait_finish == 3 && dialogSystem.Is_Dialog_Finished()) //Sucesso
         {
+            
+            variable.time = time;
             C.GetComponent<Head_Animations>().Close_Eyes_Anim("CamsLevel");
         }
         else if(wait_finish == 2 && dialogSystem.Is_Dialog_Finished())  // Caiu do Plano de Jogo
@@ -111,4 +115,6 @@ public class DrivingScene : MonoBehaviour
         }
         return false;
     }
+
+    
 }
