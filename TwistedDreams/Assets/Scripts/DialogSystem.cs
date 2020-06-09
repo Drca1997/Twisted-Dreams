@@ -486,4 +486,14 @@ public class DialogSystem : MonoBehaviour
     {
         just_skipped = true;
     }
+
+    public void brute_finish()
+    {
+        finishText(true);
+        currentLine = endAtLine + 1;
+        textBoxPanel.SetActive(false);
+        whoBoxPanel.SetActive(false);
+        active = false;
+        setMovable(true);
+    }
 }
