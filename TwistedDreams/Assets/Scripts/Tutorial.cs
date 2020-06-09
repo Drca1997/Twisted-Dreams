@@ -26,6 +26,7 @@ public class Tutorial : MonoBehaviour
     [Tooltip("Tempo necessário para desbloquear Cena Galeria")]
     public float time_to_wait;
     private DialogSystem dialogSystem;
+    private logSystem logSys;
     public TextAsset change_of_mind;
     public GameObject hasPhone;
     private bool dialog_has_started;
@@ -33,6 +34,7 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         dialogSystem = gameObject.GetComponentInChildren<DialogSystem>();
         dialogSystem.setMovable(true);
         startedWalking = false;
@@ -41,17 +43,16 @@ public class Tutorial : MonoBehaviour
         Anim_Done = false;
         dialog_has_started = false;
         wait_finish = 0;
-        
+        logSys.clearPrefs();
+        logSys.LoadLog();
     }
 
     private void Update()
     {
         if (dialogSystem.is_active() && !Anim_Done)
         {
-       
             if (dialogSystem.GetCurrentLine().Contains(trigger_sentence))
             {
-                
                 Camera_Animation();
             }
         }
@@ -65,23 +66,25 @@ public class Tutorial : MonoBehaviour
             }
             dialog_has_started = true;
         }
+
         if (!startedWalking && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
             startedWalkingTime = Time.time;
             startedWalking = true;
-            
         }
+
         if (startedWalking && Time.time - startedWalkingTime > mtdaswt)
         {
             Destroy(text);
         }
-        if (dialogSystem.Is_Dialog_Finished() && !blinking){
-            
-            Debug.Log("DS active: " + dialogSystem.active);
+
+        if (dialogSystem.Is_Dialog_Finished() && !blinking)
+        {
             GlowingObjects();
             blinking = true;
             wait_finish++;
         }
+
         if (blinking)
         {
             time_to_wait -= Time.deltaTime;
@@ -89,24 +92,21 @@ public class Tutorial : MonoBehaviour
 
         if (time_to_wait <= 0 && dialogSystem.Is_Dialog_Finished() && wait_finish == 1)
         {
-           
             dialogSystem.ReStart(change_of_mind, false);
             dialogSystem.ActivateDialog(false);
             wait_finish ++;
-            
-            
-        }
-        if (wait_finish == 2 && dialogSystem.Is_Dialog_Finished())
-        {
-            FindObjectOfType<Head_Animations>().Close_Eyes_Anim("Galeria");
         }
 
+        if (wait_finish == 2 && dialogSystem.Is_Dialog_Finished())
+        {
+            logSys.SaveLog();
+            FindObjectOfType<Head_Animations>().Close_Eyes_Anim("Galeria");
+        }
     }
 
     public void GlowingObjects()
     {
         GameObject porta = GameObject.FindGameObjectWithTag("Door");
-        Debug.Log("Acabou");
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cakeslice.OutlineEffect>().enabled = true;
         GameObject.FindGameObjectWithTag("Phone").GetComponent<BoxCollider>().enabled = true;
         //GameObject.FindGameObjectWithTag("Door").GetComponent<BoxCollider>().enabled = true;
@@ -114,11 +114,10 @@ public class Tutorial : MonoBehaviour
         porta.AddComponent<Interactable>();
         porta.GetComponent<Interactable>().TextUI = porta_prompt;
         porta.GetComponent<Interactable>().enabled = true;
-        
     }
 
-    public void DoorAnimation(GameObject porta) {
-        
+    public void DoorAnimation(GameObject porta)
+    {    
         porta.GetComponent<Animator>().SetTrigger("Abrir");
         porta.GetComponent<BoxCollider>().enabled = true;
         porta.GetComponent<cakeslice.Outline>().enabled = false;

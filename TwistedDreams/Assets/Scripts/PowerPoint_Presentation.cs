@@ -23,8 +23,11 @@ public class PowerPoint_Presentation : MonoBehaviour
     private int wait_finish;
     private bool choice_made = false;
     private int choice;
+    private logSystem logSys;
+
     private void Awake()
     {
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         dialogSystem = FindObjectOfType<DialogSystem>();
         inputScript = FindObjectOfType<PlayerInput>();
         slide1_trigger = "So, here we go. Since you don't remember s**t, I prepared a PowerPoint presentation to explain you the situation.";
@@ -40,6 +43,7 @@ public class PowerPoint_Presentation : MonoBehaviour
         }
         wait_finish = 0;
         inputScript.change_movable_scene(false);
+        logSys.LoadLog();
     }
     // Update is called once per frame
     void Update()
@@ -102,11 +106,14 @@ public class PowerPoint_Presentation : MonoBehaviour
             inputScript.change_movable_scene(true);
             if (choice == 1) // Stay 
             {
+                logSys.add_log("Sarah chose to stay.\n");
+                logSys.SaveLog();
                 C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final_B");
             }
             else // Get out
             {
-
+                logSys.add_log("Sarah chose to get out.\n");
+                logSys.SaveLog();
                 C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final_A");
             }
        }

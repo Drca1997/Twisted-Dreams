@@ -10,6 +10,7 @@ public class DrivingScene : MonoBehaviour
     public GameObject[] checkpoints;
     private int current_checkpoint;
     private DialogSystem dialogSystem;
+    private logSystem logSys;
     public float time;
     public TMPro.TextMeshPro countdown;
     private bool Done;
@@ -22,7 +23,9 @@ public class DrivingScene : MonoBehaviour
     public Store_Time variable;
     private void Awake()
     {
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         dialogSystem = FindObjectOfType<DialogSystem>();
+        logSys.LoadLog();
     }
     // Start is called before the first frame update
     void Start()
@@ -46,17 +49,19 @@ public class DrivingScene : MonoBehaviour
         }
         else if (wait_finish == 3 && dialogSystem.Is_Dialog_Finished()) //Sucesso
         {
-            
             variable.time = time;
+            logSys.SaveLog();
             C.GetComponent<Head_Animations>().Close_Eyes_Anim("CamsLevel");
         }
         else if(wait_finish == 2 && dialogSystem.Is_Dialog_Finished())  // Caiu do Plano de Jogo
         {
+            logSys.clearPrefs();
             C.GetComponent<Head_Animations>().Close_Eyes_Anim("Tutorial");
         }
         else if(wait_finish == 4 && dialogSystem.Is_Dialog_Finished()) // Tempo chegou ao fim
         {
             //Load PrecipicioFail
+            logSys.SaveLog();
             C.GetComponent<Head_Animations>().Close_Eyes_Anim("Precipício");
         }
         time -= Time.deltaTime;

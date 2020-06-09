@@ -50,7 +50,7 @@ public class DialogSystem : MonoBehaviour
     private int endAtLine;
 
     [Tooltip("Boolean que diz se a linha atual de dialogo ja acabou de ser imprimido no ecra com o efeito de escrita. Difere do abaixo descrito pois permite ao script playerinput averiguar se pode dar skip ao efeito de escrita.")]
-    private bool WEfinished = true;
+    private bool WEfinished;
     [Tooltip("Boolean que diz se a linha atual de dialogo ja foi impresso na totalidade no ecra.")]
     private bool finished_current_line = false;
 
@@ -80,10 +80,14 @@ public class DialogSystem : MonoBehaviour
 
     private bool just_skipped = false;
 
+    private logSystem logSys;
+
     private void Awake()
     {
+        logSys = transform.parent.Find("LogCanvas").GetComponent<logSystem>();
         nonindep = false;
         writefText.text = "";
+        WEfinished = true;
 
         // Carregar linhas de dialogo
         if (textFile != null)
@@ -159,6 +163,7 @@ public class DialogSystem : MonoBehaviour
 
                             call = false;
                         }
+                        logSys.add_log("" + dialogLines[currentLine - 1] + ": " + dialogLines[currentLine] + "\n");
                         currentLine += 2;
                         finished_current_line = false;
                         
@@ -325,6 +330,7 @@ public class DialogSystem : MonoBehaviour
     IEnumerator DialogCont(string line)
     {
         yield return new WaitForSeconds(waitTime(line));
+        logSys.add_log("" + dialogLines[currentLine - 1] + ": " + dialogLines[currentLine] + "\n");
         currentLine += 2;
         finished_current_line = false;
         call = true;
@@ -432,7 +438,7 @@ public class DialogSystem : MonoBehaviour
             contPanel.SetActive(true);
             writtingEffect = true;
             writefText.text = "";
-           
+            WEfinished = true;
 
             call = autoDialog;
 

@@ -35,10 +35,11 @@ public class GreenToRed : MonoBehaviour
     private float time;
     private NavMeshAgent agent;
     private Transform target;
-
+    private logSystem logSys;
 
     private void Awake()
     {
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         GameObject camara = GameObject.FindGameObjectWithTag("MainCamera");
         terreno = GameObject.FindGameObjectWithTag("Terrain").GetComponent<Terrain>().terrainData.terrainLayers[0];
         antiga_textura = terreno.diffuseTexture;
@@ -57,6 +58,7 @@ public class GreenToRed : MonoBehaviour
         is_moving = false;
         time = 1f;
         started_walking = false;
+        logSys.LoadLog();
     }
 
 
@@ -88,7 +90,10 @@ public class GreenToRed : MonoBehaviour
         
     }
 
-
+    //QUANDO ISTO TIVER SAIDA, METER O SEGUINTE QD FOR PARA AVANÇAR PARA O PROXIMO NIVEL:
+    //logSys.SaveLog();
+    //SE FOR PARA VOLTAR PARA O TUTORIAL:
+    //logSys.clearPrefs();
 
     public void MoveCamera()
     {

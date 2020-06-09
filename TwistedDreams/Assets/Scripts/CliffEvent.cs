@@ -12,6 +12,7 @@ public class CliffEvent : MonoBehaviour
     public float time;
     public TMPro.TextMeshPro Prompt;
     private DialogSystem dialogSystem;
+    private logSystem logSys;
     public TextAsset fail_text;
     public TextAsset middle_text;
     public TextAsset finalA_text;
@@ -26,6 +27,7 @@ public class CliffEvent : MonoBehaviour
 
     private void Awake()
     {
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         dialogSystem = FindObjectOfType<DialogSystem>();
         dialogSystem.ActivateDialog(false);
         wait_finish = 0;
@@ -33,6 +35,7 @@ public class CliffEvent : MonoBehaviour
         rb = car.GetComponent<Rigidbody>();
         car_controller = car.GetComponent<CarController>();
         car_audio = car.GetComponent<CarAudio>();
+        logSys.LoadLog();
     }
     private void Update()
     {
@@ -59,14 +62,17 @@ public class CliffEvent : MonoBehaviour
         }
         else if (dialogSystem.Is_Dialog_Finished() && wait_finish == 4) // dialogo final acabou
         {
+            logSys.SaveLog();
             C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final_A");
         }
         else if (dialogSystem.Is_Dialog_Finished() && wait_finish == 5)
         {
+            logSys.clearPrefs();
             C.GetComponent<Head_Animations>().Close_Eyes_Anim("Tutorial");
         }
         else if (dialogSystem.Is_Dialog_Finished() && wait_finish == 6)
         {
+            logSys.SaveLog();
             C.GetComponent<Head_Animations>().Close_Eyes_Anim("Final_B");
         }
 

@@ -39,14 +39,17 @@ public class SceneLoader : MonoBehaviour
         string scene_name = null;
         if (cena.name == "Tutorial")
         {
+            transform.parent.Find("LogCanvas").GetComponent<logSystem>().SaveLog();
             scene_name = "Quente_Frio";
         }
         else if (cena.name == "Quente_Frio")
         {
+            transform.parent.Find("LogCanvas").GetComponent<logSystem>().SaveLog();
             scene_name = "JukeboxScene";
         }
         else if (cena.name == "ClimbingCliff")
         {
+            transform.parent.Find("LogCanvas").GetComponent<logSystem>().SaveLog();
             scene_name = "Precipício";
         }
         return scene_name;

@@ -10,14 +10,18 @@ public class CamsLevel : MonoBehaviour
     private float time;
     public TMPro.TextMeshPro countdown;
     public TextAsset wall_break;
+    private logSystem logSys;
     [Tooltip("Referencia ao Scriptableobject que guarda o tempo do Timer entre cenas")]
     public Store_Time variable;
+
     private void Awake()
     {
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         bidoes_apanhados = 0;
         gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(false); 
         time = variable.time;
         Update_Timer();
+        logSys.LoadLog();
     }
 
 
@@ -29,6 +33,7 @@ public class CamsLevel : MonoBehaviour
             Update_Timer();
             if (time <= 0)
             {
+                logSys.SaveLog();
                 //Load PrecipicioFail
                 Application.Quit();
             }
@@ -85,6 +90,7 @@ public class CamsLevel : MonoBehaviour
 
     public void AdvanceScene()
     {
+        logSys.SaveLog();
         variable.time = time;
         FindObjectOfType<Head_Animations>().Close_Eyes_Anim("ClimbingCliff");
     }

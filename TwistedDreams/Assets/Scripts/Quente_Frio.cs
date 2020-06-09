@@ -18,6 +18,7 @@ public class Quente_Frio : MonoBehaviour
     private bool was_paused = false;
     private bool was_playing = false;
     private DialogSystem dialogSystem;
+    private logSystem logSys;
     private string trigger_sentence;
     private GameObject phone;
     public GameObject CanvasPhone;
@@ -26,14 +27,14 @@ public class Quente_Frio : MonoBehaviour
     {
         phone = GameObject.FindGameObjectWithTag("HasPhone");
         
-        Debug.Log(phone);
+        //Debug.Log(phone);
         if (phone == null)
         {
 
             CanvasPhone.SetActive(false);
             CanvasNoPhone.SetActive(true);
             dialogSystem = gameObject.GetComponentInChildren<DialogSystem>();
-            dialogSystem.textFile = no_phone;
+            dialogSystem.ReStart(no_phone, (PlayerPrefs.GetInt("AutoDialog") == 1));
             
         }
         else
@@ -54,10 +55,10 @@ public class Quente_Frio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         dialogSystem.ActivateDialog(false);
         waitfinish = 0;
-        
+        logSys.LoadLog();
     }
 
     // Update is called once per frame
@@ -90,7 +91,7 @@ public class Quente_Frio : MonoBehaviour
             if (!dialogSystem.is_active() && Is_Player_In_LOS() && distancia <= 2f && !dialogSystem.is_in_independent() && waitfinish == 1)
             {
                 waitfinish++;
-                dialogSystem.ReStart(final, false);
+                dialogSystem.ReStart(final, (PlayerPrefs.GetInt("AutoDialog") == 1));
                 dialogSystem.ActivateDialog(false);
                 Debug.Log("entrou aqui");
                 s.source.volume = 0;
@@ -100,7 +101,7 @@ public class Quente_Frio : MonoBehaviour
             {
                 sneak_away = true;
 
-                dialogSystem.ReStart(away, true);
+                dialogSystem.ReStart(away, (PlayerPrefs.GetInt("AutoDialog") == 1));
                 dialogSystem.ActivateDialog(true);
 
             }
@@ -110,6 +111,7 @@ public class Quente_Frio : MonoBehaviour
                 //Muda para a cena seguinte
                 Debug.Log("ACABOU A CENA");
                 //UnityEngine.SceneManagement.SceneManager.LoadScene("CamsLevel");
+                logSys.SaveLog();
                 sarah_camera.GetComponent<Head_Animations>().Close_Eyes_Anim("ForestLevel");
             }
 
@@ -134,6 +136,8 @@ public class Quente_Frio : MonoBehaviour
         {
             if (dialogSystem.Is_Dialog_Finished())
             {
+                //Reset ao Log
+                logSys.clearPrefs();
                 //Guarda Conquista de Final
 
                 //Restart

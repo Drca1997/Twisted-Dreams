@@ -39,7 +39,9 @@ public class PlayerInput : MonoBehaviour
     private bool was_playing = false;
     public GameObject C;
     private bool movable_scene = true;
-
+    private bool showing_log = false;
+    public GameObject LogCanvas;
+    private bool DSrunning = false;
  
     void Start()
     {
@@ -61,6 +63,7 @@ public class PlayerInput : MonoBehaviour
             rg.AddForce(salto, ForceMode.Impulse);
 
         // Skip writing effect on dialog
+
         if (Input.GetKeyDown(KeyCode.Q) && Time.timeScale > 0.0f && !Canvas.GetComponent<DialogSystem>().is_in_independent() && !Canvas.GetComponent<DialogSystem>().getLogStatus() && !Canvas.GetComponent<DialogSystem>().getFinished()) {
             Canvas.GetComponent<DialogSystem>().finishText(true);
             Canvas.GetComponent<DialogSystem>().skipped_line();
@@ -78,15 +81,16 @@ public class PlayerInput : MonoBehaviour
         //}
 
         // Enable/Disable Log
-        if (Input.GetKeyDown(KeyCode.L) && Time.timeScale > 0.0f)
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            Canvas.GetComponent<DialogSystem>().switchLog();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(Time.timeScale > 0.0f) // pause
+            if (!showing_log)
             {
+                if (Canvas.GetComponent<DialogSystem>().is_active())
+                {
+                    DSrunning = true;
+                    Canvas.transform.Find("DialogTextPanel").gameObject.SetActive(false);
+                    Canvas.transform.Find("WhoTalkinText").gameObject.SetActive(false);
+                }
                 timeBeforePause = Time.timeScale;
                 Time.timeScale = 0.0f;
                 is_paused = true;
@@ -99,17 +103,82 @@ public class PlayerInput : MonoBehaviour
                 {
                     was_playing = false;
                 }
-                pauseMenu.SetActive(true);
+                LogCanvas.transform.Find("Image").gameObject.SetActive(true);
+                LogCanvas.transform.Find("ScrollArea").gameObject.SetActive(true);
+                LogCanvas.transform.Find("LogTurnText").GetComponent<UnityEngine.UI.Text>().text = "  Esc/L - Go back";
+                LogCanvas.GetComponent<logSystem>().update_log();
+                showing_log = true;
             }
-            else // unpause
+            else
             {
+                if (DSrunning)
+                {
+                    DSrunning = false;
+                    Canvas.transform.Find("DialogTextPanel").gameObject.SetActive(true);
+                    Canvas.transform.Find("WhoTalkinText").gameObject.SetActive(true);
+                }
                 is_paused = false;
                 if (was_playing)
                 {
                     footstep_source.UnPause();
                 }
                 Time.timeScale = timeBeforePause;
-                pauseMenu.SetActive(false);
+                LogCanvas.transform.Find("Image").gameObject.SetActive(false);
+                LogCanvas.transform.Find("ScrollArea").gameObject.SetActive(false);
+                LogCanvas.transform.Find("LogTurnText").GetComponent<UnityEngine.UI.Text>().text = "  L - Check Log";
+                showing_log = false;
+            }
+            //Canvas.GetComponent<DialogSystem>().switchLog();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!showing_log)
+            {
+                if (Time.timeScale > 0.0f) // pause
+                {
+                    timeBeforePause = Time.timeScale;
+                    Time.timeScale = 0.0f;
+                    is_paused = true;
+                    if (footstep_source.isPlaying)
+                    {
+                        was_playing = true;
+                        footstep_source.Pause();
+                    }
+                    else
+                    {
+                        was_playing = false;
+                    }
+                    pauseMenu.SetActive(true);
+                }
+                else // unpause
+                {
+                    is_paused = false;
+                    if (was_playing)
+                    {
+                        footstep_source.UnPause();
+                    }
+                    Time.timeScale = timeBeforePause;
+                    pauseMenu.SetActive(false);
+                }
+            }
+            else
+            {
+                if (DSrunning)
+                {
+                    DSrunning = false;
+                    Canvas.transform.Find("DialogTextPanel").gameObject.SetActive(true);
+                    Canvas.transform.Find("WhoTalkinText").gameObject.SetActive(true);
+                }
+                is_paused = false;
+                if (was_playing)
+                {
+                    footstep_source.UnPause();
+                }
+                Time.timeScale = timeBeforePause;
+                LogCanvas.transform.Find("Image").gameObject.SetActive(false);
+                LogCanvas.transform.Find("ScrollArea").gameObject.SetActive(false);
+                showing_log = false;
             }
         }
     }

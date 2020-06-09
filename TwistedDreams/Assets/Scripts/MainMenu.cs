@@ -46,4 +46,18 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    // funçao para futuro uso de se guardarem apenas as prefs necessarias
+    public void clearPrefs()
+    {
+        bool auto = GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn;
+        if (PlayerPrefs.HasKey("AutoDialog"))
+        {
+            auto = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
+        }
+
+        PlayerPrefs.DeleteAll();
+
+        PlayerPrefs.SetInt("AutoDialog", auto ? 1 : 0);
+    }
 }

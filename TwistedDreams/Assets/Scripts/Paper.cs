@@ -10,9 +10,11 @@ public class Paper : MonoBehaviour
     public GameObject[] cameras;
     private int currentCameraIndex;
     private int nPieces;
+    private logSystem logSys;
 
     private void Start()
     {
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         currentCameraIndex = 0;
         nPieces = 0;
 
@@ -21,7 +23,13 @@ public class Paper : MonoBehaviour
         {
             cameras[i].gameObject.SetActive(false);
         }
+        logSys.LoadLog();
     }
+
+    //QUANDO ISTO TIVER SAIDA, METER O SEGUINTE QD FOR PARA AVANÇAR PARA O PROXIMO NIVEL:
+    //logSys.SaveLog();
+    //SE FOR PARA VOLTAR PARA O TUTORIAL:
+    //logSys.clearPrefs();
 
     public void SwitchCam()
     {
