@@ -284,7 +284,8 @@ public class DialogSystem : MonoBehaviour
     {
         if(stopST)
             StopCoroutine(st);
-        theText.text = dialogLines[currentLine];
+        if(currentLine <= endAtLine)
+            theText.text = dialogLines[currentLine];
         WEfinished = true;
         finished_current_line = true;
         contText.text = cont;
