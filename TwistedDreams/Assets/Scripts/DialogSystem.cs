@@ -330,7 +330,10 @@ public class DialogSystem : MonoBehaviour
     IEnumerator DialogCont(string line)
     {
         yield return new WaitForSeconds(waitTime(line));
-        logSys.add_log("" + dialogLines[currentLine - 1] + ": " + dialogLines[currentLine] + "\n");
+        if (currentLine <= endAtLine)
+        {
+            logSys.add_log("" + dialogLines[currentLine - 1] + ": " + dialogLines[currentLine] + "\n");
+        }
         currentLine += 2;
         finished_current_line = false;
         call = true;
