@@ -71,7 +71,7 @@ public class DrivingScene : MonoBehaviour
 
             Destroy(countdown);
             wait_finish = 4;
-            dialogSystem.ReStart(time_fail, true);
+            dialogSystem.ReStart(time_fail, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(false);
             //Application.Quit();
         }
@@ -79,7 +79,7 @@ public class DrivingScene : MonoBehaviour
         if (Fall_Off_World() && current_checkpoint < 11 && wait_finish != 2)
         {
             //Good Job, Sarah
-            dialogSystem.ReStart(fail, true);
+            dialogSystem.ReStart(fail, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(false);
             wait_finish = 2;
         }
@@ -103,7 +103,7 @@ public class DrivingScene : MonoBehaviour
             checkpoints[current_checkpoint].SetActive(true);
         else
         {
-            dialogSystem.ReStart(final, true);
+            dialogSystem.ReStart(final, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(false);
             wait_finish = 3;
         }

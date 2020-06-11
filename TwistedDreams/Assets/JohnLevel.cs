@@ -12,6 +12,7 @@ public class JohnLevel : MonoBehaviour
     private List<Key> PickedUpKeys;
     //public GameObject[] SpawnZones;
     private DialogSystem dialogSystem;
+    private logSystem logSys;
     private int keys_count;
     public TextAsset final;
     public TextAsset john_finding;
@@ -22,9 +23,10 @@ public class JohnLevel : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        logSys = gameObject.GetComponentInChildren<logSystem>();
         dialogSystem = FindObjectOfType<DialogSystem>();
         dialogSystem.ActivateDialog(false);
-        
+        logSys.LoadLog();
     }
 
     void Start()
@@ -41,7 +43,7 @@ public class JohnLevel : MonoBehaviour
     {
         if (keys_count == 2 && !final_done && waitfinish == 2)
         {
-            dialogSystem.ReStart(final, true);
+            dialogSystem.ReStart(final, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(true);
             final_done = true;
         }
@@ -60,13 +62,14 @@ public class JohnLevel : MonoBehaviour
 
     public void JohnReveal()
     {
-        dialogSystem.ReStart(john_finding, true);
+        dialogSystem.ReStart(john_finding, (PlayerPrefs.GetInt("AutoDialog") == 1));
         dialogSystem.ActivateDialog(false);
         waitfinish++;
     }
     
     public void LoadNextScene(string next_scene)
     {
+        logSys.SaveLog();
         C.GetComponent<Head_Animations>().Close_Eyes_Anim(next_scene);
     }
 

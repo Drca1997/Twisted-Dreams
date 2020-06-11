@@ -171,16 +171,16 @@ public class Interactable : MonoBehaviour
           
             else if (cena.name == "Paper")
             {
-                if (gameObject.tag == "Puzzle" && GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>().Picked() == 4)
+                paper = GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>();
+                if (gameObject.tag == "Puzzle" && paper.Picked() == 4)
                 {
                     Destroy(TextUI);
-                    SceneManager.LoadScene("2D Puzzle");
+                    paper.NextScene();
                 }
                 if (gameObject.tag == "Lever")
                 {
                     Destroy(TextUI);
                     Debug.Log("on it boss");
-                    paper = GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>();
                     paper.SwitchCam();
 
                 }
@@ -188,7 +188,6 @@ public class Interactable : MonoBehaviour
                 {
                     Destroy(TextUI);
                     Debug.Log("on it boss");
-                    paper = GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>();
                     paper.PiecePickUP();
                     Destroy(gameObject);
                 }

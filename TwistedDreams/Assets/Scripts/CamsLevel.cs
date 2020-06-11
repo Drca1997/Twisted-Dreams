@@ -84,7 +84,7 @@ public class CamsLevel : MonoBehaviour
     {
         if (bidoes_apanhados == 3)
         {
-            Canvas.GetComponent<DialogSystem>().ReStart(wall_break, true);
+            Canvas.GetComponent<DialogSystem>().ReStart(wall_break, (PlayerPrefs.GetInt("AutoDialog") == 1));
             gameObject.GetComponentInChildren<DialogSystem>().ActivateDialog(true);
         }
     }

@@ -8,14 +8,20 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject MenuPanel;
     public GameObject OptionsPanel;
-    /*
+    private bool auto;
+    
     public void Start()
     {
         if(PlayerPrefs.HasKey("AutoDialog"))
         {
+            auto = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
             GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
         }
-    }*/
+        else
+        {
+            auto = false;
+        }
+    }
 
     public void PlayGame()
     {
@@ -32,15 +38,23 @@ public class MainMenu : MonoBehaviour
     public void invertMenu()
     {
         MenuPanel.SetActive(!MenuPanel.activeSelf);
-        if (MenuPanel.activeSelf && PlayerPrefs.HasKey("AutoDialog"))
+        if (MenuPanel.activeSelf)
         {
-            GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
+            if (PlayerPrefs.HasKey("AutoDialog"))
+            {
+                GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
+            }
+            else
+            {
+                GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = auto;
+            }
         }
         OptionsPanel.SetActive(!OptionsPanel.activeSelf);
     }
 
     public void changeAutoDialog(bool new_value)
     {
+        auto = new_value;
         PlayerPrefs.SetInt("AutoDialog",new_value ? 1 : 0);
         // To retrieve:
         // autoDialog = PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false;
@@ -54,14 +68,15 @@ public class MainMenu : MonoBehaviour
     // funçao para futuro uso de se guardarem apenas as prefs necessarias
     public void clearPrefs()
     {
-        bool auto = GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn;
+        bool autom = GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn;
         if (PlayerPrefs.HasKey("AutoDialog"))
         {
-            auto = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
+            autom = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
         }
 
         PlayerPrefs.DeleteAll();
 
-        PlayerPrefs.SetInt("AutoDialog", auto ? 1 : 0);
+        PlayerPrefs.SetInt("AutoDialog", autom ? 1 : 0);
+        auto = autom;
     }
 }

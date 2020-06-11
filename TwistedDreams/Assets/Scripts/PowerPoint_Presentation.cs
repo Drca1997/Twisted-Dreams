@@ -95,7 +95,7 @@ public class PowerPoint_Presentation : MonoBehaviour
             time_lapse.GetComponent<SpriteRenderer>().enabled = false;
             tela.GetComponent<SpriteRenderer>().sprite = slides[4];
             C.GetComponent<Head_Animations>().Do_NewSlide_Anim();
-            dialogSystem.ReStart(final, false);
+            dialogSystem.ReStart(final, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(false);
             wait_finish++;
         }

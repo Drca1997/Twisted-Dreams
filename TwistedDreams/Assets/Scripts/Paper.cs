@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Paper : MonoBehaviour
 {
@@ -68,5 +69,9 @@ public class Paper : MonoBehaviour
         return nPieces;
     }
 
-
+    public void NextScene()
+    {
+        logSys.SaveLog();
+        SceneManager.LoadScene("2D Puzzle");
+    }
 }

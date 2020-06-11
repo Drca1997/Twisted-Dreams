@@ -92,7 +92,7 @@ public class Tutorial : MonoBehaviour
 
         if (time_to_wait <= 0 && dialogSystem.Is_Dialog_Finished() && wait_finish == 1)
         {
-            dialogSystem.ReStart(change_of_mind, false);
+            dialogSystem.ReStart(change_of_mind, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(false);
             wait_finish ++;
         }

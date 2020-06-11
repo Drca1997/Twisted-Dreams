@@ -79,7 +79,7 @@ public class CliffEvent : MonoBehaviour
         if (time <= 0 && wait_finish == 3)
         {
             wait_finish = 6;
-            dialogSystem.ReStart(finalB_text, true);
+            dialogSystem.ReStart(finalB_text, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(false);
         }
     }
@@ -93,13 +93,13 @@ public class CliffEvent : MonoBehaviour
             //Debug.Log("Passou aqui");
             
             dialogSystem.brute_finish();
-            dialogSystem.ReStart(fail_text, true);
+            dialogSystem.ReStart(fail_text, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(false);
             wait_finish = 5;
         }
         else if (Fall_Off_World() && wait_finish == 3) //cai no fim do dialogo do meio = sucesso
         {
-            dialogSystem.ReStart(finalA_text, true);
+            dialogSystem.ReStart(finalA_text, (PlayerPrefs.GetInt("AutoDialog") == 1));
             dialogSystem.ActivateDialog(false);
             wait_finish++;
         }
@@ -118,7 +118,7 @@ public class CliffEvent : MonoBehaviour
             }
             if (wait_finish == 1) //activa dialogo do meio
             {
-                dialogSystem.ReStart(middle_text, true);
+                dialogSystem.ReStart(middle_text, (PlayerPrefs.GetInt("AutoDialog") == 1));
                 dialogSystem.ActivateDialog(false);
                 wait_finish++;
             }
