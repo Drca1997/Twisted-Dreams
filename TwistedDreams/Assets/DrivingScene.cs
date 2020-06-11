@@ -61,8 +61,8 @@ public class DrivingScene : MonoBehaviour
         else if(wait_finish == 4 && dialogSystem.Is_Dialog_Finished()) // Tempo chegou ao fim
         {
             //Load PrecipicioFail
-            logSys.SaveLog();
-            C.GetComponent<Head_Animations>().Close_Eyes_Anim("Precipício");
+            logSys.clearPrefs();
+            C.GetComponent<Head_Animations>().Close_Eyes_Anim("Tutorial");
         }
         time -= Time.deltaTime;
         Update_Timer();

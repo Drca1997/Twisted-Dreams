@@ -23,6 +23,8 @@ public class Quente_Frio : MonoBehaviour
     private GameObject phone;
     public GameObject CanvasPhone;
     public GameObject CanvasNoPhone;
+    private bool Anim_Done;
+
     private void Awake()
     {
         phone = GameObject.FindGameObjectWithTag("HasPhone");
@@ -45,8 +47,8 @@ public class Quente_Frio : MonoBehaviour
             sneak_away = false;
             s = FindObjectOfType<AudioManager>().getSom("Quente_Frio");
             bonk = FindObjectOfType<AudioManager>().getSom("Bonk");
-            
-            trigger_sentence = "I have been trying to help you all along, Sarah.";
+
+            trigger_sentence = "Really? Are you trying to sneak out of home by the backyard?"; 
         }
         
     }
@@ -59,6 +61,7 @@ public class Quente_Frio : MonoBehaviour
         dialogSystem.ActivateDialog(false);
         waitfinish = 0;
         logSys.LoadLog();
+        Anim_Done = false;
     }
 
     // Update is called once per frame
@@ -76,9 +79,10 @@ public class Quente_Frio : MonoBehaviour
                 calcula_quente_frio(distancia);
             }
 
-            if (dialogSystem.is_active() && sneak_away && dialogSystem.GetCurrentLine().Contains(trigger_sentence))
+            if (dialogSystem.is_active() && sneak_away && dialogSystem.GetCurrentLine().Contains(trigger_sentence) && !Anim_Done)
             {
                 sarah_camera.GetComponent<Head_Animations>().Do_Horizontal_Headshake();
+                Anim_Done = true;
             }
             // if players goes against wall and no dialog is active -> depois trocar false pela cena de se bateu na parede
             if (!dialogSystem.is_active() && waitfinish == 0)
@@ -112,7 +116,7 @@ public class Quente_Frio : MonoBehaviour
                 Debug.Log("ACABOU A CENA");
                 //UnityEngine.SceneManagement.SceneManager.LoadScene("CamsLevel");
                 logSys.SaveLog();
-                sarah_camera.GetComponent<Head_Animations>().Close_Eyes_Anim("ForestLevel");
+                sarah_camera.GetComponent<Head_Animations>().Close_Eyes_Anim("JohnShooting");
             }
 
             if (player.GetComponent<PlayerInput>().is_paused)

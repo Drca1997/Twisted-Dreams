@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CamsLevel : MonoBehaviour
 {
+    public GameObject C;
     private int bidoes_apanhados;
     public GameObject Canvas;
     private float time_left;
@@ -33,9 +34,9 @@ public class CamsLevel : MonoBehaviour
             Update_Timer();
             if (time <= 0)
             {
-                logSys.SaveLog();
+                logSys.clearPrefs();
                 //Load PrecipicioFail
-                Application.Quit();
+                C.GetComponent<Head_Animations>().Close_Eyes_Anim("Tutorial");
             }
         }
     }
@@ -92,6 +93,6 @@ public class CamsLevel : MonoBehaviour
     {
         logSys.SaveLog();
         variable.time = time;
-        FindObjectOfType<Head_Animations>().Close_Eyes_Anim("ClimbingCliff");
+        FindObjectOfType<Head_Animations>().Close_Eyes_Anim("Precipício");
     }
 }

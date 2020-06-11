@@ -787,7 +787,7 @@ MonoBehaviour:
   speedSmoothTime: 0.05
   pauseMenu: {fileID: 976483890}
   is_paused: 0
-  C: {fileID: 0}
+  C: {fileID: 1907199393}
   LogCanvas: {fileID: 886321804}
 --- !u!65 &571416837
 BoxCollider:
@@ -829,7 +829,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 911cfc0d13706be46b1208b945c441af, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.606
   m_Pitch: 1
   Loop: 0
@@ -1481,7 +1481,6 @@ GameObject:
   - component: {fileID: 886321809}
   - component: {fileID: 886321808}
   - component: {fileID: 886321807}
-  - component: {fileID: 886321806}
   m_Layer: 5
   m_Name: LogCanvas
   m_TagString: Untagged
@@ -1511,18 +1510,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &886321806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886321804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f09981e053c5e734f82e611a46f1a0a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &886321807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,7 +1519,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 886321804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a8465f9864721142b29258eb05deb3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 26b771268fe58c34f9bfec0eaf9f730f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   logText: {fileID: 2023596553}
@@ -2407,36 +2394,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636176347}
   m_CullTransparentMesh: 0
---- !u!1 &1671019290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 1741802740}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1671019291}
-  m_Layer: 0
-  m_Name: Missing Prefab (Dummy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1671019291
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 1741802740}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671019290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1741802741}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1678628217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,21 +2759,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95634781a76e94b469cdbe55d9207a00, type: 3}
---- !u!4 &1741802741
+--- !u!4 &1741802741 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 95634781a76e94b469cdbe55d9207a00,
+    type: 3}
   m_PrefabInstance: {fileID: 1741802740}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839601330}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1671019291}
-  m_Father: {fileID: 774640196}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1782723340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2917,21 +2865,12 @@ PrefabInstance:
       objectReference: {fileID: 4300000, guid: 4a79a07cc7c008340a46cfa2302644db, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a1e91d16d83a7644b6ebaa82e9f487f, type: 3}
---- !u!4 &1782723341
+--- !u!4 &1782723341 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4353395921811104, guid: 6a1e91d16d83a7644b6ebaa82e9f487f,
+    type: 3}
   m_PrefabInstance: {fileID: 1782723340}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027023722}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1891338839}
-  m_Father: {fileID: 774640196}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811941144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,22 +3103,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838955330}
   m_CullTransparentMesh: 0
---- !u!1 &1839601330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 1741802740}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1741802741}
-  m_Layer: 0
-  m_Name: PTK_Wall_Large_5 (Missing Prefab)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1865226603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,36 +3138,6 @@ Transform:
   - {fileID: 886321805}
   m_Father: {fileID: 1190475910}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1891338838
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 1782723340}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1891338839}
-  m_Layer: 0
-  m_Name: Missing Prefab (Dummy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1891338839
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 1782723340}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891338838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1782723341}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1907199391
 PrefabInstance:
@@ -3577,19 +3470,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023596550}
   m_CullTransparentMesh: 0
---- !u!1 &2027023722
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 1782723340}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1782723341}
-  m_Layer: 0
-  m_Name: PTK_Ramp_Large (Missing Prefab)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1

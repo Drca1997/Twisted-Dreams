@@ -45,7 +45,7 @@ public class PuzzleDone : MonoBehaviour
     {
         if(AllActive())
         {
-            SceneManager.LoadScene("Paper");
+            SceneManager.LoadScene("Precipício");
         }
     }
 

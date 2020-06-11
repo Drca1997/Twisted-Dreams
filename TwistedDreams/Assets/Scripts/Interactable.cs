@@ -16,7 +16,7 @@ public class Interactable : MonoBehaviour
     private Tutorial tutorial;
     private Paper paper;
     private GameObject player;
-    private GreenToRed forest;
+    private JohnLevel johnlevel;
 
     private void Awake()
     {
@@ -58,7 +58,7 @@ public class Interactable : MonoBehaviour
         {
             Debug.Log("INTERACTION WITH OBJECT");
             
-            CameraController camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
+            //CameraController camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
             
             if (cena.name == "Revelation")
             {
@@ -94,14 +94,81 @@ public class Interactable : MonoBehaviour
                     tutorial.DoorAnimation(gameObject);
                 }
             }
-            else if (cena.name == "ForestLevel")
+            else if(cena.name == "JohnShooting")
             {
+                johnlevel = GameObject.FindGameObjectWithTag("GameController").GetComponent<JohnLevel>();
                 if (gameObject.tag.CompareTo("Car") == 0)
-                {
-                    forest = GameObject.FindGameObjectWithTag("GameCo").GetComponent<GreenToRed>();
-                    forest.LoadNextScene("Free Driving Scene");
+                {   
+                    johnlevel.LoadNextScene("Free Driving Scene");
                 }
+                else if(gameObject.tag.CompareTo("Door") == 0)
+                {
+                    
+                    if (gameObject.GetComponentInChildren<Animator>().GetBool("Aberta"))
+                    {
+
+                        DoorAnimation_Close(gameObject);
+                    }
+                    else
+                    {
+
+                        DoorAnimation_Open(gameObject);
+                    }
+                    
+                }
+                else if (gameObject.tag.CompareTo("JohnDoor") == 0)
+                {
+                    if (gameObject.GetComponentInChildren<Animator>().GetBool("Aberta"))
+                    {
+                       
+                        DoorAnimation_Close(gameObject);
+                     
+                    }
+                    else
+                    {
+                        Debug.Log("Devia Abrir");
+                        DoorAnimation_Open(gameObject);
+                        if (johnlevel.John.GetComponent<JohnStalking>() == null)
+                        {
+                            johnlevel.JohnReveal();
+                        }
+                    }
+                }
+                else if(gameObject.tag.CompareTo("Locked_Door") == 0)
+                {
+                    GameObject Lock = johnlevel.GetLockChild(gameObject);
+                    if (Lock != null)
+                    {
+                        if (johnlevel.UseKey(Lock))
+                        {
+                            DoorAnimation_Open(gameObject);
+                            gameObject.tag = "Door";
+                            Destroy(Lock);      
+                          
+                        }
+                        else
+                        {
+                            if (FindObjectOfType<DialogSystem>().Is_Dialog_Finished())
+                                FindObjectOfType<DialogSystem>().independentDialog("???", "You still have to find the key!");
+                            
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("ALGO ERRADO! LOCK NULL!");
+                    }
+                    
+                }
+                else if(gameObject.tag.CompareTo("Key") == 0)
+                {
+                    johnlevel.PickUpKey(gameObject);
+                    Destroy(TextUI);
+                    Destroy(gameObject);
+                }
+
+
             }
+          
             else if (cena.name == "Paper")
             {
                 if (gameObject.tag == "Puzzle" && GameObject.FindGameObjectWithTag("GameController").GetComponent<Paper>().Picked() == 4)

@@ -44,9 +44,7 @@ GameObject:
   - component: {fileID: 7399215696759361257}
   - component: {fileID: 7399215696759361262}
   - component: {fileID: 7399215696759361263}
-  - component: {fileID: 7399215696759361260}
   - component: {fileID: 7399215696759361261}
-  - component: {fileID: 7399215696759361269}
   m_Layer: 0
   m_Name: John
   m_TagString: John
@@ -62,8 +60,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7399215696759361250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8263998, y: 5.41, z: 11.17}
-  m_LocalScale: {x: 0.4, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: -0.8263998, y: 6.17, z: 11.17}
+  m_LocalScale: {x: 1, y: 2.5, z: 0.8}
   m_Children:
   - {fileID: 7008032095079112105}
   m_Father: {fileID: 0}
@@ -162,24 +160,6 @@ MonoBehaviour:
   m_ReflectLayers:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7399215696759361260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7399215696759361250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4889599aca75194189f13c7d03bb3ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookRadius: 10
-  bala: {fileID: 1401454452524915612, guid: b2244e09b827a8647b29a9b31153d495, type: 3}
-  bullet_speed: 1000
-  muzzleFlash: {fileID: 7210303201764576050}
-  attack_speed: 0.3
-  cooldown: 0
 --- !u!195 &7399215696759361261
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -190,11 +170,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 2
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0.0001
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -202,19 +182,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7399215696759361269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7399215696759361250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1b8139da14f034c990d5e67fe24b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRewinding: 0
 --- !u!1001 &7399215696344689538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -284,12 +251,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
---- !u!198 &7210303201764576050 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198000012944515248, guid: 9defeac88977c0d448aa4541073ee9e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 7399215696344689538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7399215697158530565
 PrefabInstance:
   m_ObjectHideFlags: 0

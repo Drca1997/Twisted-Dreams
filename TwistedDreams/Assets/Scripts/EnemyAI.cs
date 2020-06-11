@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
         if (distance <= lookRadius)
         {
             
-            agent.SetDestination(target.position);
+            //agent.SetDestination(target.position);
             if (distance <= agent.stoppingDistance)
             {
                 Dispara();
@@ -82,5 +82,13 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.CompareTo("Player") == 0)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<JohnLevel>().LoadNextScene("Paper");
+        }
     }
 }
