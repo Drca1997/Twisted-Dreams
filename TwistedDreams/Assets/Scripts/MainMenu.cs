@@ -8,14 +8,14 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject MenuPanel;
     public GameObject OptionsPanel;
-
+    /*
     public void Start()
     {
         if(PlayerPrefs.HasKey("AutoDialog"))
         {
             GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
         }
-    }
+    }*/
 
     public void PlayGame()
     {
@@ -32,6 +32,10 @@ public class MainMenu : MonoBehaviour
     public void invertMenu()
     {
         MenuPanel.SetActive(!MenuPanel.activeSelf);
+        if (MenuPanel.activeSelf && PlayerPrefs.HasKey("AutoDialog"))
+        {
+            GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
+        }
         OptionsPanel.SetActive(!OptionsPanel.activeSelf);
     }
 
