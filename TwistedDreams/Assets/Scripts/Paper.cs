@@ -11,7 +11,13 @@ public class Paper : MonoBehaviour
     private int currentCameraIndex;
     private int nPieces;
     private logSystem logSys;
+    private DialogSystem dialogSystem;
 
+    private void Awake()
+    {
+        dialogSystem = FindObjectOfType<DialogSystem>();
+        dialogSystem.ActivateDialog(true);
+    }
     private void Start()
     {
         logSys = gameObject.GetComponentInChildren<logSystem>();
