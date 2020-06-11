@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
         if(PlayerPrefs.HasKey("AutoDialog"))
         {
             auto = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
-            GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
+            //GameObject.Find("AutoContinue").GetComponent<Toggle>().isOn = (PlayerPrefs.GetInt("AutoDialog") == 1 ? true : false);
         }
         else
         {
