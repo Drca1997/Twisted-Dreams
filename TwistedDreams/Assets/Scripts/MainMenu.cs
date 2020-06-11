@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         GameObject.Find("MainMenuPanel").SetActive(false);
-        StartCoroutine(Waiting());
+        //StartCoroutine(Waiting());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
