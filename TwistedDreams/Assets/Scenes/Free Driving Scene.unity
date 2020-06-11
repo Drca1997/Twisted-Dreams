@@ -10172,7 +10172,7 @@ MonoBehaviour:
   - {fileID: 357739995}
   - {fileID: 1573942380}
   - {fileID: 675057256}
-  time: 720
+  time: 419
   countdown: {fileID: 1844403984}
   MinHeighLimit: -12
   final: {fileID: 4900000, guid: 4ba968f61af429047b762f0acd070f54, type: 3}
@@ -17348,6 +17348,11 @@ PrefabInstance:
       propertyPath: LogCanvas
       value: 
       objectReference: {fileID: 691942342}
+    - target: {fileID: 7193270426961419801, guid: baa82bddd6baa7e4b9b45df4a016b57e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 111834, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
       propertyPath: m_TagString
       value: Player
@@ -17355,23 +17360,6 @@ PrefabInstance:
     - target: {fileID: 2566741147865332933, guid: baa82bddd6baa7e4b9b45df4a016b57e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 162528, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 153480, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 161194, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7193270426961419801, guid: baa82bddd6baa7e4b9b45df4a016b57e,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1270563078749701611, guid: baa82bddd6baa7e4b9b45df4a016b57e,
@@ -17783,6 +17771,18 @@ PrefabInstance:
         type: 3}
       propertyPath: colorCorrectionSelectiveShader
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 162528, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 153480, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 161194, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
