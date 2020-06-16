@@ -2770,6 +2770,10 @@ MonoBehaviour:
     source: {fileID: 0}
     nome: Bonk
     volume: 1
+  - clip: {fileID: 8300000, guid: 5e83cd971d62fcd4b80b84e52bad6a18, type: 3}
+    source: {fileID: 0}
+    nome: Car_Crash
+    volume: 1
 --- !u!224 &225707416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3595,9 +3599,9 @@ RectTransform:
   m_Father: {fileID: 691942343}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -15}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -100, y: 15}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &298129794
@@ -17863,6 +17867,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 11483988, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
+      propertyPath: pitchMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baa82bddd6baa7e4b9b45df4a016b57e, type: 3}
 --- !u!4 &1359120162 stripped
@@ -17898,6 +17906,18 @@ MonoBehaviour:
   min_time_between_rand_anims: 4
   max_time_between_rand_anims: 12
   RandomHeadAnimations: 1
+--- !u!114 &1359120167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359120163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7c14d068287f44298f408a6ea03dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1364122251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9,
