@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
-
+using UnityEngine.UI;
 public class DrivingScene : MonoBehaviour
 {
     public GameObject C;
@@ -21,11 +21,14 @@ public class DrivingScene : MonoBehaviour
     [SerializeField]
     private int wait_finish;
     public Store_Time variable;
+    public Text label;
+
     private void Awake()
     {
         logSys = gameObject.GetComponentInChildren<logSystem>();
         dialogSystem = FindObjectOfType<DialogSystem>();
         logSys.LoadLog();
+        label.text = "Checkpoints Completed: 0/12";
     }
     // Start is called before the first frame update
     void Start()
@@ -99,6 +102,7 @@ public class DrivingScene : MonoBehaviour
     {
         checkpoint_reached.SetActive(false);
         current_checkpoint++;
+        Update_Label(current_checkpoint);
         if (current_checkpoint < checkpoints.Length)
             checkpoints[current_checkpoint].SetActive(true);
         else
@@ -109,6 +113,12 @@ public class DrivingScene : MonoBehaviour
         }
 
            
+    }
+
+    public void Update_Label(int completed)
+    {
+        string texto = "Checkpoints Completed: " + completed.ToString() + "/12"; 
+        label.text = texto;
     }
 
     public bool Fall_Off_World()
