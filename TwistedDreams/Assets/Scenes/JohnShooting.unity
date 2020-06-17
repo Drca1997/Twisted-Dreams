@@ -4137,7 +4137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54e5dc992fb40744af7a7c0b0278a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Canvas: {fileID: 0}
+  Canvas: {fileID: 1509284826}
   impulsao: 2.5
   velocidade: 0.69
   gravity: -12
@@ -6428,13 +6428,19 @@ MonoBehaviour:
   whoBoxPanel: {fileID: 12413247}
   contPanel: {fileID: 1603266528}
   logPanel: {fileID: 787868242}
+  caixa_texto: {fileID: 661678654}
+  icone: {fileID: 1239976475}
+  caixa1: {fileID: 21300000, guid: a430a8aed96083947ba4e2624590004f, type: 3}
+  caixa2: {fileID: 21300000, guid: c8877b2c8d5d558409d7a59be5a8d143, type: 3}
+  icone1: {fileID: 21300000, guid: e26e70f5e38236b4d894d4fbf251b76e, type: 3}
+  icone2: {fileID: 21300000, guid: b7a32954859d674479ebca45aeb17dca, type: 3}
   contText: {fileID: 1603266530}
   theText: {fileID: 2097735103}
   whoText: {fileID: 54078343}
   autoText: {fileID: 2115099277}
   writefText: {fileID: 1337512930}
   logText: {fileID: 34092378}
-  textFile: {fileID: 4900000, guid: 70ec489de7d16c94dbc98b83a737f67b, type: 3}
+  textFile: {fileID: 4900000, guid: f55fa001934a8794c9ccd5189885242d, type: 3}
   active: 0
   typeDelay: 0.01
   movable: 0

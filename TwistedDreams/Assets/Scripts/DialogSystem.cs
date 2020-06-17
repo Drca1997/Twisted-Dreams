@@ -12,7 +12,12 @@ public class DialogSystem : MonoBehaviour
     public GameObject contPanel;
     [Tooltip("Referência ao objeto que contem a caixa de historico do dialogo, para poder meter e tirar do ecra")]
     public GameObject logPanel;
-
+    public Image caixa_texto;
+    public Image icone;
+    public Sprite caixa1;
+    public Sprite caixa2;
+    public Sprite icone1;
+    public Sprite icone2;
     [Tooltip("Referência ao objeto de texto para continuar, para poder mudar o seu conteudo")]
     public Text contText;
     [Tooltip("Referência ao objeto de texto para mudar o que esta a ser dito, para poder mudar o seu conteudo")]
@@ -143,6 +148,18 @@ public class DialogSystem : MonoBehaviour
                 // Meter quem disse na caixa apropriada
                 
                 whoText.text = dialogLines[currentLine - 1];
+                if (dialogLines[currentLine - 1].Contains("Sarah"))
+                {
+                    //meter imagem da sara
+                    icone.sprite = icone1;
+                    caixa_texto.sprite = caixa1;
+                }
+                else
+                {
+                    //meter imagem da ???
+                    icone.sprite = icone2;
+                    caixa_texto.sprite = caixa2;
+                }
 
                 // Meter o que disse na caixa de dialogo
                 writeLine();
@@ -400,6 +417,19 @@ public class DialogSystem : MonoBehaviour
             whoBoxPanel.SetActive(true);
             contPanel.SetActive(false);
             whoText.text = who;
+            if (who.Contains("Sarah"))
+            {
+                //meter imagem da sara
+                icone.sprite = icone1;
+                caixa_texto.sprite = caixa1;
+
+            }
+            else
+            {
+                //meter imagem da ???
+                icone.sprite = icone2;
+                caixa_texto.sprite = caixa2;
+            }
             StartCoroutine(showText(-1, dialog));
         }
     }
