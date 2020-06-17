@@ -14,7 +14,7 @@ public class DragAndDrop : MonoBehaviour
     void Start()
     {
         RightPosition = transform.position;
-        transform.position = new Vector3(Random.Range(15f, 25f), Random.Range(-8f, 1f), 0);
+        transform.position = new Vector3(Random.Range(15f, 25f), Random.Range(-8f, .7f), 0);
        
     }
 
@@ -45,7 +45,7 @@ public class DragAndDrop : MonoBehaviour
 
         }
 
-        if (Vector3.Distance(transform.position, RightPosition) < 1)
+        if (Vector3.Distance(transform.position, RightPosition) < .8f)
         {
             transform.position = RightPosition;
             InRightPosition = true;
