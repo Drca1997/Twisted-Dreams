@@ -2705,8 +2705,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 95634781a76e94b469cdbe55d9207a00, type: 3}
 --- !u!4 &1741802741 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 95634781a76e94b469cdbe55d9207a00,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1741802740}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1757121644
@@ -2891,8 +2890,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 6a1e91d16d83a7644b6ebaa82e9f487f, type: 3}
 --- !u!4 &1782723341 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4353395921811104, guid: 6a1e91d16d83a7644b6ebaa82e9f487f,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1782723340}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1838745618
@@ -3305,6 +3303,7 @@ MonoBehaviour:
   whoBoxPanel: {fileID: 1418037014}
   contPanel: {fileID: 2042365124}
   logPanel: {fileID: 1709377064}
+  caixa_quem: {fileID: 1418037016}
   caixa_texto: {fileID: 106641744}
   icone: {fileID: 1232457090}
   caixa1: {fileID: 21300000, guid: a430a8aed96083947ba4e2624590004f, type: 3}
