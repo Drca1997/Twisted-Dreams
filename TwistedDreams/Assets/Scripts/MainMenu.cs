@@ -37,8 +37,6 @@ public class MainMenu : MonoBehaviour
 
     public void invertMenu()
     {
-        Debug.Log("Menu: " + MenuPanel.active);
-        Debug.Log("OpionsM: " + OptionsPanel.active);
         MenuPanel.SetActive(!MenuPanel.activeSelf);
         if (MenuPanel.activeSelf)
         {

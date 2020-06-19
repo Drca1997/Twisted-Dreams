@@ -666,8 +666,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1040, y: 92}
-  m_SizeDelta: {x: 1920, y: 500}
+  m_AnchoredPosition: {x: 200, y: 108.9}
+  m_SizeDelta: {x: 400, y: 217.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926537315
 MonoBehaviour:
@@ -694,13 +694,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 120
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Bernardo Correia\nDiogo Alves\nJo\xE3o Marques\nTiago Leal\n"
+  m_Text: "    Bernardo Correia\n    Diogo Alves\n    Jo\xE3o Marques\n    Tiago Leal\n"
 --- !u!222 &926537316
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1179,8 +1179,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1040, y: 214}
-  m_SizeDelta: {x: 1920, y: 500}
+  m_AnchoredPosition: {x: 200, y: 247.8}
+  m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1399138512
 MonoBehaviour:
@@ -1213,7 +1213,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Feito por:
+  m_Text: '    Feito por:
 
 '
 --- !u!222 &1399138513
