@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1402,6 +1402,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1202642588}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.14837
@@ -1454,23 +1466,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &260339827 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 260339826}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &266068812
@@ -2061,6 +2062,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1202642588}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.808372
@@ -2113,23 +2126,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &455255575 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 455255574}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &478493165
@@ -2208,6 +2210,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1012032703}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.196
@@ -2260,14 +2270,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5000007
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2276,7 +2278,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &519912478 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 519912477}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &583780685
@@ -2641,6 +2644,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1012032703}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.96
@@ -2697,19 +2708,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5000007
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &698800411 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 698800410}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &756947861
@@ -4547,6 +4551,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1012032703}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.8
@@ -4599,14 +4611,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5000007
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4615,7 +4619,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &1016648261 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 1016648260}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1032339531
@@ -4879,6 +4884,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1202642588}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 37.678368
@@ -4931,23 +4948,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &1114561789 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 1114561788}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1145074520
@@ -5800,7 +5806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6233,7 +6239,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 2a1b93200bca66540a762779119fd9d8, type: 3}
 --- !u!4 &1396952028 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 2a1b93200bca66540a762779119fd9d8,
+    type: 3}
   m_PrefabInstance: {fileID: 1396952027}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1400741246 stripped
@@ -7005,7 +7012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7039,6 +7046,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1965947043}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.968548
@@ -7087,19 +7102,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5161609
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &1611944198 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 1611944197}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647025418
@@ -7140,6 +7148,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1177313864}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.75837
@@ -7192,19 +7208,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &1654291365 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 1654291364}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1700986146
@@ -7214,6 +7223,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1012032703}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.98
@@ -7266,14 +7283,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5000007
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (12)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7282,7 +7291,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &1700986147 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 1700986146}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1745314497
@@ -7384,6 +7394,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1202642588}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.858368
@@ -7436,23 +7458,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &1768767096 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 1768767095}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1956569697
@@ -7738,6 +7749,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1012032703}
     m_Modifications:
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_Name
+      value: PTK_Wall_Large_2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.94
@@ -7790,14 +7809,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_Name
-      value: PTK_Wall_Large_2 (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7806,7 +7817,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ddd0bf4282e694346b34b5fe61972bf1, type: 3}
 --- !u!4 &2059242719 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: ddd0bf4282e694346b34b5fe61972bf1,
+    type: 3}
   m_PrefabInstance: {fileID: 2059242718}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2097735101
@@ -7862,7 +7874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7960,7 +7972,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 0b2ac09e303c6c7428f8ba758edfe5d9, type: 3}
 --- !u!4 &2107159615 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 0b2ac09e303c6c7428f8ba758edfe5d9,
+    type: 3}
   m_PrefabInstance: {fileID: 2107159614}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2115099275
@@ -8013,7 +8026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
